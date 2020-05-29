@@ -10,8 +10,13 @@ const Navbar = (props) => {
     localStorage.setItem('admin', false)
   }
   useEffect(() => {
-    console.log(authUser)
-  })
+    let user = localStorage.getItem('user')
+    if (user === null) {
+      user = ''
+    }
+    console.log(user)
+    setAuthUser({ username: user })
+  }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-secondary position-sticky sticky-top" >
       <a className="navbar-brand text-white" href="#">MM</a>
@@ -28,7 +33,7 @@ const Navbar = (props) => {
             <Link to="/music" className="nav-link text-white" href="#">Music</Link>
           </li>
         </ul>
-        {(authUser.username === '') || (authUser.username === null) ?
+        {authUser.username === '' ?
           <ul className="navbar-nav  justify-content-end">
             <li className="nav-item">
               <Link to="/login" className="nav-link text-white" href="#">Login</Link>
