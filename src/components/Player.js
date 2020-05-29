@@ -5,7 +5,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
     const progress = useRef(null)
     const progressBar = useRef(null)
     const [time, setTime] = useState('')
-    const [volume, setVolume] = useState(0)
+    const [volume, setVolume] = useState(0.3)
     const [currentSong, setCurrentSong] = useState({ title: '', artist: '' })
     useEffect(() => {
         if (currentTime !== undefined) {
