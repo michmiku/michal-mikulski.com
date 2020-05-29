@@ -27,7 +27,7 @@ const Music = () => {
     const player = useRef(null)
 
     useEffect(() => {
-        axios.get(Settings.server + 'music/')
+        axios.get(Settings.server + 'music/getlist')
             .then(res => {
                 setMusicList({ music: res.data })
             })

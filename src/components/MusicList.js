@@ -58,7 +58,7 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
                         <div className="heart">
                             {!favoriteMusic.includes(title) ?
                                 <i className="far fa-heart fa-lg pt-2" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
-                                <i class="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
+                                <i className="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
                             }
                         </div>
                     </div> :
@@ -79,7 +79,7 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
                         <div className="heart">
                             {!favoriteMusic.includes(title) ?
                                 <i className="far fa-heart fa-lg pt-2" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
-                                <i class="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
+                                <i className="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
                             }
                         </div>
                     </div>
