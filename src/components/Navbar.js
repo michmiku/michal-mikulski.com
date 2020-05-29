@@ -8,7 +8,6 @@ const Navbar = (props) => {
     setAuthUser({ username: '' })
     localStorage.setItem('user', '')
     localStorage.setItem('admin', false)
-    window.location = Settings.server
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-secondary position-sticky sticky-top" >
