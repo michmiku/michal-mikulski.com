@@ -41,13 +41,13 @@ const Music = () => {
                 })
             })
             .catch(err => console.log(err));
+        console.log(authUser.username)
     }, [])
     useEffect(() => {
         if (src !== '') {
             player.current.load()
             player.current.play()
         }
-
     }, [src])
 
     const handleTitleClick = (file, key, duration, rawDuration) => {
@@ -127,7 +127,7 @@ const Music = () => {
         setCurrentArtistPlaylist(artist)
     }
     return (
-        authUser.username !== '' ?
+        authUser.username !== null ?
             <div className="box">
                 <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
                 <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
@@ -136,7 +136,6 @@ const Music = () => {
                     <source src={src} />
                 </audio>
             </div>
-
             :
             <div className="card-body">
                 <h5 className="card-title">You are not logged in!</h5>

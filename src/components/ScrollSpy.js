@@ -5,9 +5,9 @@ const ScrollSpy = () => {
     return (
         <div>
             <div id="list-example" className="list-group position-sticky sticky-top text-center " style={{ width: '120px', top: "250px" }}>
-                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-1" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light" style={{ backgroundColor: '#808080' }}>Item 1</button></Link>
-                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-2" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light" style={{ backgroundColor: '#808080' }}>Item 2</button></Link>
-                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-3" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light" style={{ backgroundColor: '#808080' }}>Item 3</button></Link>
+                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-1" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light scrollspy-button" style={{ backgroundColor: '#808080' }}>Item 1</button></Link>
+                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-2" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light scrollspy-button" style={{ backgroundColor: '#808080' }}>Item 2</button></Link>
+                <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-3" smooth={true} duration={500}><button type="button" className="btn  btn-outline-light scrollspy-button" style={{ backgroundColor: '#808080' }}>Item 3</button></Link>
             </div>
             <div data-spy="scroll" data-target="#list-example" data-offset="200" className="scrollspy-example "  >
                 <div className="mt-5">

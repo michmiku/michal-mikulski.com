@@ -5,7 +5,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
     const progress = useRef(null)
     const progressBar = useRef(null)
     const [time, setTime] = useState('')
-    const [volume, setVolume] = useState(0)
+    const [volume, setVolume] = useState(30)
     const [currentSong, setCurrentSong] = useState({ title: '', artist: '' })
     useEffect(() => {
         if (currentTime !== undefined) {
@@ -25,11 +25,15 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
 
     })
     useEffect(() => {
-        if (localStorage.getItem('volume') * 100 === 0) {
+        if (localStorage.getItem('volume') === null) {
             setVolume(30)
+            player.current.volume = 0.3
+            console.log("1", player.current.volume)
         }
         else {
             setVolume(localStorage.getItem('volume') * 100)
+            player.current.volume = localStorage.getItem('volume')
+            console.log("2", localStorage.getItem('volume'))
         }
     }, [])
     useEffect(() => {

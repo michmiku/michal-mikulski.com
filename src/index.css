@@ -107,7 +107,7 @@ code {
 }
 .number{
   height:54px;
-  width:4%;
+  width:6%;
   padding-top:13px;
   padding-left:10px;
   display: inline-block;
@@ -121,6 +121,7 @@ code {
   height:54px;
   width:20%;
   padding-top:13px;
+  padding-left:10px;
   display: inline-block;
   overflow:hidden;
   white-space: nowrap;
@@ -140,8 +141,9 @@ code {
 }
 .time{
   height:54px;
-  width:10%;
+  width:18%;
   padding-top:13px;
+  padding-left:10px;
   display: inline-block;
   overflow:hidden;
   white-space: nowrap;
@@ -150,9 +152,9 @@ code {
 }
 .time-clock{
   height:54px;
-  width:10%;
+  width:18%;
   padding-top:10px;
-  padding-left:9px;
+  padding-left:19px;
   display: inline-block;
   overflow:hidden;
   white-space: nowrap;
@@ -170,7 +172,7 @@ code {
 }
 .heart{
   position: absolute;
-  right:125px;
+  right:80px;
   top:20px;
 }
 .heart:hover{
@@ -351,7 +353,6 @@ code {
 }
 .current-artist{
   font-size: 15px;
-  padding-top: 4px;
   width:450px;
   overflow:hidden;
   white-space: nowrap;
@@ -452,4 +453,7 @@ code {
 }
 .userlist-container{
   color:white
+}
+.scrollspy-button:hover{
+  box-shadow:  20px 15px rgba(0,0,0,0.15);
 }
