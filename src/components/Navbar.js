@@ -8,13 +8,13 @@ const Navbar = (props) => {
     setAuthUser({ username: '' })
     localStorage.setItem('user', '')
     localStorage.setItem('admin', false)
+    window.location = "/#/"
   }
   useEffect(() => {
     let user = localStorage.getItem('user')
-    if (user === null) {
-      user = ''
-    }
-    setAuthUser({ username: user })
+    let admin = localStorage.getItem('admin')
+    setAuthUser({ username: user, admin: admin })
+    console.log(user, admin)
   }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light position-sticky sticky-top" >
@@ -42,7 +42,7 @@ const Navbar = (props) => {
             </li>
           </ul>
           :
-          !authUser.admin ?
+          ((authUser.admin === false) || (authUser.admin === 'false')) ?
             <ul className="navbar-nav justify-content-end">
               <li className="nav-item" onClick={() => { handleLogout() }}>
                 <Link to="/register" className="nav-link text-white" href="#">Logout</Link>

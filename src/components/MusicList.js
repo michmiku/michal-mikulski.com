@@ -36,52 +36,39 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
                 <div className="number">#</div>
                 <div className="title">Title</div>
                 <div className="author">Artist</div>
-                <div className="time">
+                <div className="time-clock">
                     <i className="far fa-clock fa-lg"></i>
                 </div>
             </div>
             {currentPlaylist.map(({ file, title, artist, duration, rawDuration }, key) => (
                 src === Settings.server + 'music/' + file ?
                     <div className="middle-view-selected" key={key}>
-                        <div onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>
-                            <div className="number">{key}</div>
-                            <div className="title">{title}</div>
-                            <div className="author">{artist}</div>
-                            <div className="time">{duration}</div>
-                        </div>
-                        <div className="play-button-list">
-                            {!((src === Settings.server + 'music/' + file) && (isPlaying.playing)) ?
-                                <i onClick={() => { handlePlay(file, key, duration, rawDuration) }} className="far fa-play-circle fa-2x"></i> :
-                                <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-2x "></i>
-                            }
-                        </div>
-                        <div className="heart">
-                            {!favoriteMusic.includes(title) ?
-                                <i className="far fa-heart fa-lg pt-2" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
-                                <i className="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
-                            }
-                        </div>
+                        <div className="number">{key}</div>
+                        <div className="title" onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>{title}</div>
+                        <div className="author">{artist}</div>
+                        <div className="time">{duration}</div>
+                        {!favoriteMusic.includes(title) ?
+                            <i className="far fa-heart fa-lg  heart" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
+                            <i className="fas fa-ban fa-lg  heart" onClick={() => { handleRemoveFromFavorite(title) }}></i>
+                        }
+                        {!((src === Settings.server + 'music/' + file) && (isPlaying.playing)) ?
+                            <i onClick={() => { handlePlay(file, key, duration, rawDuration) }} className="far fa-play-circle fa-2x play-button-list"></i> :
+                            <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-2x play-button-list" ></i>
+                        }
                     </div> :
                     <div className="middle-view" key={key}>
-                        <div onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>
-                            <div className="number">{key}</div>
-                            <div className="title" >{title}</div>
-                            <div className="author">{artist}</div>
-                            <div className="time">{duration}</div>
-                        </div>
-
-                        <div className="play-button-list">
-                            {!((src === Settings.server + 'music/' + file) && (isPlaying.playing)) ?
-                                <i onClick={() => { handlePlay(file, key, duration, rawDuration) }} className="far fa-play-circle fa-2x"></i> :
-                                <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-2x "></i>
-                            }
-                        </div>
-                        <div className="heart">
-                            {!favoriteMusic.includes(title) ?
-                                <i className="far fa-heart fa-lg pt-2" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
-                                <i className="fas fa-ban fa-lg pt-2" onClick={() => { handleRemoveFromFavorite(title) }}></i>
-                            }
-                        </div>
+                        <div className="number">{key}</div>
+                        <div className="title" onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>{title}</div>
+                        <div className="author">{artist}</div>
+                        <div className="time">{duration}</div>
+                        {!favoriteMusic.includes(title) ?
+                            <i className="far fa-heart fa-lg heart" onClick={() => { handleAddToFavorite(file, title, artist) }}></i> :
+                            <i className="fas fa-ban fa-lg  heart" onClick={() => { handleRemoveFromFavorite(title) }}></i>
+                        }
+                        {!((src === Settings.server + 'music/' + file) && (isPlaying.playing)) ?
+                            <i onClick={() => { handlePlay(file, key, duration, rawDuration) }} className="far fa-play-circle fa-2x play-button-list" ></i> :
+                            <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-2x play-button-list"></i>
+                        }
                     </div>
             ))
             }

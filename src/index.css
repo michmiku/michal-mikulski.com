@@ -57,7 +57,6 @@ code {
   background-color:#1f1f1f;
 }
 .music-container{
-  padding-left: 10px;
   padding-bottom:100px;
   color: white;
   font-size: 18px;
@@ -70,70 +69,16 @@ code {
 }
 .top-view{
   width:100%;
-  height:45px;
+  height:40px;
   color: white;
   font-size: 18px;
   position: relative;
   border-bottom: 1px solid rgb(97, 97, 97);
-  text-overflow: ellipsis;
-}
-.number{
-  float: left;
-  width:40px;
-  padding-top: 10px;
-  padding-left: 25px;
 
-}
-.title{
-  float: left;
-  width:350px;
-  padding-top: 10px;
-  padding-left: 20px;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.author{
-  float: left;
-  width:350px;
-  padding-top: 10px;
-  padding-left:10px;
-  overflow:hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-}
-.time{
-  float: left;
-  width:60px;
-  padding-top: 10px;
-  text-align: center;
-}
-.play-button-list{
-  float: right;
-  width:40px;
-  padding-top: 5px;
-  padding-right: 60px;
-  text-align: right;
-}
-.play-button-list:hover{
-  color:rgb(129, 189, 105);
-  cursor:default;
-}
-.heart{
-  float: right;
-  width:40px;
-  padding-top: 5px;
-  padding-right: 60px;
-  text-align: right;
-}
-.heart:hover{
-  color:rgb(129, 189, 105);
-  cursor:default;
 }
 .middle-view{
   width:100%;
-  height:45px;
+  height:54px;
   color: white;
   font-size: 18px;
   position: relative;
@@ -141,9 +86,10 @@ code {
   float:left;
   text-overflow: ellipsis
 }
+
 .middle-view-selected{
   width:100%;
-  height:45px;
+  height:54px;
   color: rgb(56, 172, 10);
   font-size: 18px;
   position: relative;
@@ -159,6 +105,79 @@ code {
   background-color: rgb(68, 68, 68);
   cursor: default;
 }
+.number{
+  height:54px;
+  width:4%;
+  padding-top:13px;
+  padding-left:10px;
+  display: inline-block;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+
+}
+.title{
+  height:54px;
+  width:20%;
+  padding-top:13px;
+  display: inline-block;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.author{
+  height:54px;
+  display: inline-block;
+  width:20%;
+  padding-top:13px;
+  padding-left:10px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+.time{
+  height:54px;
+  width:10%;
+  padding-top:13px;
+  display: inline-block;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.time-clock{
+  height:54px;
+  width:10%;
+  padding-top:10px;
+  padding-left:9px;
+  display: inline-block;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.play-button-list{
+  position: absolute;
+  right:20px;
+  top:10px;
+}
+.play-button-list:hover{
+  color:rgb(129, 189, 105);
+  cursor:default;
+}
+.heart{
+  position: absolute;
+  right:125px;
+  top:20px;
+}
+.heart:hover{
+  color:rgb(129, 189, 105);
+  cursor:default;
+}
+
 .play-button{
   position: absolute;
   top: 35%;
