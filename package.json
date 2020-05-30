@@ -1,5 +1,5 @@
 {
-  "homepage": "https://michmiku.github.io/michal-mikulski",
+  "homepage": "https://michal-mikulski.com",
   "name": "michal-mikulski",
   "version": "0.1.0",
   "private": true,
@@ -18,7 +18,8 @@
     "react-dom": "^16.13.1",
     "react-native-volume-slider": "^0.5.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.1",
+    "react-scroll": "^1.7.16",
     "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
