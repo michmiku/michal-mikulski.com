@@ -29,7 +29,7 @@ const Login = () => {
         setUser({ username: '', password: '' })
     }
     return (
-        authUser.username === "" ?
+        authUser.username === "" || authUser.username === null ?
             <div align="center" className="mt-5">
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
