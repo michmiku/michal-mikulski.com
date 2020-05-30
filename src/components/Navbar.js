@@ -32,7 +32,7 @@ const Navbar = (props) => {
             <Link to="/music" className="nav-link text-white" href="#">Music</Link>
           </li>
         </ul>
-        {authUser.username === '' ?
+        {authUser.username === '' || authUser.username === null ?
           <ul className="navbar-nav  justify-content-end">
             <li className="nav-item">
               <Link to="/login" className="nav-link text-white" href="#">Login</Link>
