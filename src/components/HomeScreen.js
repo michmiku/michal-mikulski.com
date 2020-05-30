@@ -9,7 +9,7 @@ const HomeScreen = () => {
         axios.get(Settings.server + 'music/')
     }, [])
     return (
-        <div className="container-fluid pl-0 pr-0">
+        <div className="container-fluid pl-0 pr-0 home-container">
             <div className="header">
                 <a>Michał Mikulski</a>
             </div>

@@ -128,7 +128,7 @@ const Music = () => {
     }
     return (
         authUser.username !== '' ?
-            <div className="cont">
+            <div className="box">
                 <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
                 <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
                 <Player isPlaying={isPlaying} handlePlay={() => { handlePlay() }} handlePause={() => { handlePause() }} player={player} src={src} setSrc={setSrc} duration={duration} currentTime={currentTime} musicList={currentPlaylist} currentId={currentId} setCurrentId={setCurrentId} setDuration={setDuration} setIsPlaying={setIsPlaying} myMusic={myMusic} repeat={repeat} setRepeat={setRepeat} random={random} setRandom={setRandom} currentArtistPlaylist={currentArtistPlaylist} currentArtist={currentArtist} />

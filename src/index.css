@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #96A5AB;
+  background-color: rgb(126, 126, 126);
 }
 
 code {
@@ -31,7 +31,7 @@ code {
   background-size: contain;
   background-size: cover;
   text-align: center;
-  color: white;
+  color: rgb(197, 197, 197);
   padding-top: 50px;
   font-size: 60px;
   margin-bottom: 50px;
@@ -45,6 +45,7 @@ code {
   border-radius: 15px;
   padding:15px;
   margin-top: 20px;
+  box-shadow:0px 0px 30px 15px rgb(122, 122, 122); 
 }
 .scrollS{
   height:40px;
@@ -157,14 +158,6 @@ code {
 .middle-view:hover{
   background-color: rgb(68, 68, 68);
   cursor: default;
-}
-.cont{
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 .play-button{
   position: absolute;
@@ -425,4 +418,16 @@ code {
   width:100%;
   height:calc(100vh - 100px);
   background-color: rgb(77, 77, 77);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.home-container{
+  background-color: #525252;
+}
+.navbar{
+  background-color: #474747;
 }

@@ -17,7 +17,7 @@ const Navbar = (props) => {
     setAuthUser({ username: user })
   }, [])
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-secondary position-sticky sticky-top" >
+    <nav className="navbar navbar-expand-lg navbar-light position-sticky sticky-top" >
       <a className="navbar-brand text-white" href="#">MM</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
