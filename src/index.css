@@ -51,8 +51,6 @@ code {
   margin-top:-220px;
 }
 .player{
-  position:absolute;
-  bottom:0;
   width:100%;
   height:100px; 
   background-color:#1f1f1f;
@@ -66,6 +64,8 @@ code {
   float: right;
   max-width: calc(100vw - 180px);
   overflow: hidden;
+  height:calc(100vh - 100px);
+  overflow: auto
 }
 .top-view{
   width:100%;
@@ -165,10 +165,6 @@ code {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  min-height:100vh;
-  position:relative;
-  background-color: rgb(51, 51, 51);
-  
 }
 .play-button{
   position: absolute;
@@ -424,4 +420,9 @@ code {
 .my-music-button:hover{
   cursor: default;
   background-color: rgb(83, 83, 83);
+}
+.box{
+  width:100%;
+  height:calc(100vh - 100px);
+  background-color: rgb(77, 77, 77);
 }

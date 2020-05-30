@@ -10,15 +10,16 @@ import Music from './components/Music';
 const Routes = () => {
     return (
         <Router>
-            <Navbar />
+            <div className="box">
+                <Navbar />
 
-            <Route path="/" exact component={HomeScreen} />
-            <Route path="/michal-mikulski" component={HomeScreen} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/listofusers" component={ListOfUsers} />
-            <Route path="/music" component={Music} />
-
+                <Route path="/" exact component={HomeScreen} />
+                <Route path="/michal-mikulski" component={HomeScreen} />
+                <Route path="/register" component={Register} />
+                <Route path="/login" component={Login} />
+                <Route path="/listofusers" component={ListOfUsers} />
+                <Route path="/music" component={Music} />
+            </div>
         </Router>
     );
 }

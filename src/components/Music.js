@@ -41,8 +41,6 @@ const Music = () => {
                 })
             })
             .catch(err => console.log(err));
-        let volume = localStorage.getItem('volume')
-        player.current.volume = volume
     }, [])
     useEffect(() => {
         if (src !== '') {
@@ -129,26 +127,24 @@ const Music = () => {
         setCurrentArtistPlaylist(artist)
     }
     return (
-        <div>
-            {authUser.username !== '' ?
-                <div className="cont">
-                    <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
-                    <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
-                    <Player isPlaying={isPlaying} handlePlay={() => { handlePlay() }} handlePause={() => { handlePause() }} player={player} src={src} setSrc={setSrc} duration={duration} currentTime={currentTime} musicList={currentPlaylist} currentId={currentId} setCurrentId={setCurrentId} setDuration={setDuration} setIsPlaying={setIsPlaying} myMusic={myMusic} repeat={repeat} setRepeat={setRepeat} random={random} setRandom={setRandom} currentArtistPlaylist={currentArtistPlaylist} currentArtist={currentArtist} />
-                    <audio ref={player} onTimeUpdate={() => handleProgress()} onEnded={() => { handleEnd() }}>
-                        <source src={src} />
-                    </audio>
-                </div>
+        authUser.username !== '' ?
+            <div className="cont">
+                <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
+                <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
+                <Player isPlaying={isPlaying} handlePlay={() => { handlePlay() }} handlePause={() => { handlePause() }} player={player} src={src} setSrc={setSrc} duration={duration} currentTime={currentTime} musicList={currentPlaylist} currentId={currentId} setCurrentId={setCurrentId} setDuration={setDuration} setIsPlaying={setIsPlaying} myMusic={myMusic} repeat={repeat} setRepeat={setRepeat} random={random} setRandom={setRandom} currentArtistPlaylist={currentArtistPlaylist} currentArtist={currentArtist} />
+                <audio ref={player} onTimeUpdate={() => handleProgress()} onEnded={() => { handleEnd() }}>
+                    <source src={src} />
+                </audio>
+            </div>
 
-                :
-                <div className="card-body">
-                    <h5 className="card-title">You are not logged in!</h5>
-                    <p className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</p>
-                    <Link to="/login" className="btn btn-primary mr-3 ">Login</Link>
-                    <Link to="/register" className="btn btn-primary ">Register</Link>
-                </div>
-            }
-        </div>
+            :
+            <div className="card-body">
+                <h5 className="card-title">You are not logged in!</h5>
+                <p className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</p>
+                <Link to="/login" className="btn btn-primary mr-3 ">Login</Link>
+                <Link to="/register" className="btn btn-primary ">Register</Link>
+            </div>
+
     )
 }
 

@@ -7,9 +7,7 @@ function App() {
 
   return (
     <AuthenticatedUserProvider>
-      <div className="container-fluid pr-0 pl-0 bg-light min-vh-100">
-        <Routes />
-      </div >
+      <Routes />
     </AuthenticatedUserProvider>
 
   );

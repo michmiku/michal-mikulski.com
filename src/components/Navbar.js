@@ -14,7 +14,6 @@ const Navbar = (props) => {
     if (user === null) {
       user = ''
     }
-    console.log(user)
     setAuthUser({ username: user })
   }, [])
   return (

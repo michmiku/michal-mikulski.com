@@ -5,7 +5,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
     const progress = useRef(null)
     const progressBar = useRef(null)
     const [time, setTime] = useState('')
-    const [volume, setVolume] = useState(0.3)
+    const [volume, setVolume] = useState(0)
     const [currentSong, setCurrentSong] = useState({ title: '', artist: '' })
     useEffect(() => {
         if (currentTime !== undefined) {
@@ -25,7 +25,12 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
 
     })
     useEffect(() => {
-        setVolume(localStorage.getItem('volume') * 100)
+        if (localStorage.getItem('volume') * 100 === 0) {
+            setVolume(30)
+        }
+        else {
+            setVolume(localStorage.getItem('volume') * 100)
+        }
     }, [])
     useEffect(() => {
         if (currentId !== undefined)
@@ -82,7 +87,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
         setRandom(!random)
     }
     return (
-        <footer className="py-4 text-white-50 fixed-bottom player">
+        <footer className="py-4 text-white-50 player fixed-bottom">
             <i className="fas fa-angle-double-left left-button fa-2x" onClick={() => { handleLeftButton() }}></i>
             {!isPlaying.playing ?
 
