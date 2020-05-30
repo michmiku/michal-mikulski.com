@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(126, 126, 126);
+  background-color: #525252;
 }
 
 code {
@@ -430,4 +430,7 @@ code {
 }
 .navbar{
   background-color: #474747;
+}
+.userlist-container{
+  color:white
 }

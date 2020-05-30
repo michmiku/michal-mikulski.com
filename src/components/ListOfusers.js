@@ -32,7 +32,7 @@ const ListOfUsers = () => {
             .catch(err => alert("Password is too short!"));
     }
     return (
-        <div>
+        <div className="userlist-container">
             <table className="table">
                 <thead className="thead-dark">
                     <tr>
@@ -45,11 +45,11 @@ const ListOfUsers = () => {
                 </thead>
                 <tbody>{
                     users.listOfUsers.map((user, key) => (
-                        <tr key={key}>
-                            <th scope="row">{key}</th>
-                            <td><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleAdmin(user) }}>{String(user.admin)}</button></td>
-                            <td>{user.username}</td>
-                            <td><input type="text"
+                        <tr key={key} style={{ color: 'lightgrey' }}>
+                            <th scope="row" style={{ paddingTop: '22px' }}>{key}</th>
+                            <td style={{ paddingTop: '18px' }}><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleAdmin(user) }}>{String(user.admin)}</button></td>
+                            <td style={{ paddingTop: '20px' }}>{user.username}</td>
+                            <td style={{ paddingTop: '15px' }}><input type="text"
                                 minLength="6"
                                 min="6"
                                 className="form-control w-25"
@@ -60,8 +60,8 @@ const ListOfUsers = () => {
                                     }
                                 }}
                             /></td>
-                            <td><button type="button" className="btn btn-secondary btn-sm mr-5" onClick={() => { handlePassword(user, password) }}>Change password</button></td>
-                            <td><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleDelete(user) }}>Delete user</button></td>
+                            <td style={{ paddingTop: '15px' }}><button type="button" className="btn btn-secondary btn-sm mr-5" onClick={() => { handlePassword(user, password) }}>Change password</button></td>
+                            <td style={{ paddingTop: '15px' }}><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleDelete(user) }}>Delete user</button></td>
                         </tr>
                     ))}
 
