@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/michmiku/michal-mikulski.com.git/static/css/main.d0924b74.chunk.css",
+    "main.js": "/michmiku/michal-mikulski.com.git/static/js/main.a159dbe1.chunk.js",
+    "main.js.map": "/michmiku/michal-mikulski.com.git/static/js/main.a159dbe1.chunk.js.map",
+    "runtime-main.js": "/michmiku/michal-mikulski.com.git/static/js/runtime-main.9ccdbb1a.js",
+    "runtime-main.js.map": "/michmiku/michal-mikulski.com.git/static/js/runtime-main.9ccdbb1a.js.map",
+    "static/css/2.09d1976d.chunk.css": "/michmiku/michal-mikulski.com.git/static/css/2.09d1976d.chunk.css",
+    "static/js/2.602b604e.chunk.js": "/michmiku/michal-mikulski.com.git/static/js/2.602b604e.chunk.js",
+    "static/js/2.602b604e.chunk.js.map": "/michmiku/michal-mikulski.com.git/static/js/2.602b604e.chunk.js.map",
+    "index.html": "/michmiku/michal-mikulski.com.git/index.html",
+    "precache-manifest.d01c394447bdd82d0cc9d2485b1ad690.js": "/michmiku/michal-mikulski.com.git/precache-manifest.d01c394447bdd82d0cc9d2485b1ad690.js",
+    "service-worker.js": "/michmiku/michal-mikulski.com.git/service-worker.js",
+    "static/css/2.09d1976d.chunk.css.map": "/michmiku/michal-mikulski.com.git/static/css/2.09d1976d.chunk.css.map",
+    "static/css/main.d0924b74.chunk.css.map": "/michmiku/michal-mikulski.com.git/static/css/main.d0924b74.chunk.css.map",
+    "static/js/2.602b604e.chunk.js.LICENSE.txt": "/michmiku/michal-mikulski.com.git/static/js/2.602b604e.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/michmiku/michal-mikulski.com.git/static/media/header.307cccf4.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ccdbb1a.js",
+    "static/css/2.09d1976d.chunk.css",
+    "static/js/2.602b604e.chunk.js",
+    "static/css/main.d0924b74.chunk.css",
+    "static/js/main.a159dbe1.chunk.js"
+  ]
+}
