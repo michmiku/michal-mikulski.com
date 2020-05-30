@@ -1,7 +1,6 @@
 import React from 'react';
 import Routes from "./Routes.js"
 import AuthenticatedUserProvider from "./contexts/AuthenticatedUser.js";
-console.disableYellowBox = true;
 
 function App() {
 
