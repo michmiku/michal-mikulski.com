@@ -22,7 +22,7 @@ const Register = () => {
 
     return (
         !user.success ?
-            <div align="center" className="mt-5" style={{ color: "rgb(201, 201, 201)" }}>
+            <div align="center" className="container-login" style={{ color: "rgb(201, 201, 201)" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
