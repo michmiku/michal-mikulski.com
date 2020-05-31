@@ -3,6 +3,7 @@ import ScrollSpy from "./ScrollSpy.js"
 import Footer from './Footer.js'
 import axios from 'axios'
 import Settings from "../Settings.json"
+import Header from './Header.js'
 
 const HomeScreen = () => {
     useEffect(() => {
@@ -10,9 +11,7 @@ const HomeScreen = () => {
     }, [])
     return (
         <div className="container-fluid pl-0 pr-0 home-container">
-            <div className="header">
-                <a>Michał Mikulski</a>
-            </div>
+            <Header />
             <ScrollSpy />
             <Footer />
         </div>
