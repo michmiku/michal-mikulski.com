@@ -126,7 +126,7 @@ const Music = () => {
         setCurrentArtistPlaylist(artist)
     }
     return (
-        authUser.username !== null ?
+        authUser.username !== '' && authUser.username !== 'null' ?
             <div className="box">
                 <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
                 <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
@@ -136,11 +136,12 @@ const Music = () => {
                 </audio>
             </div>
             :
-            <div className="card-body">
-                <h5 className="card-title">You are not logged in!</h5>
-                <p className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</p>
-                <Link to="/login" className="btn btn-primary mr-3 ">Login</Link>
-                <Link to="/register" className="btn btn-primary ">Register</Link>
+
+            <div className="card-body" style={{ backgroundColor: 'rgb(82, 82, 82)', color: 'rgb(201, 201, 201)' }}>
+                <h1 className="card-title">You are not logged in!</h1>
+                <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
+                <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>
+                <Link to="/register" className="btn btn-dark btn-lg">Register</Link>
             </div>
 
     )

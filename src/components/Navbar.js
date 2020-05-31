@@ -5,8 +5,8 @@ import { AuthenticatedUser } from "../contexts/AuthenticatedUser.js"
 const Navbar = (props) => {
   const { authUser, setAuthUser } = useContext(AuthenticatedUser)
   const handleLogout = () => {
-    setAuthUser({ username: '' })
-    localStorage.setItem('user', '')
+    setAuthUser({ username: null })
+    localStorage.setItem('user', null)
     localStorage.setItem('admin', false)
     window.location = "/#/"
   }
@@ -14,6 +14,7 @@ const Navbar = (props) => {
     let user = localStorage.getItem('user')
     let admin = localStorage.getItem('admin')
     setAuthUser({ username: user, admin: admin })
+    console.log(authUser)
   }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light position-sticky sticky-top" >
@@ -31,7 +32,7 @@ const Navbar = (props) => {
             <Link to="/music" className="nav-link text-white" href="#">Music</Link>
           </li>
         </ul>
-        {authUser.username === '' || authUser.username === null ?
+        {(authUser.username === '' || authUser.username === 'null') ?
           <ul className="navbar-nav  justify-content-end">
             <li className="nav-item">
               <Link to="/login" className="nav-link text-white" href="#">Login</Link>

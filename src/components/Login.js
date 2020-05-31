@@ -29,7 +29,7 @@ const Login = () => {
         setUser({ username: '', password: '' })
     }
     return (
-        authUser.username === "" || authUser.username === null ?
+        authUser.username === "" || authUser.username === 'null' ?
             <div align="center" className="mt-5" style={{ color: "rgb(201, 201, 201)" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -60,7 +60,7 @@ const Login = () => {
                 </form>
             </div>
             :
-            <div className="jumbotron" style={{ backgroundColor: 'rgb(82, 82, 82)' }}>
+            <div className="jumbotron" style={{ backgroundColor: 'rgb(82, 82, 82)', color: 'rgb(201, 201, 201)' }}>
                 <h1 className="display-4">You are logged in!</h1>
                 <p className="lead">You have successfully logged in to your account!</p>
                 <hr className="my-4" />

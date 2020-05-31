@@ -288,6 +288,7 @@ code {
 .play-button-list:hover{
   color:rgb(129, 189, 105);
   cursor:default;
+  font-size: 38px;
 }
 .heart{
   position: absolute;
@@ -297,6 +298,7 @@ code {
 .heart:hover{
   color:rgb(129, 189, 105);
   cursor:default;
+  font-size: 25px;
 }
 .player-control-buttons{
   width:500px;
