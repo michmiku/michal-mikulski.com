@@ -126,7 +126,7 @@ const Music = () => {
         setCurrentArtistPlaylist(artist)
     }
     return (
-        authUser.username !== '' && authUser.username !== 'null' ?
+        authUser.username !== '' && authUser.username !== 'null' && authUser.username !== null ?
             <div className="box">
                 <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
                 <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />

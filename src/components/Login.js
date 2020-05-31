@@ -29,7 +29,7 @@ const Login = () => {
         setUser({ username: '', password: '' })
     }
     return (
-        authUser.username === "" || authUser.username === 'null' ?
+        authUser.username === "" || authUser.username === 'null' || authUser.username === null ?
             <div align="center" className="mt-5" style={{ color: "rgb(201, 201, 201)" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
