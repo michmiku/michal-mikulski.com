@@ -28,12 +28,10 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
         if (localStorage.getItem('volume') === null) {
             setVolume(30)
             player.current.volume = 0.3
-            console.log("1", player.current.volume)
         }
         else {
             setVolume(localStorage.getItem('volume') * 100)
             player.current.volume = localStorage.getItem('volume')
-            console.log("2", localStorage.getItem('volume'))
         }
     }, [])
     useEffect(() => {
@@ -92,31 +90,29 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
     }
     return (
         <footer className="py-4 text-white-50 player fixed-bottom">
-            <i className="fas fa-angle-double-left left-button fa-2x" onClick={() => { handleLeftButton() }}></i>
-            {!isPlaying.playing ?
+            <div className="player-control-buttons">
+                {repeat ?
+                    <i className="fas fa-redo-alt repeat-button-on" onClick={() => { handleRepeat() }}></i>
+                    :
+                    <i className="fas fa-redo-alt repeat-button" onClick={() => { handleRepeat() }}></i>
+                }
+                <i className="fas fa-angle-double-left left-button fa-2x" onClick={() => { handleLeftButton() }}></i>
+                {!isPlaying.playing ?
 
-                <i onClick={() => { handlePlay() }} className="far fa-play-circle fa-3x play-button"></i> :
-                <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-3x play-button"></i>
-            }
-            <i className="fas fa-angle-double-right right-button fa-2x" onClick={() => { handleRightButton() }}></i>
-            {repeat ?
-                <i className="fas fa-redo-alt repeat-button-on" onClick={() => { handleRepeat() }}></i>
-                :
-                <i className="fas fa-redo-alt repeat-button" onClick={() => { handleRepeat() }}></i>
-            }
-            {random ?
-                <i className="fas fa-random random-button-on" onClick={() => { handleRandom() }}></i>
-                :
-                <i className="fas fa-random random-button" onClick={() => { handleRandom() }}></i>
-            }
+                    <i onClick={() => { handlePlay() }} className="far fa-play-circle fa-3x play-button"></i> :
+                    <i onClick={() => { handlePause() }} className="far fa-pause-circle fa-3x play-button"></i>
+                }
+                <i className="fas fa-angle-double-right right-button fa-2x" onClick={() => { handleRightButton() }}></i>
 
+                {random ?
+                    <i className="fas fa-random random-button-on" onClick={() => { handleRandom() }}></i>
+                    :
+                    <i className="fas fa-random random-button" onClick={() => { handleRandom() }}></i>
+                }
+            </div>
             <div className="current-song">
-                <div className="current-title">
-                    <a>{currentSong.title}</a>
-                </div>
-                <div className="current-artist">
-                    <a>{currentSong.artist}</a>
-                </div>
+                <a className="current-title">{currentSong.title}</a><br />
+                <a className="current-artist">{currentSong.artist}</a>
             </div>
             <div className="volume-slider">
                 <i className="fas fa-volume-up volume-icon fa-lg"></i>

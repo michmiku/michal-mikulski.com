@@ -8,7 +8,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #525252;
+  background-color: rgb(58, 58, 58);
 }
 
 code {
@@ -19,7 +19,7 @@ code {
   background-color: #26282E;
 }
 .white-font{
-  color:white;
+  color:rgb(201, 201, 201);
 }
 .container{
   background-color: #96A5AB;
@@ -31,7 +31,7 @@ code {
   background-size: contain;
   background-size: cover;
   text-align: center;
-  color: rgb(197, 197, 197);
+  color: rgb(207, 207, 207);
   padding-top: 50px;
   font-size: 60px;
   margin-bottom: 50px;
@@ -53,24 +53,26 @@ code {
 }
 .player{
   width:100%;
+  position: relative;
+  float:left;
+  text-overflow: ellipsis;
   height:100px; 
   background-color:#1f1f1f;
 }
 .music-container{
-  padding-bottom:100px;
-  color: white;
+  color:rgb(201, 201, 201);
   font-size: 18px;
   width:100%;
   float: right;
   max-width: calc(100vw - 180px);
   overflow: hidden;
-  height:calc(100vh - 100px);
+  height:calc(100vh - 150px);
   overflow: auto
 }
 .top-view{
   width:100%;
   height:40px;
-  color: white;
+  color:rgb(201, 201, 201);
   font-size: 18px;
   position: relative;
   border-bottom: 1px solid rgb(97, 97, 97);
@@ -79,7 +81,7 @@ code {
 .middle-view{
   width:100%;
   height:54px;
-  color: white;
+  color:rgb(201, 201, 201);
   font-size: 18px;
   position: relative;
   border-bottom: 1px solid rgb(97, 97, 97);
@@ -107,7 +109,7 @@ code {
 }
 .number{
   height:54px;
-  width:6%;
+  width:30px;
   padding-top:13px;
   padding-left:10px;
   display: inline-block;
@@ -172,82 +174,64 @@ code {
 }
 .heart{
   position: absolute;
-  right:80px;
+  right:75px;
   top:20px;
 }
 .heart:hover{
   color:rgb(129, 189, 105);
   cursor:default;
 }
-
-.play-button{
+.player-control-buttons{
+  width:500px;
+  height:60px;
   position: absolute;
   top: 35%;
   left:50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  display: inline-block;
+}
+.play-button{
+  padding-left: 20px;
 }
 .play-button:hover{
   color:rgb(129, 189, 105);
-  padding:10px;
 }
 .left-button{
-  position: absolute;
-  top: 35%;
-  left:45%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-left: 50px;
 }
 .left-button:hover{
   color:rgb(129, 189, 105) ;
 }
 .right-button{
-  position: absolute;
-  top: 35%;
-  left:55%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-left: 20px;
 }
 .right-button:hover{
   color:rgb(129, 189, 105) ;
 }
 .repeat-button{
-  position: absolute;
-  top: 45%;
-  left:41%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-top:35px;
+  padding-left:120px;
 }
 .repeat-button:hover{
   color:rgb(129, 189, 105) ;
 }
 .repeat-button-on{
-  position: absolute;
-  top: 45%;
-  left:41%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-top:35px;
+  padding-left:120px;
   color: rgb(76, 141, 50);
 }
 .repeat-button-on:hover{
   color:rgb(129, 189, 105) ;
 }
 .random-button{
-  position: absolute;
-  top: 45%;
-  left:59%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-left:50px;
 }
 .random-button:hover{
   color:rgb(129, 189, 105) ;
 }
 .random-button-on{
-  position: absolute;
-  top: 45%;
-  left:59%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  padding-left:50px;
   color: rgb(76, 141, 50);
 }
 .random-button-on:hover{
@@ -281,11 +265,10 @@ code {
   float: left;
   height:12px;
   font-size: 15px;
-  color:white;
+  color:rgb(201, 201, 201);
   padding-right: 10px;
   position: relative;
   bottom:6px;
-  
 }
 .duration{
   padding-left: 15px;
@@ -294,13 +277,13 @@ code {
   width:10%;
   height:12px;
   font-size: 15px;
-  color:white;
+  color:rgb(201, 201, 201);
   position: relative;
   bottom:6px;
 }
 .slider {
   -webkit-appearance: none;
-  width: 140px;
+  width: 120px;
   height: 5px;
   border-radius: 5px;
   background: #d3d3d3;
@@ -333,10 +316,10 @@ code {
   cursor: pointer;
 }
 .volume-slider{
-  width:170px;
+  width:150px;
   position: absolute;
-  bottom:25%;
-  right:0%;
+  bottom:22%;
+ right:-60px;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
@@ -346,39 +329,39 @@ code {
   bottom:4px;
 }
 .current-title{
-  width:450px;
+  font-size: 17px;
+  width:100%;
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .current-artist{
-  font-size: 15px;
-  width:450px;
+  font-size: 14px;
+  width:100%;
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .current-song{
-  font-size: 18px;
-  padding:5px;
+  color:rgb(201, 201, 201);
+  height:54px;
+  width:23%;
   padding-left:30px;
-  color:white;
-  float: left;
-  width:450px;
+  padding-top: 5px;
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .sidebar{
- height: 100%;
+  height: calc(100vh - 50px);
   width: 180px;
   position: fixed;
   z-index: 1;
   left: 0;
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(43, 43, 43);
   overflow-x: hidden;
   padding-bottom: 100px;
-  color:white;
+  color:rgb(201, 201, 201);
   font-size: 17px;
 }
 .spinner{
@@ -436,8 +419,8 @@ code {
 }
 .box{
   width:100%;
-  height:calc(100vh - 100px);
-  background-color: rgb(77, 77, 77);
+  height:calc(100vh - 140px);
+  background-color: rgb(58, 58, 58);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -446,14 +429,20 @@ code {
   user-select: none;
 }
 .home-container{
-  background-color: #525252;
+  background-color: rgb(58, 58, 58);
 }
 .navbar{
-  background-color: #474747;
+  background-color: #686868;
 }
 .userlist-container{
-  color:white
+  color:rgb(201, 201, 201)
 }
 .scrollspy-button:hover{
   box-shadow:  20px 15px rgba(0,0,0,0.15);
+}
+.footer{
+  background-color:#686868 ;
+}
+.footer-item{
+  background-color:#686868 ;
 }

@@ -41,7 +41,6 @@ const Music = () => {
                 })
             })
             .catch(err => console.log(err));
-        console.log(authUser.username)
     }, [])
     useEffect(() => {
         if (src !== '') {

@@ -14,7 +14,6 @@ const Navbar = (props) => {
     let user = localStorage.getItem('user')
     let admin = localStorage.getItem('admin')
     setAuthUser({ username: user, admin: admin })
-    console.log(user, admin)
   }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light position-sticky sticky-top" >
