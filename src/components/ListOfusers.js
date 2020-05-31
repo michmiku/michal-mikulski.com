@@ -4,7 +4,7 @@ import Settings from "../Settings.json"
 
 const ListOfUsers = () => {
     const [users, setUsers] = useState({ listOfUsers: [] })
-    const [password, setPassword] = useState({ password: '' })
+    const [password, setPassword] = useState('')
     useEffect(() => {
         axios.get(Settings.server + 'users')
             .then(res => {
@@ -28,6 +28,8 @@ const ListOfUsers = () => {
         const newData = { user, password }
         axios.post(Settings.server + 'users/updatePassword', newData)
             .then(res => {
+                alert("Password changed!")
+                setPassword({ password: '' })
             })
             .catch(err => alert("Password is too short!"));
     }
@@ -53,12 +55,7 @@ const ListOfUsers = () => {
                                 minLength="6"
                                 min="6"
                                 className="form-control w-25"
-                                placeholder={user.password}
-                                onChange={(e) => {
-                                    {
-                                        setPassword(e.target.value)
-                                    }
-                                }}
+                                onChange={(e) => { { setPassword(e.target.value) } }}
                             /></td>
                             <td style={{ paddingTop: '15px' }}><button type="button" className="btn btn-secondary btn-sm mr-5" onClick={() => { handlePassword(user, password) }}>Change password</button></td>
                             <td style={{ paddingTop: '15px' }}><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleDelete(user) }}>Delete user</button></td>

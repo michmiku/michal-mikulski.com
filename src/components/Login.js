@@ -20,9 +20,10 @@ const Login = () => {
                     alert("Wrong username or password!")
                 }
                 else {
-                    setAuthUser({ username: user.username, admin: res.data[0].admin })
+                    console.log(res.data)
+                    setAuthUser({ username: user.username, admin: res.data.admin })
                     localStorage.setItem('user', user.username)
-                    localStorage.setItem('admin', res.data[0].admin)
+                    localStorage.setItem('admin', res.data.admin)
                 }
             })
             .catch(err => console.log(err));
