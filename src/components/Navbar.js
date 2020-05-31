@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthenticatedUser } from "../contexts/AuthenticatedUser.js"
-import Settings from "../Settings.json"
+
 const Navbar = (props) => {
   const { authUser, setAuthUser } = useContext(AuthenticatedUser)
   const handleLogout = () => {
@@ -18,8 +18,8 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light position-sticky sticky-top" >
       <a className="navbar-brand text-white" href="#">MM</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" style={{ backgroundColor: 'rgb(82, 82, 82)' }} >
+        <span className="navbar-toggler-icon" ></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarText">
 

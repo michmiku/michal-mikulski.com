@@ -22,14 +22,15 @@ const Register = () => {
 
     return (
         !user.success ?
-            <div align="center" className="mt-5">
+            <div align="center" className="mt-5" style={{ color: "rgb(201, 201, 201)" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
                         <input type="text"
                             minLength="3"
                             required
-                            className="form-control w-25"
+                            className="form-control"
+                            style={{ width: "250px" }}
                             value={user.username}
                             onChange={(e) => { setUser({ username: e.target.value, password: user.password }) }}
                         />
@@ -39,23 +40,24 @@ const Register = () => {
                         <input type="password"
                             minLength="6"
                             required
-                            className="form-control w-25"
+                            className="form-control"
+                            style={{ width: "250px" }}
                             value={user.password}
                             onChange={(e) => { setUser({ username: user.username, password: e.target.value }) }}
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Register" className="btn btn-primary" />
+                        <input type="submit" value="Register" className="btn btn-dark" />
                     </div>
                 </form>
             </div>
             :
-            <div className="jumbotron bg-light">
+            <div className="jumbotron" style={{ backgroundColor: 'rgb(82, 82, 82)' }}>
                 <h1 className="display-4">You are registered!</h1>
                 <p className="lead">You have successfully created your account!</p>
                 <hr className="my-4" />
                 <p>To start browsing and listening music press the button below to log in to your account!</p>
-                <Link to="/login" className="btn btn-primary btn-lg" href="#" role="button">Login</Link>
+                <Link to="/login" className="btn btn-dark btn-lg" href="#" role="button">Login</Link>
             </div>
     )
 }
