@@ -274,7 +274,6 @@ code {
   overflow:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  cursor: pointer;
 }
 .time-clock{
   height:54px;
@@ -586,7 +585,7 @@ code {
 .artist-list:hover{
   border-bottom:1px solid rgb(97, 97, 97);
   background-color: rgb(68, 68, 68);
-  cursor: default;
+  cursor: pointer;
 }
 .artist-list-selected{
   padding-bottom: 6px;
@@ -597,7 +596,7 @@ code {
   color: rgb(56, 172, 10);
 }
 .artist-list-selected:hover{
-  cursor: default;
+  cursor: pointer;
 }
 .my-music-button{
   margin-top:15px;
@@ -616,13 +615,13 @@ code {
   color: rgb(56, 172, 10);
 }
 .my-music-button-selected:hover{
-  cursor: default;
+  cursor: pointer;
 }
 .list-icon{
   padding-right:5px;
 }
 .my-music-button:hover{
-  cursor: default;
+  cursor: pointer;
   background-color: rgb(83, 83, 83);
 }
 .box{

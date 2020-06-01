@@ -33,7 +33,6 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
     return (
         <div className="music-container">
             <div className="top-view">
-                <div className="number">#</div>
                 <div className="title">Title</div>
                 <div className="author">Artist</div>
                 <div className="time-clock">
@@ -43,7 +42,6 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
             {currentPlaylist.map(({ file, title, artist, duration, rawDuration }, key) => (
                 src === Settings.server + 'music/' + file ?
                     <div className="middle-view-selected" key={key}>
-                        <div className="number">{key}</div>
                         <div className="title" onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>{title}</div>
                         <div className="author">{artist}</div>
                         <div className="time">{duration}</div>
@@ -57,7 +55,6 @@ const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPla
                         }
                     </div> :
                     <div className="middle-view" key={key}>
-                        <div className="number">{key}</div>
                         <div className="title" onClick={() => { handleTitleClick(file, key, duration, rawDuration) }}>{title}</div>
                         <div className="author">{artist}</div>
                         <div className="time">{duration}</div>
