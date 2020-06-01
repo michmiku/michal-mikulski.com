@@ -20,6 +20,7 @@ const ScrollSpy = () => {
 
     return (
         <div>
+            <ScrollTrigger style={{ position: 'absolute', top: '0' }} onEnter={() => { onEnterViewport(5) }}></ScrollTrigger>
             <div id="list-example" className="list-group position-sticky sticky-top scroll-buttons" style={{ top: '250px' }}>
                 <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-1" smooth={true} duration={500}><button type="button" className="btn  btn-outline-dark scrollspy-button">Skills</button></Link>
                 <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-2" smooth={true} duration={500}><button type="button" className="btn  btn-outline-dark scrollspy-button" >About Me</button></Link>

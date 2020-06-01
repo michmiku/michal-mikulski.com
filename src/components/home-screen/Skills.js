@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Skills = ({ enterViewPort, exitViewPort }) => {
     const [currentClass, setCurrentClass] = useState('info')
     useEffect(() => {
-        if ((enterViewPort > 1 && exitViewPort === 1) || (enterViewPort === 1 && exitViewPort === 2)) {
+        if ((enterViewPort > 1 && exitViewPort === 1) || (enterViewPort === 1 && exitViewPort === 2) || enterViewPort === 5) {
             setCurrentClass('info')
         }
         if ((enterViewPort === 2 && exitViewPort === 0) || (enterViewPort === 1 && exitViewPort === 3) || (enterViewPort === 2 && exitViewPort === 2)) {
