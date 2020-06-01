@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Skills = () => {
+const Skills = ({ enterViewPort, exitViewPort }) => {
+    const [currentClass, setCurrentClass] = useState('info')
+    useEffect(() => {
+        if (!exitViewPort === 1) {
+            setCurrentClass('current-info')
+        }
+        if (enterViewPort > 1 && exitViewPort === 1) {
+            setCurrentClass('info')
+        }
+        else if (enterViewPort === 1) {
+            setCurrentClass('current-info')
+        }
+    }, [enterViewPort, exitViewPort])
     return (
-        <div className="info">
+        <div className={currentClass}>
 
             <h1>Skills</h1>
             <div className="row">
