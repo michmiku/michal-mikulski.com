@@ -136,13 +136,14 @@ const Music = () => {
                 </audio>
             </div>
             :
-            <div className="card-body" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
-                <h1 className="card-title">You are not logged in!</h1>
-                <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
-                <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>
-                <Link to="/register" className="btn btn-dark btn-lg">Register</Link>
+            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#f8edeb' }}>
+                <div className="card-body" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
+                    <h1 className="card-title">You are not logged in!</h1>
+                    <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
+                    <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>
+                    <Link to="/register" className="btn btn-dark btn-lg">Register</Link>
+                </div>
             </div>
-
     )
 }
 

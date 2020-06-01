@@ -726,29 +726,26 @@ code {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-@media only screen and (max-width: 750px) {
-  .header-name {
-    font-size: 60px;
-
-  }
-  .header-job {
-    font-size: 30px;
-  }
- 
-}
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 760px) {
   .info{
-    width:390px;
-   left:50px;
+    width:480px;
   }
   .info-aboutme{
-    width:390px;
-    height:420px
+    width:480px;
+    height:550px
   }
   .info-projects{
-    width:390px;
+    width:480px;
   }
+  .skill-text{
 
+    font-size: 20px;
+    padding-left: 30px;
+  }
+  .skill-icon{
+    font-size: 35px;
+    padding-left: 10px;
+  }
 }
 @media only screen and (max-width: 680px) {
   .footer-copyright{
@@ -760,7 +757,7 @@ code {
   }
   .info-aboutme{
     width:370px;
-    height:450px
+    height:600px
   }
   .info-projects{
     width:370px;
@@ -772,8 +769,17 @@ code {
   .header-job {
     font-size: 20px;
   }
+  .skill-text{
+
+    font-size: 19px;
+    padding-left: 10px;
+  }
+  .skill-icon{
+    font-size: 32px;
+    padding-left: 0;
+  }
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 1000px) {
   .scrollspy-button{
     visibility: hidden;
   }
