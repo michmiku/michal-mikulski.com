@@ -37,6 +37,8 @@ code {
 }
 .header:hover{
   transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
 }
 .header-container{
   width:100%;
