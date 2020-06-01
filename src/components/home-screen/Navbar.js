@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthenticatedUser } from "../contexts/AuthenticatedUser.js"
+import { AuthenticatedUser } from "../../contexts/AuthenticatedUser.js"
 
 const Navbar = (props) => {
   const { authUser, setAuthUser } = useContext(AuthenticatedUser)

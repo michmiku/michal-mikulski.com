@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Settings from "../Settings.json"
+import Settings from "../../Settings.json"
 
 const ListOfUsers = () => {
     const [users, setUsers] = useState({ listOfUsers: [] })

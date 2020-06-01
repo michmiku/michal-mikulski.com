@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { AuthenticatedUser } from "../contexts/AuthenticatedUser.js"
-import Settings from "../Settings.json"
+import { AuthenticatedUser } from "../../contexts/AuthenticatedUser.js"
+import Settings from "../../Settings.json"
 
 const Login = () => {
     const [user, setUser] = useState({ username: '', password: '' });
@@ -31,7 +31,7 @@ const Login = () => {
     }
     return (
         authUser.username === "" || authUser.username === 'null' || authUser.username === null ?
-            <div align="center" className="container-login" style={{ color: "rgb(201, 201, 201)" }}>
+            <div align="center" className="container-login" style={{ color: "grey" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
@@ -61,7 +61,7 @@ const Login = () => {
                 </form>
             </div>
             :
-            <div className="jumbotron" style={{ backgroundColor: 'rgb(82, 82, 82)', color: 'rgb(201, 201, 201)' }}>
+            <div className="jumbotron" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
                 <h1 className="display-4">You are logged in!</h1>
                 <p className="lead">You have successfully logged in to your account!</p>
                 <hr className="my-4" />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import Settings from "../Settings.json"
+import Settings from "../../Settings.json"
 
 const Register = () => {
     const [user, setUser] = useState({ username: '', password: '', success: false });
@@ -22,7 +22,7 @@ const Register = () => {
 
     return (
         !user.success ?
-            <div align="center" className="container-login" style={{ color: "rgb(201, 201, 201)" }}>
+            <div align="center" className="container-login" style={{ color: "grey" }}>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Username: </label>
@@ -52,7 +52,7 @@ const Register = () => {
                 </form>
             </div>
             :
-            <div className="jumbotron" style={{ backgroundColor: 'rgb(82, 82, 82)', color: 'rgb(201, 201, 201)' }}>
+            <div className="jumbotron" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
                 <h1 className="display-4">You are registered!</h1>
                 <p className="lead">You have successfully created your account!</p>
                 <hr className="my-4" />

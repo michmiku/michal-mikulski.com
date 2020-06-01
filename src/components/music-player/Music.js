@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { AuthenticatedUser } from "../contexts/AuthenticatedUser.js"
+import { AuthenticatedUser } from "../../contexts/AuthenticatedUser.js"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Player from "./Player.js";
 import Sidebar from "./Sidebar.js";
 import MusicList from "./MusicList.js";
-import Settings from "../Settings.json"
+import Settings from "../../Settings.json"
 
 const Music = () => {
     const [musicList, setMusicList] = useState({ music: [] })
@@ -136,8 +136,7 @@ const Music = () => {
                 </audio>
             </div>
             :
-
-            <div className="card-body" style={{ backgroundColor: 'rgb(82, 82, 82)', color: 'rgb(201, 201, 201)' }}>
+            <div className="card-body" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
                 <h1 className="card-title">You are not logged in!</h1>
                 <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
                 <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>

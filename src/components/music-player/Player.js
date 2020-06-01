@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import Settings from "../Settings.json"
+import Settings from "../../Settings.json"
 
 const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, duration, currentTime, musicList, currentId, setCurrentId, setDuration, setIsPlaying, myMusic, repeat, setRepeat, random, setRandom, currentArtistPlaylist, currentArtist }) => {
     const progress = useRef(null)

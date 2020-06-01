@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from 'axios'
-import Settings from "../Settings.json"
+import Settings from "../../Settings.json"
 
 const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPlaying, src, authUser, favoriteMusic, setFavoriteMusic, currentPlaylist, myMusic, setCurrentPlaylist }) => {
     const handleAddToFavorite = (file, title, artist) => {

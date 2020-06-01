@@ -1,11 +1,11 @@
 import React from 'react';
 import { HashRouter as Router, Route } from "react-router-dom";
-import Navbar from "./components/Navbar"
-import Register from "./components/Register.js"
-import HomeScreen from "./components/HomeScreen.js"
-import Login from "./components/Login.js"
-import ListOfUsers from "./components/ListOfusers.js"
-import Music from './components/Music';
+import Navbar from "./components/home-screen/Navbar"
+import Register from "./components/home-screen/Register.js"
+import HomeScreen from "./components/home-screen/HomeScreen.js"
+import Login from "./components/home-screen/Login.js"
+import ListOfUsers from "./components/home-screen/ListOfusers.js"
+import Music from './components/music-player/Music';
 
 const Routes = () => {
     return (
