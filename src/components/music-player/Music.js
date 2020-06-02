@@ -53,6 +53,8 @@ const Music = () => {
         setSrc(Settings.server + 'music/' + file)
         setIsPlaying({ playing: true })
         setCurrentId(key)
+        player.current.load()
+        player.current.play()
         setDuration({ duration: duration, rawDuration: rawDuration })
         setCurrentArtist(currentArtistPlaylist)
     }
