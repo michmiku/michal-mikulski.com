@@ -63,7 +63,7 @@ const Login = () => {
             </div>
             :
             <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div className="jumbotron" style={{ backgroundColor: '#d6d6d6', color: '#e5e5e5' }}>
+                <div className="jumbotron" style={{ backgroundColor: '#d6d6d6', color: '#5a5a5a' }}>
                     <h1 className="display-4">You are logged in!</h1>
                     <p className="lead">You have successfully logged in to your account!</p>
                     <hr className="my-4" />

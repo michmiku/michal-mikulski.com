@@ -22,7 +22,7 @@ const Register = () => {
 
     return (
         !user.success ?
-            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#f8edeb' }}>
+            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
                 <div align="center" className="container-login" style={{ color: "grey" }}>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
@@ -55,7 +55,7 @@ const Register = () => {
             </div>
             :
             <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div className="jumbotron" style={{ backgroundColor: '#d6d6d6', color: '#e5e5e5' }}>
+                <div className="jumbotron" style={{ backgroundColor: '#d6d6d6', color: '#5a5a5a' }}>
                     <h1 className="display-4">You are registered!</h1>
                     <p className="lead">You have successfully created your account!</p>
                     <hr className="my-4" />

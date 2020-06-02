@@ -48,7 +48,7 @@ const ListOfUsers = () => {
                     </thead>
                     <tbody>{
                         users.listOfUsers.map((user, key) => (
-                            <tr key={key} style={{ color: '#e5e5e5' }}>
+                            <tr key={key} style={{ color: '#5a5a5a' }}>
                                 <th scope="row" style={{ paddingTop: '22px' }}>{key}</th>
                                 <td style={{ paddingTop: '18px' }}><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleAdmin(user) }}>{String(user.admin)}</button></td>
                                 <td style={{ paddingTop: '20px' }}>{user.username}</td>

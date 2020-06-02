@@ -139,7 +139,7 @@ const Music = () => {
             </div>
             :
             <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div className="card-body" style={{ backgroundColor: '#d6d6d6', color: '#e5e5e5' }}>
+                <div className="card-body" style={{ backgroundColor: '#d6d6d6', color: '#5a5a5a' }}>
                     <h1 className="card-title">You are not logged in!</h1>
                     <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
                     <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>
