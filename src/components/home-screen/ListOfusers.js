@@ -11,7 +11,7 @@ const ListOfUsers = () => {
                 setUsers({ listOfUsers: res.data })
             })
             .catch(err => console.log(err));
-    })
+    }, [users])
     const handleAdmin = (user) => {
         axios.post(Settings.server + 'users/updateAdmin', user)
             .then(res => {

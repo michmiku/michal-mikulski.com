@@ -19,7 +19,7 @@ const Projects = ({ enterViewPort, exitViewPort }) => {
                 <img src={mern} className="card-img-top" alt="mern" />
                 <div className="card-body">
                     <Link to="/music" className="btn btn-link" href="#" style={{ fontSize: '18px' }}>Music player</Link>
-                    <a className="btn btn-link" href="https://github.com/michmiku/portfolio" style={{ fontSize: '18px' }}>GitHub</a>
+                    <a className="btn btn-link" href="https://github.com/michmiku/music-player" target="_blank" style={{ fontSize: '18px' }}>GitHub</a>
                 </div>
             </div>
         </div>
