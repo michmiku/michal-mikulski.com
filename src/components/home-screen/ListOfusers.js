@@ -34,7 +34,7 @@ const ListOfUsers = () => {
             .catch(err => alert("Password is too short!"));
     }
     return (
-        <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#f8edeb' }}>
+        <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
             <div className="userlist-container">
                 <table className="table">
                     <thead className="thead-dark">
@@ -48,7 +48,7 @@ const ListOfUsers = () => {
                     </thead>
                     <tbody>{
                         users.listOfUsers.map((user, key) => (
-                            <tr key={key} style={{ color: 'grey' }}>
+                            <tr key={key} style={{ color: '#e5e5e5' }}>
                                 <th scope="row" style={{ paddingTop: '22px' }}>{key}</th>
                                 <td style={{ paddingTop: '18px' }}><button type="button" className="btn btn-secondary btn-sm " onClick={() => { handleAdmin(user) }}>{String(user.admin)}</button></td>
                                 <td style={{ paddingTop: '20px' }}>{user.username}</td>

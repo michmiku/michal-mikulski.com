@@ -54,8 +54,8 @@ const Register = () => {
                 </div>
             </div>
             :
-            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#f8edeb' }}>
-                <div className="jumbotron" style={{ backgroundColor: '#f8edeb', color: 'grey' }}>
+            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
+                <div className="jumbotron" style={{ backgroundColor: '#d6d6d6', color: '#e5e5e5' }}>
                     <h1 className="display-4">You are registered!</h1>
                     <p className="lead">You have successfully created your account!</p>
                     <hr className="my-4" />
