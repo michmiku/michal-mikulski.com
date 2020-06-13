@@ -43,7 +43,7 @@ const Chart: React.FC<Props> = ({ data }) => {
 
     return (
         <LineChart
-            width={600}
+            width={700}
             height={400}
             data={lines}
             margin={{
