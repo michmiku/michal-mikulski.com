@@ -30,7 +30,7 @@ const Login = () => {
     }
     return (
         authUser.username === "" || authUser.username === 'null' || authUser.username === null ?
-            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
+            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6',textAlign:'center'}}>
                 <div className="container-login" style={{ color: "grey" }}>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">

@@ -1,7 +1,71 @@
 .main-container {
     width: 100vw;
-    height: calc(100vh - 50px);
-    background-color: #61ad2e;
+    height: calc(100vh - 48px);
+    background-color: #3d8b08;
     text-align: center;
-    color: 'white'
+    color: 'white';
+
+    .data-container {
+        position: absolute;
+        top: 900%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        .world-data {
+            width: 200px;
+            height: 70px;
+
+            .cases-text {
+                position: relative;
+                border: 1px solid black;
+                top: 25px;
+                margin-top: 10px;
+                background-color: rgb(101, 173, 83);
+                width: 100%;
+                height: 50%;
+            }
+
+            .cases-data {
+                position: relative;
+                border: 1px solid black;
+                top: 5px;
+                background-color: rgb(173, 221, 161);
+                width: 100%;
+                height: 50%;
+            }
+        }
+    }
+
+    .country-container {
+        position: absolute;
+        top: 1500%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        overflow: auto;
+        height: 550px;
+        width: 260px;
+        text-align: left;
+
+        .country {
+            padding-left: 10px;
+            padding-top: 7px;
+            width: 250px;
+            height: 35px;
+            background-color: rgb(195, 253, 60);
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(156, 221, 4);
+            }
+        }
+
+    }
+
+    .chart-container {
+        position: absolute;
+        top: 50px;
+        right: 0
+    }
 }
