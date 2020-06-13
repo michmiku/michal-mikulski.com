@@ -18,11 +18,17 @@ const Chart: React.FC<Props> = ({ data }) => {
     const [lines, setLines] = useState()
     useEffect(() => {
         var lines: any = []
-        console.log(data)
         if (data !== undefined) {
-            data.map((item: any, key: number) => {
+            let recovered: number = 0
+            data.map((item: any) => {
+                if (item.Province !== "") {
+                    recovered += item.Recovered
+                }
                 if (item.Province === "") {
-                    lines.push({ name: item.Date.slice(0, 10), confirmed: item.Confirmed, deaths: item.Deaths, recovered: item.Recovered, active: item.Confirmed - item.Deaths - item.Recovered })
+                    if (item.Recovered !== 0) {
+                        recovered = item.Recovered
+                    }
+                    lines.push({ name: item.Date.slice(5, 10), confirmed: item.Confirmed, deaths: item.Deaths, recovered: recovered, active: item.Confirmed - item.Deaths - item.Recovered })
                     setLines(lines)
                 }
             })
@@ -44,7 +50,7 @@ const Chart: React.FC<Props> = ({ data }) => {
                 top: 5, bottom: 5
             }}
         >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray="2 2" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
