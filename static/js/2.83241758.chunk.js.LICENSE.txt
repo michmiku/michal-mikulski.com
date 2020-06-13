@@ -41,6 +41,8 @@ object-assign
  * Date: 2020-05-04T22:49Z
  */
 
+/*! decimal.js-light v2.5.0 https://github.com/MikeMcl/decimal.js-light/LICENCE */
+
 /** @license React v0.19.1
  * scheduler.production.min.js
  *
