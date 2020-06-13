@@ -1,7 +1,7 @@
 .main-container {
   width: 100vw;
   height: calc(100vh - 50px);
-  background-color: 173;
+  background-color: #61ad2e;
   text-align: center;
   color: "white";
 }
