@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { AuthenticatedUser } from "../../contexts/AuthenticatedUser.js"
+import { AuthenticatedUser } from "../../contexts/AuthenticatedUser"
 import Settings from "../../Settings.json"
 
 const Login = () => {
     const [user, setUser] = useState({ username: '', password: '' });
     const { authUser, setAuthUser } = useContext(AuthenticatedUser)
-    const handleSubmit = e => {
+    const handleSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
 
         const userData = {
@@ -31,7 +31,7 @@ const Login = () => {
     return (
         authUser.username === "" || authUser.username === 'null' || authUser.username === null ?
             <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div align="center" className="container-login" style={{ color: "grey" }}>
+                <div className="container-login" style={{ color: "grey" }}>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label>Username: </label>

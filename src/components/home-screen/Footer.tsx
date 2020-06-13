@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/footer.css";
+import "../../styles/css/footer.css";
 
 const Footer = () => {
     return (
@@ -13,16 +13,16 @@ const Footer = () => {
                 <div className="col text-center">
                     <ul className="footer-ul">
                         <li>
-                            <a href="https://www.facebook.com/PopeDucks" target="_blank"><i class="fab fa-facebook-f i"></i></a>
+                            <a href="https://www.facebook.com/PopeDucks" target="_blank"><i className="fab fa-facebook-f i"></i></a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/michalko258" target="_blank"><i class="fab fa-twitter i"></i></a>
+                            <a href="https://twitter.com/michalko258" target="_blank"><i className="fab fa-twitter i"></i></a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/micha%C5%82-mikulski-7145491ab/" target="_blank"><i class="fab fa-linkedin-in i"></i></a>
+                            <a href="https://www.linkedin.com/in/micha%C5%82-mikulski-7145491ab/" target="_blank"><i className="fab fa-linkedin-in i"></i></a>
                         </li>
                         <li>
-                            <a href="https://github.com/michmiku" target="_blank"><i class="fab fa-github i"></i></a>
+                            <a href="https://github.com/michmiku" target="_blank"><i className="fab fa-github i"></i></a>
                         </li>
                     </ul>
                 </div>

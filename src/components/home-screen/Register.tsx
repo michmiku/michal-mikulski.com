@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import Settings from "../../Settings.json"
 
 const Register = () => {
-    const [user, setUser] = useState({ username: '', password: '', success: false });
-    const handleSubmit = e => {
+    const [user, setUser] = useState<{ username: string, password: string, success: boolean }>({ username: '', password: '', success: false });
+    const handleSubmit = (e: { preventDefault: () => void }) => {
         e.preventDefault();
 
         const userData = {
@@ -13,7 +13,7 @@ const Register = () => {
             password: user.password
         }
         axios.post(Settings.server + "users/add", userData)
-            .then(res => setUser({ success: true }))
+            .then(res => setUser({ username: '', password: '', success: true }))
             .catch(err => {
                 alert("Username is already taken!")
                 setUser({ username: '', password: '', success: false })
@@ -23,7 +23,7 @@ const Register = () => {
     return (
         !user.success ?
             <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div align="center" className="container-login" style={{ color: "grey" }}>
+                <div className="container-login" style={{ color: "grey" }}>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label>Username: </label>
@@ -33,7 +33,7 @@ const Register = () => {
                                 className="form-control"
                                 style={{ width: "250px" }}
                                 value={user.username}
-                                onChange={(e) => { setUser({ username: e.target.value, password: user.password }) }}
+                                onChange={(e) => { setUser({ username: e.target.value, password: user.password, success: false }) }}
                             />
                         </div>
                         <div className="form-group">
@@ -44,7 +44,7 @@ const Register = () => {
                                 className="form-control"
                                 style={{ width: "250px" }}
                                 value={user.password}
-                                onChange={(e) => { setUser({ username: user.username, password: e.target.value }) }}
+                                onChange={(e) => { setUser({ username: user.username, password: e.target.value, success: false }) }}
                             />
                         </div>
                         <div className="form-group">

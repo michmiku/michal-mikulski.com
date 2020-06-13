@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-const Skills = ({ enterViewPort, exitViewPort }) => {
+interface Props {
+    enterViewPort: number;
+    exitViewPort: number;
+}
+
+const Skills: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
     const [currentClass, setCurrentClass] = useState('info')
     useEffect(() => {
-        if ((enterViewPort > 1 && exitViewPort === 1) || (enterViewPort === 1 && exitViewPort === 2) || enterViewPort === 5) {
-            setCurrentClass('info')
-        }
         if ((enterViewPort === 2 && exitViewPort === 0) || (enterViewPort === 1 && exitViewPort === 3) || (enterViewPort === 2 && exitViewPort === 2)) {
             setCurrentClass('current-info')
         }
+        else {
+            setCurrentClass('info')
+        }
+
     }, [enterViewPort, exitViewPort])
     return (
         <div className={currentClass}>
@@ -42,6 +48,14 @@ const Skills = ({ enterViewPort, exitViewPort }) => {
                     </div>
                     <div className="skills-container">
                         <div className="skills-icon-container">
+                            <i className="fab fa-js skill-icon" style={{ color: 'rgb(255,217,58)' }}></i>
+                        </div>
+                        <div className="skills-text-container">
+                            <a className="skill-text">TypeScript</a>
+                        </div>
+                    </div>
+                    <div className="skills-container">
+                        <div className="skills-icon-container">
                             <i className="fab fa-bootstrap skill-icon" style={{ color: 'rgb(84,59,121)' }}></i>
                         </div>
                         <div className="skills-text-container">
@@ -56,6 +70,8 @@ const Skills = ({ enterViewPort, exitViewPort }) => {
                             <a className="skill-text">React/Redux</a>
                         </div>
                     </div>
+                </div>
+                <div className="col">
                     <div className="skills-container">
                         <div className="skills-icon-container">
                             <i className="fab fa-react skill-icon" style={{ color: 'rgb(97,218,251)' }}></i>
@@ -64,8 +80,6 @@ const Skills = ({ enterViewPort, exitViewPort }) => {
                             <a className="skill-text">React Native</a>
                         </div>
                     </div>
-                </div>
-                <div className="col">
                     <div className="skills-container">
                         <div className="skills-icon-container">
                             <i className="fab fa-sass skill-icon" style={{ color: 'rgb(201,97,150)' }}></i>

@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import mern from "../../images/mern.jpg"
 import { Link } from 'react-router-dom'
 
-const Projects = ({ enterViewPort, exitViewPort }) => {
+interface Props {
+    enterViewPort: number;
+    exitViewPort: number;
+}
+
+const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
     const [currentClass, setCurrentClass] = useState('info-projects')
     useEffect(() => {
         if ((enterViewPort === 3 || enterViewPort === 4) && exitViewPort === 2) {

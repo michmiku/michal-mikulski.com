@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthenticatedUser } from "../../contexts/AuthenticatedUser.js"
+import { AuthenticatedUser } from "../../contexts/AuthenticatedUser"
 
-const Navbar = (props) => {
+const Navbar = () => {
   const { authUser, setAuthUser } = useContext(AuthenticatedUser)
   const handleLogout = () => {
     setAuthUser({ username: '' })
     localStorage.setItem('user', '')
-    localStorage.setItem('admin', false)
-    window.location = "/#/"
+    localStorage.setItem('admin', 'false')
+    window.location.href = "/#/"
   }
   useEffect(() => {
     let user = localStorage.getItem('user')
@@ -29,6 +29,9 @@ const Navbar = (props) => {
           </li>
           <li className="nav-item">
             <Link to="/music" className="nav-link text-white" href="#">Music player</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/covid19" className="nav-link text-white" href="#">Covid-19 data</Link>
           </li>
         </ul>
         {(authUser.username === '' || authUser.username === 'null' || authUser.username === null) ?

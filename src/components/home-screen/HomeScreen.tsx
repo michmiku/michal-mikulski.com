@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import ScrollSpy from "./ScrollSpy.js"
-import Footer from './Footer.js'
+import ScrollSpy from "./ScrollSpy"
+import Footer from './Footer'
 import axios from 'axios'
 import Settings from "../../Settings.json"
-import Header from './Header.js'
+import Header from './Header'
 
 const HomeScreen = () => {
     useEffect(() => {

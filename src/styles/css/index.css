@@ -23,7 +23,7 @@ code {
 }
 .header{
   display: inline-block;
-  background: url('./images/header.png');
+  background: url('../../images/header.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
