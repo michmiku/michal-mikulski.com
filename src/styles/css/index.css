@@ -618,7 +618,7 @@ code {
   text-overflow: ellipsis;
 }
 .sidebar{
-  height: calc(100vh - 50px);
+  height: calc(100vh - 49px);
   width: 180px;
   position: fixed;
   z-index: 1;
