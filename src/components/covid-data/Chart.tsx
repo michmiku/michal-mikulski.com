@@ -42,25 +42,29 @@ const Chart: React.FC<Props> = ({ data }) => {
 
 
     return (
-        <LineChart
-            width={700}
-            height={400}
-            data={lines}
-            margin={{
-                top: 5, bottom: 5
-            }}
-        >
-            <CartesianGrid strokeDasharray="2 2" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="confirmed" stroke="black" />
-            <Line type="monotone" dataKey="deaths" stroke="red" />
-            <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" />
-            <Line type="monotone" dataKey="active" stroke="blue" />
+        <div className="chart">
 
-        </LineChart>
+            <LineChart
+                width={700}
+                height={400}
+                data={lines}
+                margin={{
+                    top: 5, bottom: 5
+                }}
+            >
+                <CartesianGrid strokeDasharray="2 2" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line type="monotone" dataKey="confirmed" stroke="black" />
+                <Line type="monotone" dataKey="deaths" stroke="red" />
+                <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" />
+                <Line type="monotone" dataKey="active" stroke="blue" />
+
+            </LineChart>
+        </div>
+
     )
 }
 

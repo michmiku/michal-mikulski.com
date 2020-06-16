@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, Fragment } from "react";
+import { Divider, Header, Icon, Table } from 'semantic-ui-react'
 import axios from 'axios'
 import '../../styles/css/covid19.css'
 
@@ -68,24 +68,35 @@ const Cases: React.FC<Props> = ({ country, setData }) => {
     }, [country])
 
     return (
-        <div className="data-container">
-            <div className="world-data">
-                <div className="cases-text">TOTAL CASES</div><br />
-                <div className="cases-data">{topData.data.total}</div>
-            </div>
-            <div className="world-data" >
-                <div className="cases-text">TOTAL DEATHS</div><br />
-                <div className="cases-data">{topData.data.deaths}</div>
-            </div>
-            <div className="world-data">
-                <div className="cases-text">TOTAL RECOVERED</div><br />
-                <div className="cases-data">{topData.data.recovered}</div>
-            </div>
-            <div className="world-data">
-                <div className="cases-text">ACTIVE CASES</div><br />
-                <div className="cases-data">{topData.data.current}</div>
-            </div>
-        </div>
+        <React.Fragment >
+            <Divider horizontal>
+                <Header as='h3' className='cases-header'>
+                    {country.country}
+                </Header>
+            </Divider>
+
+            <Table definition >
+                <Table.Body>
+                    <Table.Row>
+                        <Table.Cell width={2}>TOTAL CASES</Table.Cell>
+                        <Table.Cell>{topData.data.total}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>TOTAL DEATHS</Table.Cell>
+                        <Table.Cell>{topData.data.deaths}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>TOTAL RECOVERED</Table.Cell>
+                        <Table.Cell>{topData.data.recovered}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                        <Table.Cell>ACTIVE CASES</Table.Cell>
+                        <Table.Cell>{topData.data.current}</Table.Cell>
+                    </Table.Row>
+                </Table.Body>
+            </Table>
+        </React.Fragment>
+
     )
 }
 

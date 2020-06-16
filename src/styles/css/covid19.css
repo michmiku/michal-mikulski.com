@@ -1,60 +1,36 @@
 .main-container {
   width: 100vw;
-  height: calc(100vh - 48px);
-  background-color: #3d8b08;
+  height: calc(100vh - 49px);
+  background-color: #e2e2e2;
   text-align: center;
   color: "white";
-}
-.main-container .data-container {
-  position: absolute;
-  top: 900%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.main-container .data-container .world-data {
-  width: 200px;
-  height: 70px;
-}
-.main-container .data-container .world-data .cases-text {
-  position: relative;
-  border: 1px solid black;
-  top: 25px;
-  margin-top: 10px;
-  background-color: #65ad53;
-  width: 100%;
-  height: 50%;
-}
-.main-container .data-container .world-data .cases-data {
-  position: relative;
-  border: 1px solid black;
-  top: 5px;
-  background-color: #addda1;
-  width: 100%;
-  height: 50%;
+  overflow: hidden;
 }
 .main-container .country-container {
-  position: absolute;
-  top: 1500%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  overflow: auto;
   height: 550px;
-  width: 300px;
-  text-align: left;
+  width: 400px;
 }
-.main-container .country-container .country {
-  padding-left: 10px;
-  padding-top: 7px;
-  width: 289px;
-  height: 35px;
-  background-color: #c3fd3c;
-  cursor: pointer;
+.main-container .data-columns {
+  left: 50px;
+  top: 60px;
 }
-.main-container .country-container .country:hover {
-  background-color: #9cdd04;
+.main-container .countryList {
+  position: relative;
+  top: 80px;
 }
-.main-container .chart-container {
-  position: absolute;
-  top: 50px;
-  right: 0;
+.main-container .chart-col {
+  position: relative;
+  top: 40px;
+}
+.main-container .chart-col .chart-container {
+  position: relative;
+  left: 12%;
+}
+.main-container .cases-header {
+  background-image: none;
+}
+.main-container .chart {
+  width: 80%;
+  height: 100%;
+  background-color: #cfcfcf;
 }
