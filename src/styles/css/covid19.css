@@ -55,3 +55,12 @@
 .main-container .second-row {
   height: calc(30% - 49px);
 }
+.main-container .ascending {
+  background-color: #f2f2f2 !important;
+}
+.main-container .descending {
+  background-color: #f2f2f2 !important;
+}
+.main-container th:hover {
+  background-color: #f2f2f2 !important;
+}

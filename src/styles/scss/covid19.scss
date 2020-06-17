@@ -70,4 +70,15 @@
         height: calc(30% - 49px)
     }
 
+    .ascending {
+        background-color: rgb(242, 242, 242) !important
+    }
+
+    .descending {
+        background-color: rgb(242, 242, 242) !important
+    }
+
+    th:hover {
+        background-color: rgb(242, 242, 242) !important
+    }
 }
