@@ -59,7 +59,7 @@
 
     .countryTable {
         margin: 0 30px;
-        height: 400px;
+        height: 230%;
     }
 
     .first-row {
@@ -69,10 +69,5 @@
     .second-row {
         height: calc(30% - 49px)
     }
-}
 
-@media only screen and (max-width: 1000px) {
-    .scrollspy-button {
-        visibility: hidden;
-    }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner'
-
-const Sidebar = ({ musicList, handleNewArtist, myMusic, setMyMusic, setCurrentArtistPlaylist, currentArtistPlaylist }) => {
+import Alert from 'react-bootstrap/Alert'
+const Sidebar = ({ musicList, handleNewArtist, myMusic, setMyMusic, setCurrentArtistPlaylist, currentArtistPlaylist, authUser }) => {
     const [artists, setArtists] = useState([])
     const [loaded, setLoaded] = useState(false)
 
@@ -17,8 +17,13 @@ const Sidebar = ({ musicList, handleNewArtist, myMusic, setMyMusic, setCurrentAr
     }, [musicList])
 
     const handleMyMusic = () => {
-        setMyMusic(true)
-        setCurrentArtistPlaylist("favorite")
+        if (authUser.username !== '' && authUser.username !== 'null' && authUser.username !== null) {
+            setMyMusic(true)
+            setCurrentArtistPlaylist("favorite")
+        }
+        else {
+            alert("If you want to access your own playlist you need to login to your account!")
+        }
     }
     return (
 

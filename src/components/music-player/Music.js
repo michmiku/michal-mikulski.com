@@ -128,24 +128,14 @@ const Music = () => {
         setCurrentArtistPlaylist(artist)
     }
     return (
-        authUser.username !== '' && authUser.username !== 'null' && authUser.username !== null ?
-            <div className="box">
-                <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} />
-                <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
-                <Player isPlaying={isPlaying} handlePlay={() => { handlePlay() }} handlePause={() => { handlePause() }} player={player} src={src} setSrc={setSrc} duration={duration} currentTime={currentTime} musicList={currentPlaylist} currentId={currentId} setCurrentId={setCurrentId} setDuration={setDuration} setIsPlaying={setIsPlaying} myMusic={myMusic} repeat={repeat} setRepeat={setRepeat} random={random} setRandom={setRandom} currentArtistPlaylist={currentArtistPlaylist} currentArtist={currentArtist} />
-                <audio ref={player} onTimeUpdate={() => handleProgress()} onEnded={() => { handleEnd() }}>
-                    <source src={src} />
-                </audio>
-            </div>
-            :
-            <div style={{ width: '100vw', height: 'calc(100vh - 49px)', backgroundColor: '#d6d6d6' }}>
-                <div className="card-body" style={{ backgroundColor: '#d6d6d6', color: '#5a5a5a' }}>
-                    <h1 className="card-title">You are not logged in!</h1>
-                    <h3 className="card-text">In order to browse and listen to music you need to either login to your account or create a new one.</h3>
-                    <Link to="/login" className="btn btn-dark mr-5 btn-lg">Login</Link>
-                    <Link to="/register" className="btn btn-dark btn-lg">Register</Link>
-                </div>
-            </div>
+        <div className="box">
+            <Sidebar musicList={musicList} handleNewArtist={handleNewArtist} myMusic={myMusic} setMyMusic={setMyMusic} setCurrentArtistPlaylist={setCurrentArtistPlaylist} currentArtistPlaylist={currentArtistPlaylist} authUser={authUser} />
+            <MusicList musicList={musicList} handleTitleClick={handleTitleClick} handlePlay={handlePlay} handlePause={handlePause} isPlaying={isPlaying} src={src} authUser={authUser} favoriteMusic={favoriteMusic} setFavoriteMusic={setFavoriteMusic} currentPlaylist={currentPlaylist} myMusic={myMusic} setCurrentPlaylist={setCurrentPlaylist} />
+            <Player isPlaying={isPlaying} handlePlay={() => { handlePlay() }} handlePause={() => { handlePause() }} player={player} src={src} setSrc={setSrc} duration={duration} currentTime={currentTime} musicList={currentPlaylist} currentId={currentId} setCurrentId={setCurrentId} setDuration={setDuration} setIsPlaying={setIsPlaying} myMusic={myMusic} repeat={repeat} setRepeat={setRepeat} random={random} setRandom={setRandom} currentArtistPlaylist={currentArtistPlaylist} currentArtist={currentArtist} />
+            <audio ref={player} onTimeUpdate={() => handleProgress()} onEnded={() => { handleEnd() }}>
+                <source src={src} />
+            </audio>
+        </div>
     )
 }
 

@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import Settings from "../../Settings.json"
 
 const MusicList = ({ musicList, handleTitleClick, handlePlay, handlePause, isPlaying, src, authUser, favoriteMusic, setFavoriteMusic, currentPlaylist, myMusic, setCurrentPlaylist }) => {
+    const [count, setCount] = useState(0)
     const handleAddToFavorite = (file, title, artist) => {
-        axios.post(Settings.server + 'music/add', { authUser, file, title, artist })
-            .then(res => {
-                //console.log("added to favorite!")
-                let newFavorite = [...favoriteMusic, title]
-                setFavoriteMusic(newFavorite)
-            })
-            .catch(err => console.log(err));
+        if (authUser.username !== '' && authUser.username !== 'null' && authUser.username !== null) {
+            axios.post(Settings.server + 'music/add', { authUser, file, title, artist })
+                .then(res => {
+                    let newFavorite = [...favoriteMusic, title]
+                    setFavoriteMusic(newFavorite)
+                })
+                .catch(err => console.log(err));
+        }
+        else {
+            if (count === 0) {
+                setCount(1)
+                alert("If you want to add a song to your playlist you need to login to your account first!")
+            }
+        }
+
     }
     const handleRemoveFromFavorite = (title) => {
         let newFavorite = favoriteMusic.filter(item => item !== title)

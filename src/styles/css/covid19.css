@@ -47,17 +47,11 @@
 }
 .main-container .countryTable {
   margin: 0 30px;
-  height: 400px;
+  height: 230%;
 }
 .main-container .first-row {
   height: calc(70% - 49px);
 }
 .main-container .second-row {
   height: calc(30% - 49px);
-}
-
-@media only screen and (max-width: 1000px) {
-  .scrollspy-button {
-    visibility: hidden;
-  }
 }
