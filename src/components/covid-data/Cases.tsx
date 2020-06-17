@@ -8,10 +8,11 @@ interface Props {
         country: string;
         slug: string;
     };
-    setData: React.Dispatch<any>
+    setData: React.Dispatch<any>,
+    usaData: any
 }
 
-const Cases: React.FC<Props> = ({ country, setData }) => {
+const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
     const [topData, setTopData] = useState<{ data: any }>({ data: {} })
     useEffect(() => {
         if (country.country === "World") {
@@ -26,6 +27,31 @@ const Cases: React.FC<Props> = ({ country, setData }) => {
                     setTopData({ data })
                 })
                 .catch(err => console.log(err));
+        }
+        else if (country.slug === 'united-states') {
+            if (usaData.length > 1) {
+                var x = 1
+                while (usaData[usaData.length - x].Province !== "") {
+                    x++
+                }
+                var y = x + 1
+                while (usaData[usaData.length - y].Province !== "") {
+                    y++
+                }
+                let newConfirmed = usaData[usaData.length - x].Confirmed - usaData[usaData.length - y].Confirmed
+                let newActive = usaData[usaData.length - x].Active - usaData[usaData.length - y].Active
+                let newDeaths = usaData[usaData.length - x].Deaths - usaData[usaData.length - y].Deaths
+                let newRecovered = usaData[usaData.length - x].Recovered - usaData[usaData.length - y].Recovered
+                let data = {
+                    total: usaData[usaData.length - x].Confirmed + '(+' + newConfirmed + ')',
+                    current: usaData[usaData.length - x].Active + '(+' + newActive + ')',
+                    deaths: usaData[usaData.length - x].Deaths + '(+' + newDeaths + ')',
+                    recovered: usaData[usaData.length - x].Recovered + '(+' + newRecovered + ')',
+                }
+                setTopData({ data })
+                setData(usaData)
+            }
+
         }
         else {
             axios.get('https://api.covid19api.com/country/' + country.slug)
@@ -76,21 +102,21 @@ const Cases: React.FC<Props> = ({ country, setData }) => {
             </Divider>
 
             <Table definition >
-                <Table.Body>
-                    <Table.Row>
-                        <Table.Cell width={2}>TOTAL CASES</Table.Cell>
+                <Table.Body >
+                    <Table.Row >
+                        <Table.Cell >TOTAL CASES</Table.Cell>
                         <Table.Cell>{topData.data.total}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
-                        <Table.Cell>TOTAL DEATHS</Table.Cell>
+                        <Table.Cell >TOTAL DEATHS</Table.Cell>
                         <Table.Cell>{topData.data.deaths}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
-                        <Table.Cell>TOTAL RECOVERED</Table.Cell>
+                        <Table.Cell >TOTAL RECOVERED</Table.Cell>
                         <Table.Cell>{topData.data.recovered}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
-                        <Table.Cell>ACTIVE CASES</Table.Cell>
+                        <Table.Cell >ACTIVE CASES</Table.Cell>
                         <Table.Cell>{topData.data.current}</Table.Cell>
                     </Table.Row>
                 </Table.Body>

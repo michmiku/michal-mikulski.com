@@ -12,9 +12,11 @@ interface Props {
         country: string;
         slug: string;
     };
-    data: any
+    data: any,
+    chartSize: any,
+
 }
-const Chart: React.FC<Props> = ({ data }) => {
+const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
     const [lines, setLines] = useState()
     useEffect(() => {
         var lines: any = []
@@ -40,13 +42,13 @@ const Chart: React.FC<Props> = ({ data }) => {
     }, [data])
 
 
-
     return (
-        <div className="chart">
+        <div className="chart" style={{ width: chartSize.width + 50, height: chartSize.height + 50 }}>
+            <h2>{country.country}</h2>
 
             <LineChart
-                width={700}
-                height={400}
+                width={chartSize.width}
+                height={chartSize.height}
                 data={lines}
                 margin={{
                     top: 5, bottom: 5
@@ -57,10 +59,10 @@ const Chart: React.FC<Props> = ({ data }) => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="confirmed" stroke="black" />
-                <Line type="monotone" dataKey="deaths" stroke="red" />
-                <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" />
-                <Line type="monotone" dataKey="active" stroke="blue" />
+                <Line type="monotone" dataKey="confirmed" stroke="black" dot={false} />
+                <Line type="monotone" dataKey="deaths" stroke="red" dot={false} />
+                <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" dot={false} />
+                <Line type="monotone" dataKey="active" stroke="blue" dot={false} />
 
             </LineChart>
         </div>

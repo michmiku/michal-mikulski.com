@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import '../../styles/css/covid19.css'
 import { Dropdown } from 'semantic-ui-react'
+import { Divider, Header, Icon, Table } from 'semantic-ui-react'
 
 interface Props {
     country: {
@@ -20,16 +21,19 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
     const [countryData, setCountryData] = useState<{ data: any }>({ data: [] })
     const [search, setSearch] = useState<any>([])
     useEffect(() => {
-        axios.get('https://api.covid19api.com/countries')
+        axios.get('https://api.covid19api.com/summary')
             .then(res => {
-                let data = res.data
-                data = data.sort(compare)
-                setCountryData({ data })
-                let searchVal: any = []
-                data.map((item: any) => {
-                    searchVal = [...searchVal, { text: item.Country, value: item.Slug, flag: item.ISO2.toLowerCase() }]
+
+                let data: any = []
+                setCountryData({ data: res.data.Countries })
+                res.data.Countries.map((item: any) => {
+                    data = [...data, {
+                        flag: item.CountryCode.toLowerCase(),
+                        text: item.Country,
+                        value: item.Slug
+                    }]
                 })
-                setSearch(searchVal)
+                setSearch(data)
             })
             .catch(err => console.log(err));
     }, [])
@@ -50,21 +54,22 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
         let temp = countryData.data.filter((item: any) => (
             item.Slug.toUpperCase() === value.toUpperCase()
         ))
-        console.log(temp)
         setCountry({ country: temp[0].Country, slug: temp[0].Slug, flag: temp[0].ISO2 })
     }
     return (
         <div className="country-container">
-
+            <Divider horizontal>
+                <Header as='h3' className='select-header'>
+                    Select Country
+                                </Header>
+            </Divider>
             <Dropdown
-                placeholder='Select Country'
                 fluid
                 search
                 selection
                 options={search}
                 value={country.country}
                 onChange={handleChange}
-
             />
         </div>
     )
