@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Divider, Header, Icon, Table, Label, Menu, Flag } from 'semantic-ui-react'
 import axios from 'axios'
 import '../../styles/css/covid19.css'
+import _ from 'lodash'
 
 interface Props {
     // country: {
@@ -14,6 +15,11 @@ interface Props {
 
 const CountryTable: React.FC<Props> = ({ }) => {
     const [data, setData] = useState<any>([])
+    const [sort, setSort] = useState<any>({
+        column: null,
+        data: data,
+        direction: null,
+    })
     useEffect(() => {
         axios.get('https://api.covid19api.com/summary')
             .then(res => {
@@ -23,37 +29,101 @@ const CountryTable: React.FC<Props> = ({ }) => {
                     data = [...data, {
                         flag: item.CountryCode.toLowerCase(),
                         country: item.Country,
-                        totalCases: item.TotalConfirmed + '(+' + item.NewConfirmed + ')',
-                        totalDeaths: item.TotalDeaths + '(+' + item.NewDeaths + ')',
-                        totalRecovered: item.TotalRecovered + '(+' + item.NewRecovered + ')',
-                        activeCases: (item.TotalConfirmed - item.TotalDeaths - item.TotalRecovered) + '(+' + (item.NewConfirmed - item.NewDeaths - item.NewRecovered) + ')'
+                        totalCases: item.TotalConfirmed,
+                        newCases: item.NewConfirmed,
+                        totalDeaths: item.TotalDeaths,
+                        newDeaths: item.NewDeaths,
+                        totalRecovered: item.TotalRecovered,
+                        newRecovered: item.NewRecovered,
+                        activeCases: (item.TotalConfirmed - item.TotalDeaths - item.TotalRecovered)
                     }]
                 })
                 setData(data)
+                setSort({
+                    column: null,
+                    data: data,
+                    direction: null,
+                })
             })
             .catch(err => console.log(err));
     }, [])
+    const handleSort = (clickedColumn: string) => () => {
+        const { column, data, direction } = sort
+        if (column !== clickedColumn) {
+            setSort({
+                column: clickedColumn,
+                data: _.sortBy(data, [clickedColumn]),
+                direction: 'ascending',
+            })
+            return
+        }
+        else {
+            setSort({
+                column: clickedColumn,
+                data: data.reverse(),
+                direction: direction === 'ascending' ? 'descending' : 'ascending',
+            })
+        }
+    }
 
     return (
         <div style={{ width: '100%', height: '60%', overflow: 'auto ' }}>
-            <Table celled stackable={true} layout>
+            <Table sortable celled fixed>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Country</Table.HeaderCell>
-                        <Table.HeaderCell>Total cases</Table.HeaderCell>
-                        <Table.HeaderCell>Total deaths</Table.HeaderCell>
-                        <Table.HeaderCell>Total recovered</Table.HeaderCell>
-                        <Table.HeaderCell>Active cases</Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'country' ? sort.direction : null}
+                            onClick={handleSort('country')}>
+                            Country
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'totalCases' ? sort.direction : null}
+                            onClick={handleSort('totalCases')}>
+                            Total cases
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'newCases' ? sort.direction : null}
+                            onClick={handleSort('newCases')}>
+                            New cases
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'totalDeaths' ? sort.direction : null}
+                            onClick={handleSort('totalDeaths')}>
+                            Total deaths
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'newDeaths' ? sort.direction : null}
+                            onClick={handleSort('newDeaths')}>
+                            New deaths
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'totalRecovered' ? sort.direction : null}
+                            onClick={handleSort('totalRecovered')}>
+                            Total recovered
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'newRecovered' ? sort.direction : null}
+                            onClick={handleSort('newRecovered')}>
+                            New recovered
+                        </Table.HeaderCell>
+                        <Table.HeaderCell
+                            sorted={sort.column === 'activeCases' ? sort.direction : null}
+                            onClick={handleSort('activeCases')}>
+                            Active cases
+                        </Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                    {data.map((item: any, key: number) => (
+                    {sort.data.map((item: any, key: number) => (
                         <Table.Row key={key}>
                             <Table.Cell><Flag name={item.flag} />{item.country}</Table.Cell>
                             <Table.Cell>{item.totalCases}</Table.Cell>
+                            <Table.Cell>{item.newCases}</Table.Cell>
                             <Table.Cell>{item.totalDeaths}</Table.Cell>
+                            <Table.Cell>{item.newDeaths}</Table.Cell>
                             <Table.Cell>{item.totalRecovered}</Table.Cell>
+                            <Table.Cell>{item.newRecovered}</Table.Cell>
                             <Table.Cell>{item.activeCases}</Table.Cell>
                         </Table.Row>
                     ))}

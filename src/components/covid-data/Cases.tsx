@@ -43,10 +43,14 @@ const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
                 let newDeaths = usaData[usaData.length - x].Deaths - usaData[usaData.length - y].Deaths
                 let newRecovered = usaData[usaData.length - x].Recovered - usaData[usaData.length - y].Recovered
                 let data = {
-                    total: usaData[usaData.length - x].Confirmed + '(+' + newConfirmed + ')',
-                    current: usaData[usaData.length - x].Active + '(+' + newActive + ')',
-                    deaths: usaData[usaData.length - x].Deaths + '(+' + newDeaths + ')',
-                    recovered: usaData[usaData.length - x].Recovered + '(+' + newRecovered + ')',
+                    total: + usaData[usaData.length - x].Confirmed,
+                    current: usaData[usaData.length - x].Active,
+                    deaths: usaData[usaData.length - x].Deaths,
+                    recovered: usaData[usaData.length - x].Recovered,
+                    newConfirmed: ' (+' + newConfirmed + ')',
+                    newActive: ' (+' + newActive + ')',
+                    newDeaths: ' (+' + newDeaths + ')',
+                    newRecovered: ' (+' + newRecovered + ')',
                 }
                 setTopData({ data })
                 setData(usaData)
@@ -80,10 +84,14 @@ const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
                         let newDeaths = res.data[res.data.length - x].Deaths - res.data[res.data.length - y].Deaths
                         let newRecovered = res.data[res.data.length - x].Recovered - res.data[res.data.length - y].Recovered
                         let data = {
-                            total: res.data[res.data.length - x].Confirmed + '(+' + newConfirmed + ')',
-                            current: res.data[res.data.length - x].Active + '(+' + newActive + ')',
-                            deaths: res.data[res.data.length - x].Deaths + '(+' + newDeaths + ')',
-                            recovered: res.data[res.data.length - x].Recovered + '(+' + newRecovered + ')',
+                            total: + res.data[res.data.length - x].Confirmed,
+                            current: res.data[res.data.length - x].Active,
+                            deaths: res.data[res.data.length - x].Deaths,
+                            recovered: res.data[res.data.length - x].Recovered,
+                            newConfirmed: ' (+' + newConfirmed + ')',
+                            newActive: ' (+' + newActive + ')',
+                            newDeaths: ' (+' + newDeaths + ')',
+                            newRecovered: ' (+' + newRecovered + ')',
                         }
                         setTopData({ data })
                     }
@@ -105,19 +113,19 @@ const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
                 <Table.Body >
                     <Table.Row >
                         <Table.Cell >TOTAL CASES</Table.Cell>
-                        <Table.Cell>{topData.data.total}</Table.Cell>
+                        <Table.Cell><b>{topData.data.total}</b>{topData.data.newConfirmed}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell >TOTAL DEATHS</Table.Cell>
-                        <Table.Cell>{topData.data.deaths}</Table.Cell>
+                        <Table.Cell><b>{topData.data.deaths}</b>{topData.data.newDeaths}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell >TOTAL RECOVERED</Table.Cell>
-                        <Table.Cell>{topData.data.recovered}</Table.Cell>
+                        <Table.Cell><b>{topData.data.recovered}</b>{topData.data.newRecovered}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                         <Table.Cell >ACTIVE CASES</Table.Cell>
-                        <Table.Cell>{topData.data.current}</Table.Cell>
+                        <Table.Cell><b>{topData.data.current}</b>{topData.data.newActive}</Table.Cell>
                     </Table.Row>
                 </Table.Body>
             </Table>
