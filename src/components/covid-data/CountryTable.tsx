@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Divider, Header, Icon, Table, Label, Menu, Flag } from 'semantic-ui-react'
+import { Table, Flag, Loader } from 'semantic-ui-react'
 import axios from 'axios'
 import '../../styles/css/covid19.css'
 import _ from 'lodash'
@@ -20,6 +20,7 @@ const CountryTable: React.FC<Props> = ({ }) => {
         data: data,
         direction: null,
     })
+    const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         axios.get('https://api.covid19api.com/summary')
             .then(res => {
@@ -44,6 +45,7 @@ const CountryTable: React.FC<Props> = ({ }) => {
                     data: data,
                     direction: null,
                 })
+                setIsLoading(false)
             })
             .catch(err => console.log(err));
     }, [])
@@ -69,66 +71,68 @@ const CountryTable: React.FC<Props> = ({ }) => {
     return (
         <div style={{ width: '100%', height: '60%', overflow: 'auto ' }}>
             <Table sortable celled fixed>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell
+                <Table.Header >
+                    <Table.Row >
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'country' ? sort.direction : null}
                             onClick={handleSort('country')}>
                             Country
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'totalCases' ? sort.direction : null}
                             onClick={handleSort('totalCases')}>
                             Total cases
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'newCases' ? sort.direction : null}
                             onClick={handleSort('newCases')}>
                             New cases
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'totalDeaths' ? sort.direction : null}
                             onClick={handleSort('totalDeaths')}>
                             Total deaths
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'newDeaths' ? sort.direction : null}
                             onClick={handleSort('newDeaths')}>
                             New deaths
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'totalRecovered' ? sort.direction : null}
                             onClick={handleSort('totalRecovered')}>
                             Total recovered
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'newRecovered' ? sort.direction : null}
                             onClick={handleSort('newRecovered')}>
                             New recovered
                         </Table.HeaderCell>
-                        <Table.HeaderCell
+                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
                             sorted={sort.column === 'activeCases' ? sort.direction : null}
                             onClick={handleSort('activeCases')}>
                             Active cases
                         </Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
+                {isLoading ?
+                    <Loader active inline='centered' content='Loading' style={{ margin: '20px', left: '40vw' }} /> :
+                    <Table.Body>
+                        {sort.data.map((item: any, key: number) => (
+                            <Table.Row key={key}>
+                                <Table.Cell><Flag name={item.flag} />{item.country}</Table.Cell>
+                                <Table.Cell>{item.totalCases}</Table.Cell>
+                                <Table.Cell>{item.newCases}</Table.Cell>
+                                <Table.Cell>{item.totalDeaths}</Table.Cell>
+                                <Table.Cell>{item.newDeaths}</Table.Cell>
+                                <Table.Cell>{item.totalRecovered}</Table.Cell>
+                                <Table.Cell>{item.newRecovered}</Table.Cell>
+                                <Table.Cell>{item.activeCases}</Table.Cell>
+                            </Table.Row>
+                        ))}
 
-                <Table.Body>
-                    {sort.data.map((item: any, key: number) => (
-                        <Table.Row key={key}>
-                            <Table.Cell><Flag name={item.flag} />{item.country}</Table.Cell>
-                            <Table.Cell>{item.totalCases}</Table.Cell>
-                            <Table.Cell>{item.newCases}</Table.Cell>
-                            <Table.Cell>{item.totalDeaths}</Table.Cell>
-                            <Table.Cell>{item.newDeaths}</Table.Cell>
-                            <Table.Cell>{item.totalRecovered}</Table.Cell>
-                            <Table.Cell>{item.newRecovered}</Table.Cell>
-                            <Table.Cell>{item.activeCases}</Table.Cell>
-                        </Table.Row>
-                    ))}
-
-                </Table.Body>
+                    </Table.Body>
+                }
             </Table>
         </div>
     )
