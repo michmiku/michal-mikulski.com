@@ -62,7 +62,7 @@ var CountryTable = function (_a) {
             });
         }
     }; };
-    return (React.createElement("div", { style: { width: '100%', height: '60%', overflow: 'auto ' } },
+    return (React.createElement("div", { style: { width: '100%', height: '100%', overflow: 'auto ' } },
         React.createElement(Table, { sortable: true, celled: true, fixed: true },
             React.createElement(Table.Header, null,
                 React.createElement(Table.Row, null,

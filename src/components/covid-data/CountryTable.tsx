@@ -69,7 +69,7 @@ const CountryTable: React.FC<Props> = ({ }) => {
     }
 
     return (
-        <div style={{ width: '100%', height: '60%', overflow: 'auto ' }}>
+        <div style={{ width: '100%', height: '100%', overflow: 'auto ' }}>
             <Table sortable celled fixed>
                 <Table.Header >
                     <Table.Row >
