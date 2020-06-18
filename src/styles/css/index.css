@@ -870,6 +870,13 @@ code {
   transform: translate(-50%, -50%);
 }
 
+.ts-icon {
+  width: 35px;
+  height: 35px;
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 850px) {
   .info {
     width: 480px;
@@ -907,7 +914,15 @@ code {
     font-size: 35px;
     padding-left: 10px;
   }
+
+  .ts-icon {
+    width: 31px;
+    height: 31px;
+    position: relative;
+    right: 20px
+  }
 }
+
 
 
 @media only screen and (max-width: 1000px) {

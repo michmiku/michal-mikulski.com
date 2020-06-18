@@ -49,7 +49,7 @@ const Skills: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                     </div>
                     <div className="skills-container">
                         <div className="skills-icon-container">
-                            <img src={TS} style={{ width: '35px', height: '35px', marginLeft: '30px', marginBottom: '5px' }}></img>
+                            <img className='ts-icon' src={TS} ></img>
                         </div>
                         <div className="skills-text-container">
                             <a className="skill-text" style={{ position: 'relative', top: '3px' }}>TypeScript</a>
