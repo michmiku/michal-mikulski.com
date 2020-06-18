@@ -41,9 +41,9 @@ code {
 }
 
 .header:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .header-container {
@@ -156,7 +156,7 @@ code {
   margin-bottom: 220px;
   background-color: #e5e5e5;
   border-radius: 10px;
-  padding: 40px;
+  padding: 20px;
   margin-top: 20px;
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -178,7 +178,7 @@ code {
   margin-bottom: 220px;
   background-color: #e5e5e5;
   border-radius: 10px;
-  padding: 40px;
+  padding: 20px;
   margin-top: 20px;
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
@@ -870,7 +870,7 @@ code {
   transform: translate(-50%, -50%);
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 850px) {
   .info {
     width: 480px;
   }
@@ -909,57 +909,6 @@ code {
   }
 }
 
-@media only screen and (max-width: 680px) {
-  .footer-copyright {
-    padding-top: 0;
-  }
-
-  .info {
-    width: 370px;
-  }
-
-  .current-info {
-    width: 370px;
-  }
-
-  .info-aboutme {
-    width: 370px;
-    height: 600px
-  }
-
-  .current-info-aboutme {
-    width: 370px;
-    height: 600px
-  }
-
-  .info-projects {
-    width: 370px;
-  }
-
-  .current-info-projects {
-    width: 370px;
-  }
-
-  .header-name {
-    font-size: 50px;
-
-  }
-
-  .header-job {
-    font-size: 20px;
-  }
-
-  .skill-text {
-
-    font-size: 19px;
-    padding-left: 10px;
-  }
-
-  .skill-icon {
-    font-size: 32px;
-    padding-left: 0;
-  }
-}
 
 @media only screen and (max-width: 1000px) {
   .scrollspy-button {

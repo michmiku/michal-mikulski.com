@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import TS from '../../images/typescript.png'
 
 interface Props {
     enterViewPort: number;
@@ -48,10 +49,10 @@ const Skills: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                     </div>
                     <div className="skills-container">
                         <div className="skills-icon-container">
-                            <i className="fab fa-js skill-icon" style={{ color: 'rgb(255,217,58)' }}></i>
+                            <img src={TS} style={{ width: '35px', height: '35px', marginLeft: '30px', marginBottom: '5px' }}></img>
                         </div>
                         <div className="skills-text-container">
-                            <a className="skill-text">TypeScript</a>
+                            <a className="skill-text" style={{ position: 'relative', top: '3px' }}>TypeScript</a>
                         </div>
                     </div>
                     <div className="skills-container">
