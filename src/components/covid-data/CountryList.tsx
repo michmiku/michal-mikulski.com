@@ -25,7 +25,7 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
             .then(res => {
 
                 let data: any = []
-                setCountryData({ data: res.data.Countries })
+                setCountryData({ data: [{ Country: 'World', Slug: 'world', Flag: undefined }, ...res.data.Countries] })
                 res.data.Countries.map((item: any) => {
                     data = [...data, {
                         flag: item.CountryCode.toLowerCase(),
@@ -33,7 +33,7 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
                         value: item.Slug
                     }]
                 })
-                setSearch(data)
+                setSearch([{ flag: undefined, text: "World", value: 'world' }, ...data])
             })
             .catch(err => console.log(err));
     }, [])
@@ -61,7 +61,7 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
             <Divider horizontal>
                 <Header as='h3' className='select-header'>
                     Select Country
-                                </Header>
+                </Header>
             </Divider>
             <Dropdown
                 fluid

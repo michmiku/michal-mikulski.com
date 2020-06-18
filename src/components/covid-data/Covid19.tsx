@@ -16,17 +16,18 @@ interface Props {
     setCountry: React.Dispatch<React.SetStateAction<{
         country: string;
         slug: string;
-        flag: string
+        flag: any
     }>>;
     data: any;
     setData: React.Dispatch<any>
 }
 
 const Covid19: React.FC<Props> = ({ }) => {
-    const [country, setCountry] = useState<{ country: string, slug: string, flag: string }>({ country: "World", slug: 'world', flag: '' })
+    const [country, setCountry] = useState<{ country: string, slug: string, flag: any }>({ country: "World", slug: 'world', flag: undefined })
     const [data, setData] = useState<any>()
     const [chartSize, setChartSize] = useState({ width: 700, height: 400 })
     const [usaData, setUsaData] = useState<[]>([])
+    const [worldData, setWorldData] = useState<any>()
 
     const updateDimensions = () => {
         let update_width = window.innerWidth / 2.8;
@@ -44,6 +45,11 @@ const Covid19: React.FC<Props> = ({ }) => {
                 setUsaData(res.data)
             })
             .catch(err => console.log(err));
+        axios.get('https://disease.sh/v2/historical/all?lastdays=all')
+            .then(res => {
+                setWorldData(res.data)
+            })
+            .catch(err => console.log(err));
         updateDimensions();
         window.addEventListener("resize", () => { updateDimensions() });
         return () => {
@@ -56,10 +62,10 @@ const Covid19: React.FC<Props> = ({ }) => {
                 <div className="col">
                     <div className="row ">
                         <div className="col data-columns">
-                            <Cases country={{ country: "World", slug: 'world' }} setData={setData} usaData={usaData} />
+                            <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} usaData={usaData} worldData={worldData} />
                         </div>
                         <div className="col data-columns">
-                            <Cases country={country} setData={setData} usaData={usaData} />
+                            <Cases country={country} setData={setData} usaData={usaData} worldData={worldData} />
                         </div>
                     </div>
                     <div className="row ">

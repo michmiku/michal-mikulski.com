@@ -45,6 +45,9 @@
   -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
 }
+.main-container .chart tspan {
+  font-size: 12px !important;
+}
 .main-container .countryTable {
   margin: 0 30px;
   height: 32vh;

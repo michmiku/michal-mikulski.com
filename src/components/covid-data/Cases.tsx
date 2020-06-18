@@ -5,28 +5,36 @@ import '../../styles/css/covid19.css'
 
 interface Props {
     country: {
-        country: string;
-        slug: string;
+        country: string,
+        slug: string,
+        flag: any
     };
     setData: React.Dispatch<any>,
-    usaData: any
+    usaData: any,
+    worldData: any,
 }
 
-const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
+const Cases: React.FC<Props> = ({ country, setData, usaData, worldData }) => {
     const [topData, setTopData] = useState<{ data: any }>({ data: {} })
     useEffect(() => {
-        if (country.country === "World") {
-            axios.get('https://api.covid19api.com/world/total')
-                .then(res => {
-                    let data = {
-                        total: res.data.TotalConfirmed,
-                        current: res.data.TotalConfirmed - res.data.TotalDeaths - res.data.TotalRecovered,
-                        deaths: res.data.TotalDeaths,
-                        recovered: res.data.TotalRecovered
-                    }
-                    setTopData({ data })
-                })
-                .catch(err => console.log(err));
+        if (country.country === "World" && worldData !== undefined) {
+            let cases = Object.keys(worldData.cases)
+            let deaths = Object.keys(worldData.deaths)
+            let recovered = Object.keys(worldData.recovered)
+            let current = worldData.cases[cases[cases.length - 1]] - worldData.deaths[deaths[deaths.length - 1]] - worldData.recovered[recovered[recovered.length - 1]]
+            let yesterdayCurrent = worldData.cases[cases[cases.length - 2]] - worldData.deaths[deaths[deaths.length - 2]] - worldData.recovered[recovered[recovered.length - 2]]
+            let data = {
+                total: worldData.cases[cases[cases.length - 1]],
+                current: current,
+                deaths: worldData.deaths[deaths[deaths.length - 1]],
+                recovered: worldData.recovered[recovered[recovered.length - 1]],
+                newConfirmed: ' (+' + (worldData.cases[cases[cases.length - 1]] - worldData.cases[cases[cases.length - 2]]) + ')',
+                newActive: ' (+' + (current - yesterdayCurrent) + ')',
+                newDeaths: ' (+' + (worldData.deaths[deaths[deaths.length - 1]] - worldData.deaths[deaths[deaths.length - 2]]) + ')',
+                newRecovered: ' (+' + (worldData.recovered[recovered[recovered.length - 1]] - worldData.recovered[recovered[recovered.length - 2]]) + ')',
+            }
+            setTopData({ data })
+            setData(worldData)
         }
         else if (country.slug === 'united-states') {
             if (usaData.length > 1) {
@@ -57,7 +65,7 @@ const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
             }
 
         }
-        else {
+        else if (country.slug !== "world") {
             axios.get('https://api.covid19api.com/country/' + country.slug)
                 .then(res => {
                     if (res.data[0] === undefined) {
@@ -99,7 +107,7 @@ const Cases: React.FC<Props> = ({ country, setData, usaData }) => {
                 })
                 .catch(err => console.log(err));
         }
-    }, [country])
+    }, [country, worldData])
 
     return (
         <React.Fragment >
