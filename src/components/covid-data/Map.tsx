@@ -57,9 +57,9 @@ const Map: React.FC<Props> = ({ chartSize, allData, currentCord }) => {
                     <div>
                         <h5><b>{selectedCountry.country}</b></h5>
                         <p><b>Total cases:</b> {selectedCountry.totalCases} (+{selectedCountry.newCases})</p>
-                        <p><b>Total deaths:</b> {selectedCountry.totalDeaths}(+{selectedCountry.newDeaths})</p>
-                        <p><b>Total recovered:</b> {selectedCountry.totalRecovered}(+{selectedCountry.newRecovered})</p>
-                        <p><b>Active cases:</b> {selectedCountry.activeCases}(+{selectedCountry.newCases - selectedCountry.newDeaths - selectedCountry.newRecovered})</p>
+                        <p><b>Total deaths:</b> {selectedCountry.totalDeaths} (+{selectedCountry.newDeaths})</p>
+                        <p><b>Total recovered:</b> {selectedCountry.totalRecovered} (+{selectedCountry.newRecovered})</p>
+                        <p><b>Active cases:</b> {selectedCountry.activeCases} (+{selectedCountry.newCases - selectedCountry.newDeaths - selectedCountry.newRecovered})</p>
                     </div>
                 </Popup>
             ) : null}
