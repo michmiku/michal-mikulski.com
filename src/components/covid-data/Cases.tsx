@@ -10,11 +10,10 @@ interface Props {
         flag: any
     };
     setData: React.Dispatch<any>,
-    usaData: any,
     worldData: any,
 }
 
-const Cases: React.FC<Props> = ({ country, setData, usaData, worldData }) => {
+const Cases: React.FC<Props> = ({ country, setData, worldData }) => {
     const [topData, setTopData] = useState<{ data: any }>({ data: {} })
     useEffect(() => {
         if (country.country === "World" && worldData !== undefined) {
@@ -36,74 +35,31 @@ const Cases: React.FC<Props> = ({ country, setData, usaData, worldData }) => {
             setTopData({ data })
             setData(worldData)
         }
-        else if (country.slug === 'united-states') {
-            if (usaData.length > 1) {
-                var x = 1
-                while (usaData[usaData.length - x].Province !== "") {
-                    x++
-                }
-                var y = x + 1
-                while (usaData[usaData.length - y].Province !== "") {
-                    y++
-                }
-                let newConfirmed = usaData[usaData.length - x].Confirmed - usaData[usaData.length - y].Confirmed
-                let newActive = usaData[usaData.length - x].Active - usaData[usaData.length - y].Active
-                let newDeaths = usaData[usaData.length - x].Deaths - usaData[usaData.length - y].Deaths
-                let newRecovered = usaData[usaData.length - x].Recovered - usaData[usaData.length - y].Recovered
-                let data = {
-                    total: + usaData[usaData.length - x].Confirmed,
-                    current: usaData[usaData.length - x].Active,
-                    deaths: usaData[usaData.length - x].Deaths,
-                    recovered: usaData[usaData.length - x].Recovered,
-                    newConfirmed: ' (+' + newConfirmed + ')',
-                    newActive: ' (+' + newActive + ')',
-                    newDeaths: ' (+' + newDeaths + ')',
-                    newRecovered: ' (+' + newRecovered + ')',
-                }
-                setTopData({ data })
-                setData(usaData)
-            }
 
-        }
         else if (country.slug !== "world") {
-            axios.get('https://api.covid19api.com/country/' + country.slug)
+            axios.get('https://disease.sh/v2/countries/' + country.slug + '?yesterday=false')
                 .then(res => {
-                    if (res.data[0] === undefined) {
-                        let data = {
-                            total: 'No data',
-                            current: 'No data',
-                            deaths: 'No data',
-                            recovered: 'No data'
-                        }
-                        setTopData({ data })
+                    let newActive: any = res.data.todayCases - res.data.todayDeaths - res.data.todayRecovered
+                    if (newActive > 0) {
+                        newActive = '+' + newActive
                     }
-                    else {
-                        var x = 1
+                    let data = {
+                        total: + res.data.cases,
+                        current: res.data.active,
+                        deaths: res.data.deaths,
+                        recovered: res.data.recovered,
+                        newConfirmed: ' (+' + res.data.todayCases + ')',
+                        newActive: ' (' + newActive + ')',
+                        newDeaths: ' (+' + res.data.todayDeaths + ')',
+                        newRecovered: ' (+' + res.data.todayRecovered + ')',
+                    }
+                    setTopData({ data })
+                })
+                .catch(err => console.log(err));
+            axios.get('https://disease.sh/v2/historical/' + country.slug + '?lastdays=all')
+                .then(res => {
 
-                        while (res.data[res.data.length - x].Province !== "") {
-                            x++
-                        }
-                        var y = x + 1
-                        while (res.data[res.data.length - y].Province !== "") {
-                            y++
-                        }
-                        let newConfirmed = res.data[res.data.length - x].Confirmed - res.data[res.data.length - y].Confirmed
-                        let newActive = res.data[res.data.length - x].Active - res.data[res.data.length - y].Active
-                        let newDeaths = res.data[res.data.length - x].Deaths - res.data[res.data.length - y].Deaths
-                        let newRecovered = res.data[res.data.length - x].Recovered - res.data[res.data.length - y].Recovered
-                        let data = {
-                            total: + res.data[res.data.length - x].Confirmed,
-                            current: res.data[res.data.length - x].Active,
-                            deaths: res.data[res.data.length - x].Deaths,
-                            recovered: res.data[res.data.length - x].Recovered,
-                            newConfirmed: ' (+' + newConfirmed + ')',
-                            newActive: ' (+' + newActive + ')',
-                            newDeaths: ' (+' + newDeaths + ')',
-                            newRecovered: ' (+' + newRecovered + ')',
-                        }
-                        setTopData({ data })
-                    }
-                    setData(res.data)
+                    setData(res.data.timeline)
                 })
                 .catch(err => console.log(err));
         }

@@ -5,15 +5,10 @@ import '../../styles/css/covid19.css'
 import _ from 'lodash'
 
 interface Props {
-    // country: {
-    //     country: string;
-    //     slug: string;
-    // };
-    // setData: React.Dispatch<any>,
-    // usaData: any
+    setAllData: React.Dispatch<React.SetStateAction<never[]>>
 }
 
-const CountryTable: React.FC<Props> = ({ }) => {
+const CountryTable: React.FC<Props> = ({ setAllData }) => {
     const [data, setData] = useState<any>([])
     const [sort, setSort] = useState<any>({
         column: null,
@@ -22,23 +17,27 @@ const CountryTable: React.FC<Props> = ({ }) => {
     })
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        axios.get('https://api.covid19api.com/summary')
+        axios.get('https://disease.sh/v2/countries')
             .then(res => {
-
                 let data: any = []
-                res.data.Countries.map((item: any) => {
-                    data = [...data, {
-                        flag: item.CountryCode.toLowerCase(),
-                        country: item.Country,
-                        totalCases: item.TotalConfirmed,
-                        newCases: item.NewConfirmed,
-                        totalDeaths: item.TotalDeaths,
-                        newDeaths: item.NewDeaths,
-                        totalRecovered: item.TotalRecovered,
-                        newRecovered: item.NewRecovered,
-                        activeCases: (item.TotalConfirmed - item.TotalDeaths - item.TotalRecovered)
-                    }]
+                res.data.map((item: any) => {
+                    if (item.countryInfo.iso2 !== null) {
+                        data = [...data, {
+                            flag: item.countryInfo.iso2.toLowerCase(),
+                            country: item.country,
+                            totalCases: item.cases,
+                            newCases: item.todayCases,
+                            totalDeaths: item.deaths,
+                            newDeaths: item.todayDeaths,
+                            totalRecovered: item.recovered,
+                            newRecovered: item.todayRecovered,
+                            activeCases: (item.cases - item.deaths - item.recovered),
+                            lat: item.countryInfo.lat,
+                            long: item.countryInfo.long
+                        }]
+                    }
                 })
+                setAllData(data)
                 setData(data)
                 setSort({
                     column: null,

@@ -21,7 +21,7 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
     const [lines, setLines] = useState()
     useEffect(() => {
         var lines: any = []
-        if (country.country === "World" && data !== undefined) {
+        if ((country.country === "World" && data !== undefined) || (data !== undefined && country.country !== "World" && Object.entries(data.cases)[0][1] !== 555)) {
             let cases = Object.entries(data.cases)
             cases.map((item: any, key: number) => {
                 let date: any = Object.entries(data.deaths)[key][0].slice(0, 4).replace('/', '-').replace('/', '')
@@ -40,42 +40,15 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
             })
             setLines(lines)
         }
-        else if (data !== undefined && data.length !== undefined) {
-
-            if (data !== undefined) {
-                let recovered: number = 0
-                data.map((item: any) => {
-                    if (item.Province !== "") {
-                        recovered += item.Recovered
-                    }
-                    if (item.Province === "") {
-                        if (item.Recovered !== 0) {
-                            recovered = item.Recovered
-                        }
-                        let date = item.Date.slice(5, 10)
-                        let temp = date.split('')
-                        date = temp[3] + temp[4] + temp[2] + temp[0] + temp[1]
-                        lines.push({ name: item.Date.slice(5, 10), confirmed: item.Confirmed, deaths: item.Deaths, recovered: recovered, active: item.Confirmed - item.Deaths - item.Recovered })
-                    }
-                })
-                setLines(lines)
-
-            }
-            if (data !== undefined && data.length === 0) {
-                lines = []
-                setLines(lines)
-            }
-        }
-
-    }, [data, country])
+    }, [data])
 
 
     return (
-        <div className="chart" style={{ width: chartSize.width + 60, height: chartSize.height + 50, padding: '5px' }}>
+        <div className="chart" style={{ width: chartSize.width - 40, height: chartSize.height + 50, padding: '5px' }}>
             <h2>{country.country}</h2>
 
             <LineChart
-                width={chartSize.width}
+                width={chartSize.width - 100}
                 height={chartSize.height}
                 data={lines}
                 margin={{

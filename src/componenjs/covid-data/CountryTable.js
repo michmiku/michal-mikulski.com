@@ -11,6 +11,7 @@ import axios from 'axios';
 import '../../styles/css/covid19.css';
 import _ from 'lodash';
 var CountryTable = function (_a) {
+    var setAllData = _a.setAllData;
     var _b = useState([]), data = _b[0], setData = _b[1];
     var _c = useState({
         column: null,
@@ -19,22 +20,27 @@ var CountryTable = function (_a) {
     }), sort = _c[0], setSort = _c[1];
     var _d = useState(true), isLoading = _d[0], setIsLoading = _d[1];
     useEffect(function () {
-        axios.get('https://api.covid19api.com/summary')
+        axios.get('https://disease.sh/v2/countries')
             .then(function (res) {
             var data = [];
-            res.data.Countries.map(function (item) {
-                data = __spreadArrays(data, [{
-                        flag: item.CountryCode.toLowerCase(),
-                        country: item.Country,
-                        totalCases: item.TotalConfirmed,
-                        newCases: item.NewConfirmed,
-                        totalDeaths: item.TotalDeaths,
-                        newDeaths: item.NewDeaths,
-                        totalRecovered: item.TotalRecovered,
-                        newRecovered: item.NewRecovered,
-                        activeCases: (item.TotalConfirmed - item.TotalDeaths - item.TotalRecovered)
-                    }]);
+            res.data.map(function (item) {
+                if (item.countryInfo.iso2 !== null) {
+                    data = __spreadArrays(data, [{
+                            flag: item.countryInfo.iso2.toLowerCase(),
+                            country: item.country,
+                            totalCases: item.cases,
+                            newCases: item.todayCases,
+                            totalDeaths: item.deaths,
+                            newDeaths: item.todayDeaths,
+                            totalRecovered: item.recovered,
+                            newRecovered: item.todayRecovered,
+                            activeCases: (item.cases - item.deaths - item.recovered),
+                            lat: item.countryInfo.lat,
+                            long: item.countryInfo.long
+                        }]);
+                }
             });
+            setAllData(data);
             setData(data);
             setSort({
                 column: null,

@@ -14,26 +14,31 @@ interface Props {
         country: string;
         slug: string;
         flag: string
+    }>>,
+    setCurrentCord: React.Dispatch<React.SetStateAction<{
+        lat: number;
+        long: number;
     }>>
 }
 
-const CountryList: React.FC<Props> = ({ country, setCountry }) => {
+const CountryList: React.FC<Props> = ({ country, setCountry, setCurrentCord }) => {
     const [countryData, setCountryData] = useState<{ data: any }>({ data: [] })
     const [search, setSearch] = useState<any>([])
     useEffect(() => {
-        axios.get('https://api.covid19api.com/summary')
+        axios.get('https://disease.sh/v2/countries')
             .then(res => {
-
                 let data: any = []
-                setCountryData({ data: [{ Country: 'World', Slug: 'world', Flag: undefined }, ...res.data.Countries] })
-                res.data.Countries.map((item: any) => {
-                    data = [...data, {
-                        flag: item.CountryCode.toLowerCase(),
-                        text: item.Country,
-                        value: item.Slug
-                    }]
+                setCountryData({ data: res.data })
+                res.data.map((item: any) => {
+                    if (item.countryInfo.iso2 !== null) {
+                        data = [...data, {
+                            flag: item.countryInfo.iso2.toLowerCase(),
+                            text: item.country,
+                            value: item.countryInfo.iso3,
+                        }]
+                    }
                 })
-                setSearch([{ flag: undefined, text: "World", value: 'world' }, ...data])
+                setSearch(data)
             })
             .catch(err => console.log(err));
     }, [])
@@ -51,10 +56,13 @@ const CountryList: React.FC<Props> = ({ country, setCountry }) => {
     }
 
     const handleChange = (event: React.SyntheticEvent<HTMLElement>, { value }: any) => {
-        let temp = countryData.data.filter((item: any) => (
-            item.Slug.toUpperCase() === value.toUpperCase()
-        ))
-        setCountry({ country: temp[0].Country, slug: temp[0].Slug, flag: temp[0].ISO2 })
+        let temp = countryData.data.filter((item: any) => {
+            if (item.countryInfo !== undefined) {
+                return item.countryInfo.iso3 === value
+            }
+        })
+        setCountry({ country: temp[0].country, slug: temp[0].countryInfo.iso3, flag: temp[0].countryInfo.iso2 })
+        setCurrentCord({ lat: temp[0].countryInfo.lat, long: temp[0].countryInfo.long })
     }
     return (
         <div className="country-container">

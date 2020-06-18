@@ -17,13 +17,9 @@
 
     .data-columns {
         left: 50px;
-        top: 60px
+        width: 200px;
     }
 
-    .countryList {
-        position: relative;
-        top: 80px;
-    }
 
     .chart-col {
         position: relative;
@@ -31,7 +27,7 @@
 
         .chart-container {
             position: relative;
-            left: 12%;
+            right: 50%;
         }
     }
 
@@ -45,7 +41,7 @@
     }
 
     .chart {
-        width: 720px;
+        width: 600px;
         height: 100%;
         color: #5a5a5a;
         background-color: #e5e5e5;
@@ -84,5 +80,14 @@
 
     th:hover {
         background-color: rgb(242, 242, 242) !important
+    }
+
+    .map-container {
+        width: 200px;
+        margin-top: 50px;
+        margin-left: 40px;
+        text-align: center;
+        justify-content: center;
+
     }
 }
