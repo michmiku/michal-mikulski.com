@@ -32,7 +32,6 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
                 else if (temp.length === 4) {
                     date = temp[2] + temp[3] + temp[1] + '0' + temp[0]
                 }
-
                 let deaths: any = Object.entries(data.deaths)[key][1]
                 let recovered: any = Object.entries(data.recovered)[key][1]
                 let active = (item[1] - deaths - recovered)
@@ -44,12 +43,12 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
 
 
     return (
-        <div className="chart" style={{ width: chartSize.width - 40, height: chartSize.height + 50, padding: '5px' }}>
+        <div className="chart" style={{ width: chartSize.width - 40, height: chartSize.height + 150, padding: '5px' }}>
             <h2>{country.country}</h2>
 
             <LineChart
                 width={chartSize.width - 100}
-                height={chartSize.height}
+                height={chartSize.height + 100}
                 data={lines}
                 margin={{
                     top: 5, bottom: 5

@@ -8,18 +8,28 @@ const TOKEN = 'pk.eyJ1IjoibWljaG1pa3UiLCJhIjoiY2tia3dhNDd5MTMwNTJybHN3bmNldnB3bC
 interface Props {
     chartSize: any,
     allData: any,
-    currentCord: any
+    currentCord: any,
+    country: {
+        country: string;
+        slug: string;
+        flag: any;
+    },
+    setCountry: React.Dispatch<React.SetStateAction<{
+        country: string;
+        slug: string;
+        flag: any;
+    }>>
 }
-const Map: React.FC<Props> = ({ chartSize, allData, currentCord }) => {
+const Map: React.FC<Props> = ({ chartSize, allData, currentCord, country, setCountry }) => {
     useEffect(() => {
         setViewport({
             latitude: currentCord.lat,
             longitude: currentCord.long,
-            zoom: 2,
+            zoom: 3,
             bearing: 0,
             pitch: 0,
             width: chartSize.width,
-            height: chartSize.height + 50,
+            height: chartSize.height + 150,
         })
     }, [chartSize, currentCord])
 
@@ -30,9 +40,15 @@ const Map: React.FC<Props> = ({ chartSize, allData, currentCord }) => {
         bearing: 0,
         pitch: 0,
         width: chartSize.width,
-        height: chartSize.height + 50,
+        height: chartSize.height + 150,
     })
     const [selectedCountry, setSelectedCountry] = useState<any>(null)
+    const handleClick = (item: any) => {
+
+        setSelectedCountry(item)
+        console.log(item)
+        setCountry({ country: item.country, slug: item.flag, flag: item.flag })
+    }
     return (
         <ReactMapGL
             {...viewport}
@@ -44,10 +60,10 @@ const Map: React.FC<Props> = ({ chartSize, allData, currentCord }) => {
                     key={item.flag}
                     latitude={item.lat}
                     longitude={item.long}
-                >
-                    <div style={{ width: '15px', height: '15px', backgroundColor: 'grey', borderRadius: '50%', cursor: 'pointer' }} onClick={() => {
-                        setSelectedCountry(item)
-                    }}></div>
+                >{country.country !== item.country ? <div style={{ width: '15px', height: '15px', backgroundColor: 'grey', borderRadius: '50%', cursor: 'pointer' }} onClick={() => { handleClick(item) }}></div>
+                    :
+                    <div style={{ width: '15px', height: '15px', backgroundColor: 'red', borderRadius: '50%', cursor: 'pointer' }} onClick={() => { handleClick(item) }}></div>}
+
                 </Marker>
             ))}
             {selectedCountry ? (

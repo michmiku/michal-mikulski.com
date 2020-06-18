@@ -79,7 +79,7 @@ const Covid19: React.FC<Props> = ({ }) => {
                 </div>
                 <div className="col-6">
                     <div className="map-container">
-                        <Map chartSize={chartSize} allData={allData} currentCord={currentCord} />
+                        <Map chartSize={chartSize} allData={allData} currentCord={currentCord} country={country} setCountry={setCountry} />
                     </div>
                 </div>
                 <div className="col chart-col">

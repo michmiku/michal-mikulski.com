@@ -5,11 +5,11 @@
   text-align: center;
   color: "white";
   overflow: hidden;
-  min-height: 660px;
+  min-height: 850px;
 }
 .main-container .country-container {
   height: 550px;
-  width: 48%;
+  width: 90%;
   margin-left: 50px;
 }
 .main-container .data-columns {
@@ -44,15 +44,16 @@
 .main-container .chart tspan {
   font-size: 12px !important;
 }
-.main-container .countryTable {
-  margin: 0 30px;
-  height: 32vh;
-}
 .main-container .first-row {
   height: calc(70% - 49px);
 }
 .main-container .second-row {
-  height: calc(30% - 49px);
+  height: 100%;
+}
+.main-container .second-row .countryTable {
+  margin-top: 50px;
+  height: 30%;
+  overflow: auto;
 }
 .main-container .ascending {
   background-color: #f2f2f2 !important;

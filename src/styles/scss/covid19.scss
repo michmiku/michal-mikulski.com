@@ -5,12 +5,12 @@
     text-align: center;
     color: 'white';
     overflow: hidden;
-    min-height: 660px;
+    min-height: 850px;
 
     .country-container {
 
         height: 550px;
-        width: 48%;
+        width: 90%;
         margin-left: 50px;
 
     }
@@ -57,17 +57,21 @@
         }
     }
 
-    .countryTable {
-        margin: 0 30px;
-        height: 32vh;
-    }
+
 
     .first-row {
         height: calc(70% - 49px)
     }
 
     .second-row {
-        height: calc(30% - 49px)
+        height: 100%;
+
+        .countryTable {
+            margin-top: 50px;
+            height: 30%;
+            overflow: auto;
+
+        }
     }
 
     .ascending {
