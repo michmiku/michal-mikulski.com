@@ -12,10 +12,12 @@ const ScrollSpy = () => {
 
     const onEnterViewport = (number) => {
         setEnterViewPort(number)
+        console.log('enter:', number)
     }
 
     const onExitViewPort = (number) => {
         setExitViewPort(number)
+        console.log('exit:', number)
     }
 
     return (
@@ -35,7 +37,7 @@ const ScrollSpy = () => {
                 <AboutMe enterViewPort={enterViewPort} exitViewPort={exitViewPort} />
                 <ScrollTrigger id="list-item-3" className="scrollS" onEnter={() => { onEnterViewport(3) }} onExit={() => { onExitViewPort(3) }}></ScrollTrigger>
                 <Projects enterViewPort={enterViewPort} exitViewPort={exitViewPort} />
-                <ScrollTrigger style={{ position: 'absolute', }} onEnter={() => { onEnterViewport(4) }} onExit={() => { onExitViewPort(1) }}></ScrollTrigger>
+                <ScrollTrigger style={{ position: 'absolute', }} onEnter={() => { onEnterViewport(4) }} onExit={() => { onExitViewPort(4) }}></ScrollTrigger>
             </div>
         </div>
     )

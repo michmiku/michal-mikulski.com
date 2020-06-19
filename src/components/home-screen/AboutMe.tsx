@@ -11,7 +11,7 @@ const AboutMe: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
         if ((enterViewPort === 2 && exitViewPort === 1) || (enterViewPort !== 1 || exitViewPort === 2)) {
             setCurrentClass('current-info-aboutme')
         }
-        if ((enterViewPort === 3 && exitViewPort === 2) || (enterViewPort === 1 && exitViewPort === 3) || (enterViewPort === 2 && exitViewPort === 0) || (enterViewPort === 1 && exitViewPort === 0) || enterViewPort === 4 || (enterViewPort === 2 && exitViewPort === 5) || (enterViewPort === 3 && exitViewPort === 3)) {
+        if ((enterViewPort === 3 && exitViewPort === 2) || (enterViewPort === 1 && exitViewPort === 3) || (enterViewPort === 2 && exitViewPort === 0) || (enterViewPort === 1 && exitViewPort === 0) || enterViewPort === 4 || (enterViewPort === 2 && exitViewPort === 5) || (enterViewPort === 3 && exitViewPort === 3) || (enterViewPort === 3 && exitViewPort === 4)) {
             setCurrentClass('info-aboutme')
         }
     }, [enterViewPort, exitViewPort])
