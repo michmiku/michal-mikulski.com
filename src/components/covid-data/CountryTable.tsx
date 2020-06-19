@@ -17,10 +17,15 @@ interface Props {
     }>>,
     countryData: {
         data: any;
+    },
+    country: {
+        country: string;
+        slug: string;
+        flag: any;
     }
 }
 
-const CountryTable: React.FC<Props> = ({ setAllData, countryData, setCountry, setCurrentCord }) => {
+const CountryTable: React.FC<Props> = ({ setAllData, countryData, setCountry, setCurrentCord, country }) => {
     const [data, setData] = useState<any>([])
     const [sort, setSort] = useState<any>({
         column: null,
@@ -138,7 +143,7 @@ const CountryTable: React.FC<Props> = ({ setAllData, countryData, setCountry, se
                     <Loader active inline='centered' content='Loading' style={{ margin: '20px', left: '40vw' }} /> :
                     <Table.Body>
                         {sort.data.map((item: any, key: number) => (
-                            <Table.Row key={key} onClick={() => { handleChange(item.flag) }} style={{ cursor: 'pointer' }}>
+                            country.country === item.country ? <Table.Row key={key} onClick={() => { handleChange(item.flag) }} style={{ cursor: 'pointer' }} className='country-row-selected'>
                                 <Table.Cell><Flag name={item.flag} />{item.country}</Table.Cell>
                                 <Table.Cell>{item.totalCases}</Table.Cell>
                                 <Table.Cell>{item.newCases}</Table.Cell>
@@ -147,7 +152,17 @@ const CountryTable: React.FC<Props> = ({ setAllData, countryData, setCountry, se
                                 <Table.Cell>{item.totalRecovered}</Table.Cell>
                                 <Table.Cell>{item.newRecovered}</Table.Cell>
                                 <Table.Cell>{item.activeCases}</Table.Cell>
-                            </Table.Row>
+                            </Table.Row> :
+                                <Table.Row key={key} onClick={() => { handleChange(item.flag) }} style={{ cursor: 'pointer' }} className='country-row'>
+                                    <Table.Cell><Flag name={item.flag} />{item.country}</Table.Cell>
+                                    <Table.Cell>{item.totalCases}</Table.Cell>
+                                    <Table.Cell>{item.newCases}</Table.Cell>
+                                    <Table.Cell>{item.totalDeaths}</Table.Cell>
+                                    <Table.Cell>{item.newDeaths}</Table.Cell>
+                                    <Table.Cell>{item.totalRecovered}</Table.Cell>
+                                    <Table.Cell>{item.newRecovered}</Table.Cell>
+                                    <Table.Cell>{item.activeCases}</Table.Cell>
+                                </Table.Row>
                         ))}
 
                     </Table.Body>

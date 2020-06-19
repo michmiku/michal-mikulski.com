@@ -58,8 +58,6 @@
         }
     }
 
-
-
     .first-row {
         height: calc(70% - 49px)
     }
@@ -94,5 +92,15 @@
         text-align: center;
         justify-content: center;
 
+    }
+
+    .country-row {
+        &:hover {
+            background-color: rgb(249, 249, 249)
+        }
+    }
+
+    .country-row-selected {
+        background-color: rgb(242, 242, 242)
     }
 }

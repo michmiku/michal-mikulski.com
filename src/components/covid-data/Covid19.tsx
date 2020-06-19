@@ -94,7 +94,7 @@ const Covid19: React.FC<Props> = ({ }) => {
             </div>
             <div className="row second-row">
                 <div className="col countryTable">
-                    <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} />
+                    <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} country={country} />
                 </div>
             </div>
         </div>

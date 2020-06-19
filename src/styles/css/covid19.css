@@ -72,3 +72,9 @@
   text-align: center;
   justify-content: center;
 }
+.main-container .country-row:hover {
+  background-color: #f9f9f9;
+}
+.main-container .country-row-selected {
+  background-color: #f2f2f2;
+}
