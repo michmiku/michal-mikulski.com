@@ -22,7 +22,9 @@
 }
 .main-container .chart-col .chart-container {
   position: relative;
-  right: 50%;
+  right: 38%;
+  margin-top: 5%;
+  top: -40px;
 }
 .main-container .cases-header {
   background-image: none;
@@ -35,8 +37,7 @@
   width: 600px;
   height: 100%;
   color: #5a5a5a;
-  background-color: #e5e5e5;
-  border-radius: 10px;
+  background-color: #f2f2f2;
   -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
   -o-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);

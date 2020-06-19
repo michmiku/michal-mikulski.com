@@ -27,7 +27,9 @@
 
         .chart-container {
             position: relative;
-            right: 50%;
+            right: 38%;
+            margin-top: 5%;
+            top: -40px
         }
     }
 
@@ -44,8 +46,7 @@
         width: 600px;
         height: 100%;
         color: #5a5a5a;
-        background-color: #e5e5e5;
-        border-radius: 10px;
+        background-color: rgb(242, 242, 242);
         -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
         -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);
         -ms-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.137);

@@ -60,15 +60,11 @@ const Covid19: React.FC<Props> = ({ }) => {
                         <div className="col data-columns">
                             <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
                         </div>
-
-
                     </div>
                     <div className="row ">
-
                         <div className="col data-columns">
                             <Cases country={country} setData={setData} worldData={worldData} />
                         </div>
-
                     </div>
                     <div className="row ">
                         <div className="col countryList">
@@ -83,9 +79,16 @@ const Covid19: React.FC<Props> = ({ }) => {
                     </div>
                 </div>
                 <div className="col chart-col">
-                    <div className="chart-container">
-                        <Chart country={country} data={data} chartSize={chartSize} /></div>
+                    <div className="row ">
+                        <div className="chart-container">
+                            <Chart country={{ country: "World", slug: 'world' }} data={data} chartSize={chartSize} /></div>
+                    </div>
+                    <div className="row ">
+                        <div className="chart-container">
+                            <Chart country={country} data={data} chartSize={chartSize} /></div>
+                    </div>
                 </div>
+
             </div>
             <div className="row second-row">
                 <div className="col countryTable">
