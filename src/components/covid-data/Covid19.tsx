@@ -29,6 +29,8 @@ const Covid19: React.FC<Props> = ({ }) => {
     const [worldData, setWorldData] = useState<any>()
     const [allData, setAllData] = useState([])
     const [currentCord, setCurrentCord] = useState({ lat: 50, long: 0 })
+    const [countryData, setCountryData] = useState<{ data: any }>({ data: [] })
+
     const updateDimensions = () => {
         let update_width = window.innerWidth / 2.8;
         setChartSize({ width: update_width, height: 660 / 2.4 });
@@ -68,7 +70,7 @@ const Covid19: React.FC<Props> = ({ }) => {
                     </div>
                     <div className="row ">
                         <div className="col countryList">
-                            <CountryList country={country} setCountry={setCountry} setCurrentCord={setCurrentCord} />
+                            <CountryList country={country} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} setCountryData={setCountryData} />
 
                         </div>
                     </div>
@@ -92,7 +94,7 @@ const Covid19: React.FC<Props> = ({ }) => {
             </div>
             <div className="row second-row">
                 <div className="col countryTable">
-                    <CountryTable setAllData={setAllData} />
+                    <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} />
                 </div>
             </div>
         </div>

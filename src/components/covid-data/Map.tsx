@@ -44,9 +44,7 @@ const Map: React.FC<Props> = ({ chartSize, allData, currentCord, country, setCou
     })
     const [selectedCountry, setSelectedCountry] = useState<any>(null)
     const handleClick = (item: any) => {
-
         setSelectedCountry(item)
-        console.log(item)
         setCountry({ country: item.country, slug: item.flag, flag: item.flag })
     }
     return (

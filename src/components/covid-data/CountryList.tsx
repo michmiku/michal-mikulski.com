@@ -18,11 +18,16 @@ interface Props {
     setCurrentCord: React.Dispatch<React.SetStateAction<{
         lat: number;
         long: number;
+    }>>,
+    countryData: {
+        data: any;
+    },
+    setCountryData: React.Dispatch<React.SetStateAction<{
+        data: any;
     }>>
 }
 
-const CountryList: React.FC<Props> = ({ country, setCountry, setCurrentCord }) => {
-    const [countryData, setCountryData] = useState<{ data: any }>({ data: [] })
+const CountryList: React.FC<Props> = ({ country, setCountry, setCurrentCord, countryData, setCountryData }) => {
     const [search, setSearch] = useState<any>([])
     useEffect(() => {
         axios.get('https://disease.sh/v2/countries')
