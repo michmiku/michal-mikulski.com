@@ -63,7 +63,7 @@ const Cases: React.FC<Props> = ({ country, setData, worldData }) => {
                 })
                 .catch(err => console.log(err));
         }
-    }, [country])
+    }, [country, worldData])
 
     return (
         <React.Fragment >

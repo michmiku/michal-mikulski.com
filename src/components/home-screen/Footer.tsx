@@ -5,12 +5,12 @@ const Footer = () => {
     return (
         <footer className="py-4 text-white-50 footer" id="list-item-4">
             <div className="row footer-item">
-                <div className="col text-left" style={{ left: '15%', color: '#e5e5e5' }}>
+                <div className="footer-left-text col text-left ">
                     <a>Michał Mikulski</a><br />
                     <a>tel.: 668711145</a><br />
                     <a>email: michmiku@gmail.com</a>
                 </div>
-                <div className="col text-center">
+                <div className="footer-right-text col text-center">
                     <ul className="footer-ul">
                         <li>
                             <a href="https://www.facebook.com/PopeDucks" target="_blank"><i className="fab fa-facebook-f i"></i></a>

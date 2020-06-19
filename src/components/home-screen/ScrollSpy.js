@@ -12,17 +12,15 @@ const ScrollSpy = () => {
 
     const onEnterViewport = (number) => {
         setEnterViewPort(number)
-        console.log('enter:', number)
     }
 
     const onExitViewPort = (number) => {
         setExitViewPort(number)
-        console.log('exit:', number)
     }
 
     return (
         <div>
-            <ScrollTrigger style={{ position: 'absolute', top: '0' }} onEnter={() => { onEnterViewport(5) }}></ScrollTrigger>
+
             <div id="list-example" className="list-group position-sticky sticky-top scroll-buttons" style={{ top: '250px' }}>
                 <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-1" smooth={true} duration={500}><button type="button" className="btn  btn-outline-dark scrollspy-button">Skills</button></Link>
                 <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-2" smooth={true} duration={500}><button type="button" className="btn  btn-outline-dark scrollspy-button" >About Me</button></Link>
@@ -30,13 +28,14 @@ const ScrollSpy = () => {
                 <Link className="list-group-item list-group-item-action bg-transparent border-0" to="list-item-4" smooth={true} duration={500}><button type="button" className="btn  btn-outline-dark scrollspy-button" >Contact</button></Link>
             </div>
             <div data-spy="scroll" data-target="#list-example" data-offset="0" className="scrollspy-example "  >
+                <ScrollTrigger style={{ position: 'absolute', top: '50px', width: '5px' }} onEnter={() => { onEnterViewport(5) }} onExit={() => { onExitViewPort(5) }}></ScrollTrigger>
                 <ScrollTrigger id="list-item-1" className="scrollS" onEnter={() => { onEnterViewport(1) }} onExit={() => { onExitViewPort(1) }}></ScrollTrigger>
                 <Skills enterViewPort={enterViewPort} exitViewPort={exitViewPort} />
                 <ScrollTrigger id="list-item-2" className="scrollS" onEnter={() => { onEnterViewport(2) }} onExit={() => { onExitViewPort(2) }}></ScrollTrigger>
                 <AboutMe enterViewPort={enterViewPort} exitViewPort={exitViewPort} />
                 <ScrollTrigger id="list-item-3" className="scrollS" onEnter={() => { onEnterViewport(3) }} onExit={() => { onExitViewPort(3) }}></ScrollTrigger>
                 <Projects enterViewPort={enterViewPort} exitViewPort={exitViewPort} />
-                <ScrollTrigger style={{ position: 'absolute' }} onEnter={() => { onEnterViewport(4) }} onExit={() => { onExitViewPort(1) }}></ScrollTrigger>
+                <ScrollTrigger style={{ position: 'absolute', }} onEnter={() => { onEnterViewport(4) }} onExit={() => { onExitViewPort(1) }}></ScrollTrigger>
             </div>
         </div>
     )
