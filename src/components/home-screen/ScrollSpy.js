@@ -13,12 +13,10 @@ const ScrollSpy = () => {
 
     const onEnterViewport = (number) => {
         setEnterViewPort(number)
-        console.log('enter:', number)
     }
 
     const onExitViewPort = (number) => {
         setExitViewPort(number)
-        console.log('exit:', number)
     }
 
     return (

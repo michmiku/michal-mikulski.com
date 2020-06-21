@@ -1,13 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, } from "react";
 interface Props {
 }
 const Header: React.FC<Props> = ({ }) => {
     useEffect(() => {
-        window.onscroll = () => {
+        window.onscroll = (e: any) => {
+            e.preventDefault()
             if (icon.current !== null) {
                 icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
                 item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
             }
+
         }
     }, [])
     const icon: any = useRef(null)

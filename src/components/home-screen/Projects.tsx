@@ -29,7 +29,7 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                         initial={{ x: '-100vh' }}
                         animate={{ x: 0 }}
                         transition={{ delay: 0.2 }}
-                        exit={{ x: '100vh' }}
+                        exit={{ x: '-100vh' }}
                     >Projects</motion.h1>
                 )}
             </AnimatePresence>
@@ -41,7 +41,7 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                             initial={{ x: '-100vw' }}
                             animate={{ x: 0 }}
                             transition={{ duration: 0.5 }}
-                            exit={{ x: '100vw' }}>
+                            exit={{ x: '-100vw' }}>
                             <img src={music} className="card-img-top project-img " alt="music" />
                             <div className="project-text">
                                 <a>
@@ -57,7 +57,7 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                 <AnimatePresence>
                     {currentClass && (
                         <motion.div className="card text-center project"
-                            initial={{ x: '100vw' }}
+                            initial={{ x: '-100vw' }}
                             animate={{ x: 0 }}
                             transition={{ duration: 0.5 }}
                             exit={{ x: '-100vw' }}

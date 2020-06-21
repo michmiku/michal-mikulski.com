@@ -243,7 +243,8 @@ body {
 
 footer {
     padding: 0 20px;
-    background-color: $color2;
+    background-color: #26282E;
+    color: #e5e5e5;
 
     .contact {
         padding: 0;
@@ -552,6 +553,10 @@ footer {
     #skills {
         margin: 0 50px;
 
+        h1 {
+            margin-top: 50px;
+        }
+
         .skill {
             grid-column: span 3;
             margin: 20px 0;
@@ -631,6 +636,12 @@ footer {
                 margin-bottom: 80px;
             }
 
+        }
+    }
+
+    #projects {
+        h1 {
+            margin-top: 50px;
         }
     }
 
@@ -809,12 +820,12 @@ footer {
 @media screen and (min-width:1500px) {
 
     #skills {
-        margin: 0 320px;
+        margin: 0 400px;
     }
 
     #about-me {
         p {
-            margin: 0 350px;
+            margin: 0 450px;
         }
     }
 
