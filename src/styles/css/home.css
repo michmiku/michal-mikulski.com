@@ -40,7 +40,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  top: 40%;
+  top: 50%;
   margin-top: -50px;
 }
 #header .header-item {
@@ -63,8 +63,7 @@ body {
 
 #skills {
   background-color: #d6d6d6 !important;
-  padding-bottom: 100px;
-  padding-top: 50px;
+  height: 80vh;
 }
 #skills h1 {
   margin: 20px 0;
@@ -77,20 +76,21 @@ body {
   text-align: center;
 }
 #skills .skill .skill-icon {
-  font-size: 4em;
+  font-size: 3em;
 }
 #skills .skill .skill-text {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 #skills .skill .skill-img {
   margin-top: 1vw;
-  width: 3.8em;
+  width: 2.9em;
 }
 
 #about-me {
   background-color: #c5c5c5 !important;
   padding-bottom: 100px;
-  padding-top: 50px;
+  padding-top: 20px;
+  height: 80vh;
 }
 #about-me h1 {
   margin-bottom: 40px;
@@ -115,8 +115,8 @@ body {
 }
 
 #projects {
-  padding-top: 50px;
   padding-bottom: 100px;
+  height: 90vh;
 }
 #projects h1 {
   margin: 20px 0;
@@ -259,6 +259,139 @@ footer .social li:nth-child(4) a:before {
   background: #202020;
 }
 
+@media screen and (min-height: 550px) {
+  #skills h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #skills .skill {
+    grid-column: span 4;
+    margin: 10px 0;
+    text-align: center;
+  }
+  #skills .skill .skill-icon {
+    font-size: 3em;
+  }
+  #skills .skill .skill-text {
+    font-size: 1em;
+  }
+  #skills .skill .skill-img {
+    margin-top: 1vw;
+    width: 2.9em;
+  }
+
+  #about-me h1 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #about-me p {
+    margin: 0 20px;
+    font-size: 1.3em;
+  }
+  #about-me p h2 {
+    margin-top: 10px;
+  }
+  #about-me p h4 {
+    margin-top: 10px;
+    font-size: 1em;
+  }
+  #about-me p p {
+    font-size: 1em;
+    margin: 0;
+  }
+}
+@media screen and (min-height: 650px) {
+  #skills h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #skills .skill {
+    grid-column: span 4;
+    margin: 20px 0;
+    text-align: center;
+  }
+  #skills .skill .skill-icon {
+    font-size: 3em;
+  }
+  #skills .skill .skill-text {
+    font-size: 1em;
+  }
+  #skills .skill .skill-img {
+    margin-top: 1vw;
+    width: 2.9em;
+  }
+
+  #about-me h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #about-me p {
+    margin: 10px 20px;
+    font-size: 1.3em;
+  }
+  #about-me p h2 {
+    margin-top: 20px;
+  }
+  #about-me p h4 {
+    margin-top: 20px;
+    font-size: 1em;
+  }
+  #about-me p p {
+    font-size: 1em;
+    margin: 0;
+    margin-top: 20px;
+  }
+}
+@media screen and (min-height: 750px) {
+  #skills h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #skills .skill {
+    grid-column: span 4;
+    margin: 40px 0;
+    text-align: center;
+  }
+  #skills .skill .skill-icon {
+    font-size: 3em;
+  }
+  #skills .skill .skill-text {
+    font-size: 1em;
+  }
+  #skills .skill .skill-img {
+    margin-top: 1vw;
+    width: 2.9em;
+  }
+
+  #about-me h1 {
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #about-me p {
+    margin: 25px 20px;
+    font-size: 1.3em;
+  }
+  #about-me p h2 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  #about-me p h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1em;
+  }
+  #about-me p p {
+    font-size: 1em;
+    margin: 0;
+    margin-top: 20px;
+  }
+}
 @media screen and (min-width: 620px) {
   #skills {
     margin: 0 50px;
@@ -307,9 +440,27 @@ footer .social li:nth-child(4) a:before {
     font-size: 1em;
   }
 
+  #about-me h1 {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    font-size: 2.5em;
+    text-align: center;
+  }
   #about-me p {
-    margin: 0 70px;
+    margin: 40px 20px;
     font-size: 1.3em;
+  }
+  #about-me p h2 {
+    margin-top: 80px;
+  }
+  #about-me p h4 {
+    margin-top: 80px;
+    font-size: 1em;
+  }
+  #about-me p p {
+    font-size: 1em;
+    margin: 0;
+    margin-bottom: 80px;
   }
 }
 @media screen and (min-width: 960px) {
@@ -317,13 +468,19 @@ footer .social li:nth-child(4) a:before {
     margin: 0 120px;
   }
   #skills .skill {
-    grid-column: span 2;
-    margin: 20px 0;
+    grid-column: span 3;
+    margin: 30px 0;
     text-align: center;
   }
+  #skills .skill .skill-icon {
+    font-size: 5em;
+  }
+  #skills .skill .skill-text {
+    font-size: 1.5em;
+  }
   #skills .skill .skill-img {
-    margin-top: 0.5vw;
-    width: 3.8em;
+    margin-top: 1vw;
+    width: 4em;
   }
 
   footer .social {
@@ -368,6 +525,11 @@ footer .social li:nth-child(4) a:before {
     margin: 0 180px;
   }
 
+  #projects .project {
+    margin: 20vh 0;
+    text-align: center;
+    overflow: hidden;
+  }
   #projects .project:first-child {
     grid-column: 2/7;
   }
@@ -378,6 +540,9 @@ footer .social li:nth-child(4) a:before {
 @media screen and (min-width: 1200px) {
   #skills {
     margin: 0 180px;
+  }
+  #skills .skill {
+    margin: 50px 0;
   }
   #skills .skill .skill-img {
     margin-top: 0.4vw;
@@ -446,5 +611,14 @@ footer .social li:nth-child(4) a:before {
     margin: 20px 0;
     text-align: center;
     overflow: hidden;
+  }
+}
+@media screen and (min-width: 765px) and (min-height: 1023px) {
+  #skills .skill {
+    margin: 70px 0;
+  }
+  #skills .skill .skill-img {
+    margin-top: 0.4vw;
+    width: 3.8em;
   }
 }
