@@ -26,10 +26,10 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
             <AnimatePresence>
                 {currentClass && (
                     <motion.h1
-                        initial={{ x: '-100vh' }}
+                        initial={{ x: '-100vw' }}
                         animate={{ x: 0 }}
                         transition={{ delay: 0.2 }}
-                        exit={{ x: '-100vh' }}
+                        exit={{ x: '-100vw' }}
                     >Projects</motion.h1>
                 )}
             </AnimatePresence>
