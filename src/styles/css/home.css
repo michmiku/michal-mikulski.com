@@ -94,12 +94,12 @@ body {
 }
 #about-me h1 {
   margin-bottom: 10px;
-  font-size: 2.5em;
+  font-size: 2em;
   text-align: center;
 }
 #about-me p {
   margin: 0 20px;
-  font-size: 1.3em;
+  font-size: 1.1em;
   padding: 20px 0;
   border-top: 1px solid #707070;
   border-bottom: 1px solid #707070;
@@ -109,10 +109,10 @@ body {
 }
 #about-me p h4 {
   margin-top: 20px;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 #about-me p p {
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0;
   margin-bottom: 10px;
   border: none;
@@ -303,18 +303,21 @@ footer .social li:nth-child(4) a:before {
 }
 @media screen and (min-height: 560px) {
   #about-me h1 {
-    font-size: 2.5em;
+    font-size: 2.3em;
     text-align: center;
   }
   #about-me p {
     margin: 0 20px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     padding: 10px 0;
   }
   #about-me p h4 {
     font-size: 1em;
     margin-top: -5px;
     padding-bottom: 10px;
+  }
+  #about-me p h2 {
+    font-size: 1.5em;
   }
   #about-me p p {
     font-size: 1em;
@@ -475,7 +478,6 @@ footer .social li:nth-child(4) a:before {
 
   #about-me h1 {
     margin-top: 50px;
-    margin-bottom: 100px;
     font-size: 2.5em;
     text-align: center;
   }
