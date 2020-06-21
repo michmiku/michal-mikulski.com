@@ -1,17 +1,28 @@
 import React, { useEffect, useRef } from "react";
-
-const Header = () => {
+interface Props {
+}
+const Header: React.FC<Props> = ({ }) => {
     useEffect(() => {
         window.onscroll = () => {
-            icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 2 + '%)'
+            if (icon.current !== null) {
+                icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
+                item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
+            }
         }
     }, [])
     const icon: any = useRef(null)
+    const item: any = useRef(null)
+
     return (
-        <div className="header-container">
-            <div className="header"></div>
-            <div ref={icon} className="logo"></div>
-        </div>
+        <section id="header">
+            <div className="header-image"></div>
+
+
+            <div ref={icon} className="header-logo"
+
+            ></div>
+            <div ref={item} className="header-item"></div>
+        </section>
     )
 }
 

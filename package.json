@@ -20,6 +20,7 @@
     "@types/recharts": "^1.8.12",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "framer-motion": "^1.11.1",
     "griddle-react": "^1.13.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",

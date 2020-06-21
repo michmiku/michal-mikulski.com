@@ -1,0 +1,449 @@
+body,
+.box,
+a,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: #d6d6d6 !important;
+  overflow-x: hidden;
+}
+
+#header {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+#header .header-image {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/header-5.png");
+  background-size: auto 1700px;
+  background-position: center;
+  background-attachment: fixed;
+}
+#header .header-logo {
+  height: 100px;
+  width: 100%;
+  background-image: url("../../assets/images/header-text-small.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 40%;
+  margin-top: -50px;
+}
+#header .header-item {
+  background-image: url(../../assets/images/header-item.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 85%;
+  left: 60%;
+  background-size: 300px 300px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+}
+
+#skills {
+  background-color: #d6d6d6 !important;
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+#skills h1 {
+  margin: 20px 0;
+  font-size: 2.5em;
+  text-align: center;
+}
+#skills .skill {
+  grid-column: span 4;
+  margin: 20px 0;
+  text-align: center;
+}
+#skills .skill .skill-icon {
+  font-size: 4em;
+}
+#skills .skill .skill-text {
+  font-size: 1.2em;
+}
+#skills .skill .skill-img {
+  margin-top: 1vw;
+  width: 3.8em;
+}
+
+#about-me {
+  background-color: #c5c5c5 !important;
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+#about-me h1 {
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  text-align: center;
+}
+#about-me p {
+  margin: 0 20px;
+  font-size: 1.3em;
+}
+#about-me p h2 {
+  margin-top: 20px;
+}
+#about-me p h4 {
+  margin-top: 20px;
+  font-size: 1em;
+}
+#about-me p p {
+  font-size: 1em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+#projects {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+#projects h1 {
+  margin: 20px 0;
+  font-size: 2.5em;
+  text-align: center;
+}
+#projects .project {
+  margin: 20px 0;
+  text-align: center;
+  overflow: hidden;
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+#projects .project .project-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.637);
+}
+#projects .project .project-text a {
+  font-size: 0.8em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+#projects .project .project-text a .first-button {
+  height: 32px;
+  width: 125px;
+  font-size: 1.2em;
+  margin-left: -80px;
+}
+#projects .project .project-text a .second-button {
+  height: 32px;
+  width: 85px;
+  font-size: 1.2em;
+  margin-left: 80px;
+  text-align: center;
+}
+#projects .project .project-img {
+  transition: all 0.5s ease-in-out;
+}
+#projects .project:first-child {
+  grid-column: 2/12;
+}
+#projects .project:first-child:hover .project-img {
+  transform: scale(1.1);
+}
+#projects .project:first-child:hover .project-text {
+  z-index: 0;
+}
+#projects .project:nth-child(2) {
+  grid-column: 2/12;
+}
+#projects .project:nth-child(2):hover .project-img {
+  transform: scale(1.1);
+}
+#projects .project:nth-child(2):hover .project-text {
+  z-index: 0;
+}
+
+footer {
+  padding: 0 20px;
+  background-color: #c5c5c5;
+}
+footer .contact {
+  padding: 0;
+  grid-column: 1/7;
+  margin-top: 10px;
+}
+footer .contact h5 {
+  font-size: 1em;
+}
+footer p {
+  text-align: center;
+  grid-column: 2/12;
+  grid-row: 2;
+  font-size: 0.7em;
+}
+footer .social {
+  grid-column: 9/12;
+  grid-row: 1;
+  display: flex;
+  position: relative;
+  right: 40px;
+}
+footer .social li a {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1em;
+  margin: 30px 0 0 5px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fff;
+  z-index: 1;
+}
+footer .social li a .i {
+  position: relative;
+  top: -64%;
+  color: #262626;
+  transition: 0.5s;
+  z-index: 3;
+}
+footer .social li a:hover .i {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+footer .social li a:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #202020;
+  transition: 0.5s;
+  z-index: 2;
+}
+footer .social li a:hover:before {
+  top: 0;
+}
+footer .social li:nth-child(1) a:before {
+  background: #3b5999;
+}
+footer .social li:nth-child(2) a:before {
+  background: #55acee;
+}
+footer .social li:nth-child(3) a:before {
+  background: #0077b5;
+}
+footer .social li:nth-child(4) a:before {
+  background: #202020;
+}
+
+@media screen and (min-width: 620px) {
+  #skills {
+    margin: 0 50px;
+  }
+  #skills .skill {
+    grid-column: span 3;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  footer .social {
+    grid-column: 9/12;
+    grid-row: 1;
+    display: flex;
+    position: relative;
+    right: 0;
+  }
+  footer .social li a {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 55px;
+    font-size: 1.5em;
+    margin: 30px 0 0 5px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+  }
+  footer .social li a .i {
+    position: relative;
+    top: -30%;
+    color: #262626;
+    transition: 0.5s;
+    z-index: 3;
+  }
+  footer .contact {
+    padding: 0;
+    grid-column: 2/9;
+    margin-top: 10px;
+  }
+  footer .contact h5 {
+    font-size: 1em;
+  }
+
+  #about-me p {
+    margin: 0 70px;
+    font-size: 1.3em;
+  }
+}
+@media screen and (min-width: 960px) {
+  #skills {
+    margin: 0 120px;
+  }
+  #skills .skill {
+    grid-column: span 2;
+    margin: 20px 0;
+    text-align: center;
+  }
+  #skills .skill .skill-img {
+    margin-top: 0.5vw;
+    width: 3.8em;
+  }
+
+  footer .social {
+    grid-column: 9/12;
+    grid-row: 1;
+    display: flex;
+    position: relative;
+    right: 0;
+  }
+  footer .social li a {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 55px;
+    font-size: 1.8em;
+    margin: 30px 0 0 5px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+  }
+  footer .social li a .i {
+    position: relative;
+    top: -15%;
+    color: #262626;
+    transition: 0.5s;
+    z-index: 3;
+  }
+  footer .contact {
+    padding: 0;
+    grid-column: 3/9;
+    margin-top: 10px;
+  }
+  footer .contact h5 {
+    font-size: 1.5em;
+  }
+
+  #about-me p {
+    margin: 0 180px;
+  }
+
+  #projects .project:first-child {
+    grid-column: 2/7;
+  }
+  #projects .project:nth-child(2) {
+    grid-column: 7/12;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #skills {
+    margin: 0 180px;
+  }
+  #skills .skill .skill-img {
+    margin-top: 0.4vw;
+    width: 3.8em;
+  }
+
+  #about-me p {
+    margin: 0 250px;
+  }
+
+  #projects .project:first-child {
+    grid-column: 3/7;
+  }
+  #projects .project:nth-child(2) {
+    grid-column: 7/11;
+  }
+
+  footer .social {
+    grid-column: 9/12;
+    grid-row: 1;
+    display: flex;
+    position: relative;
+    right: 0;
+  }
+  footer .social li a {
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 55px;
+    font-size: 1.8em;
+    margin: 30px 0 0 5px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #fff;
+    z-index: 1;
+  }
+  footer .social li a .i {
+    position: relative;
+    top: 0;
+    color: #262626;
+    transition: 0.5s;
+    z-index: 3;
+  }
+  footer .contact {
+    padding: 0;
+    grid-column: 3/9;
+    margin-top: 10px;
+  }
+  footer .contact h5 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 1500px) {
+  #skills {
+    margin: 0 320px;
+  }
+
+  #about-me p {
+    margin: 0 350px;
+  }
+
+  #projects .project {
+    margin: 20px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+}
