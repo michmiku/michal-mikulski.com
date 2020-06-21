@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TS from '../../assets/images/TypeScript.png'
 import MongoDB from '../../assets/images/mongodb.png'
 import { motion, AnimatePresence } from "framer-motion"
 
 
 interface Props {
-    enterViewPort: number;
-    exitViewPort: number;
+
 }
 const skillsHover = {
     initial: {
@@ -23,23 +22,33 @@ const skillsHover = {
 
 
 }
-const Skills: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
+const Skills: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
-    useEffect(() => {
-        if (exitViewPort === 6 || (exitViewPort === 3 && enterViewPort === 1) || enterViewPort === 1) {
+    const branch: any = useRef(null)
+    const leaves: any = useRef(null)
+    const skills: any = useRef(null)
+    const skillsScroll = () => {
+        let currentScroll = window.pageYOffset
+        let widnowHeight = window.innerHeight
+        if (branch.current !== null) {
+            branch.current.style.transform = 'translate(0px, ' + currentScroll / 5 + '%)'
+            leaves.current.style.transform = 'translate(0px, ' + currentScroll / 1.5 + '%)'
+        }
+        if (skills.current.getBoundingClientRect().top < 0) {
+            setCurrentClass(false)
+        }
+        else if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
             setCurrentClass(true)
         }
-        if ((exitViewPort === 1 && enterViewPort !== 1) || (enterViewPort === 2 && exitViewPort === 4) || (enterViewPort === 3 && exitViewPort === 2) || (enterViewPort === 2 && exitViewPort === 2) || (enterViewPort === 5 && exitViewPort !== 6)) {
+        else {
             setCurrentClass(false)
-
         }
-        if (currentClass && enterViewPort === 5) {
-            setCurrentClass(false)
-
-        }
-    }, [enterViewPort, exitViewPort])
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', skillsScroll)
+    }, [])
     return (
-        <motion.section id="skills">
+        <motion.section id="skills" ref={skills}>
             <AnimatePresence>
                 {currentClass && (
                     <motion.h1
@@ -263,6 +272,9 @@ const Skills: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                 </AnimatePresence>
 
             </motion.div>
+            <div ref={leaves} className="sakura-leaves"></div>
+            <div ref={branch} className="sakura-branch"></div>
+
         </motion.section>
 
 

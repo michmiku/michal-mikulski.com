@@ -32,7 +32,7 @@ body {
     .header-image {
         width: 100%;
         height: 100%;
-        background-image: url('../../assets/images/header-5.png');
+        background-image: url('../../assets/images/header-new.png');
         background-size: auto 1700px;
         background-position: center;
         background-attachment: fixed;
@@ -99,6 +99,7 @@ body {
             width: 2.9em;
         }
     }
+
 }
 
 #about-me {
@@ -108,7 +109,7 @@ body {
     height: 80vh;
 
     h1 {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
         font-size: 2.5em;
         text-align: center;
     }
@@ -116,6 +117,9 @@ body {
     p {
         margin: 0 20px;
         font-size: 1.3em;
+        padding: 20px 0;
+        border-top: 1px solid rgb(112, 112, 112);
+        border-bottom: 1px solid rgb(112, 112, 112);
 
         h2 {
             margin-top: 20px;
@@ -131,6 +135,7 @@ body {
             font-size: 1em;
             margin: 0;
             margin-bottom: 10px;
+            border: none;
         }
 
     }
@@ -165,33 +170,30 @@ body {
             position: absolute;
             width: 100%;
             height: 100%;
-            z-index: -1;
             background-color: rgba(0, 0, 0, 0.637);
+            z-index: -1;
 
             a {
-                font-size: 0.8em;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                display: flex;
 
-                .first-button {
-                    height: 32px;
-                    width: 125px;
-                    font-size: 1.2em;
-                    margin-left: -80px;
+                .button {
+                    text-decoration: none;
+                    color: white;
+                    border: 1px solid white;
+                    padding: 10px 20px;
+                    position: relative;
+                    top: 45%;
+                    margin-right: 10px;
+                    border-radius: 20px;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    -moz-transition: all 0.3s ease-in-out;
+                    -ms-transition: all 0.3s ease-in-out;
+                    -o-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
 
-                }
-
-                .second-button {
-                    height: 32px;
-                    width: 85px;
-                    font-size: 1.2em;
-                    margin-left: 80px;
-                    text-align: center;
-
+                    &:hover {
+                        background-color: white;
+                        color: black
+                    }
                 }
             }
 
@@ -336,7 +338,7 @@ footer {
 
 }
 
-@media screen and (min-height:550px) {
+@media screen and (min-height:450px) {
 
     #skills {
 
@@ -372,7 +374,7 @@ footer {
     #about-me {
 
         h1 {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-size: 2.5em;
             text-align: center;
         }
@@ -382,12 +384,12 @@ footer {
             font-size: 1.3em;
 
             h2 {
-                margin-top: 10px;
+                margin-top: 5px;
 
             }
 
             h4 {
-                margin-top: 10px;
+                margin-top: 5px;
                 font-size: 1em;
             }
 
@@ -395,6 +397,41 @@ footer {
                 font-size: 1em;
                 margin: 0;
 
+            }
+
+        }
+
+
+    }
+
+
+}
+
+@media screen and (min-height:560px) {
+
+    #about-me {
+
+        h1 {
+
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        p {
+            margin: 0 20px;
+            font-size: 1.3em;
+            padding: 10px 0;
+
+            h4 {
+                font-size: 1em;
+                margin-top: -5px;
+                padding-bottom: 10px;
+            }
+
+            p {
+                font-size: 1em;
+                margin-top: -30px;
+                padding-bottom: 0;
             }
 
         }
@@ -561,7 +598,24 @@ footer {
             grid-column: span 3;
             margin: 20px 0;
             text-align: center;
+
+
+            .skill-icon {
+                font-size: 3em;
+            }
+
+            .skill-text {
+                font-size: 1em;
+            }
+
+            .skill-img {
+                margin-top: 0.3vw;
+                width: 2.9em;
+            }
+
         }
+
+
     }
 
     footer {
@@ -666,10 +720,12 @@ footer {
             }
 
             .skill-img {
-                margin-top: 1vw;
-                width: 4em;
+                margin-top: 0.6vw;
+                width: 4.6em;
             }
         }
+
+
     }
 
     footer {
@@ -749,10 +805,12 @@ footer {
         .skill {
             margin: 50px 0;
 
+
             .skill-img {
-                margin-top: 0.4vw;
-                width: 3.8em;
+                margin-top: 0.5vw;
+                width: 4.7em;
             }
+
         }
     }
 
@@ -821,6 +879,13 @@ footer {
 
     #skills {
         margin: 0 400px;
+
+        .skill {
+            .skill-img {
+                margin-top: 0.4vw;
+                width: 4.7em;
+            }
+        }
     }
 
     #about-me {

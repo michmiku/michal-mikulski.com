@@ -1,24 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion"
 
 
 interface Props {
-    enterViewPort: number;
-    exitViewPort: number;
+
 }
 
-const AboutMe: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
+const AboutMe: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
-    useEffect(() => {
-        if ((enterViewPort === 2 && exitViewPort === 1) || (enterViewPort !== 1 || exitViewPort === 2) || (exitViewPort === 4)) {
-            setCurrentClass(true)
-        }
-        if ((enterViewPort === 3 && exitViewPort === 2) || (enterViewPort === 1 && exitViewPort === 3) || (enterViewPort === 2 && exitViewPort === 0) || (enterViewPort === 1 && exitViewPort === 0) || enterViewPort === 4 || (enterViewPort === 2 && exitViewPort === 5) || (enterViewPort === 3 && exitViewPort === 3) || (enterViewPort === 3 && exitViewPort === 4) || exitViewPort === 5 || exitViewPort === 6) {
+    const aboutMe: any = useRef(null)
+    const skillsScroll = () => {
+        let widnowHeight = window.innerHeight
+        if (aboutMe.current.getBoundingClientRect().top < 0) {
             setCurrentClass(false)
         }
-    }, [enterViewPort, exitViewPort])
+        else if (aboutMe.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
+            setCurrentClass(true)
+        }
+        else {
+            setCurrentClass(false)
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', skillsScroll)
+    }, [])
     return (
-        <motion.section id="about-me">
+        <motion.section id="about-me" ref={aboutMe}>
             <AnimatePresence>
                 {currentClass && (
                     <motion.h1

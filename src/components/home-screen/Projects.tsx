@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from 'semantic-ui-react'
 import music from "../../assets/images/music-img.png"
 import covid from "../../assets/images/covid-img.png"
@@ -6,23 +6,27 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from "framer-motion"
 
 interface Props {
-    enterViewPort: number;
-    exitViewPort: number;
+
 }
 
-const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
+const Projects: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
-    useEffect(() => {
-        if ((enterViewPort === 3 || enterViewPort === 4) && exitViewPort === 2 || enterViewPort === 4) {
+    const projects: any = useRef(null)
+    const skillsScroll = () => {
+        let widnowHeight = window.innerHeight
+        if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < -20) {
             setCurrentClass(true)
         }
-        else if (enterViewPort === 2 || exitViewPort === 4) {
+        else {
             setCurrentClass(false)
         }
-    }, [enterViewPort, exitViewPort])
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', skillsScroll)
+    }, [])
     return (
 
-        <motion.section id="projects">
+        <motion.section id="projects" ref={projects}>
             <AnimatePresence>
                 {currentClass && (
                     <motion.h1
@@ -46,8 +50,8 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                             <div className="project-text">
                                 <a>
 
-                                    <Link to="/music" className="ui inverted grey basic button first-button" href="#">Music player</Link>
-                                    <a href="https://github.com/michmiku/music-player" target="blank" className='ui inverted grey basic button second-button' >Github</a>
+                                    <Link to="/music" className="button" href="#">Music player</Link>
+                                    <a href="https://github.com/michmiku/music-player" target="blank" className='button' >Github</a>
 
                                 </a>
                             </div>
@@ -65,8 +69,8 @@ const Projects: React.FC<Props> = ({ enterViewPort, exitViewPort }) => {
                             <img src={covid} className="card-img-top project-img " alt="covid" />
                             <div className="project-text">
                                 <a>
-                                    <Link to="/covid19" className="ui inverted grey basic button first-button" href="#">Covid-19 data</Link>
-                                    <a href="https://github.com/michmiku/covid19-data" target="blank" className="ui inverted grey basic button second-button">Github</a>
+                                    <Link to="/covid19" className="button" href="#">Covid-19 data</Link>
+                                    <a href="https://github.com/michmiku/covid19-data" target="blank" className="button">Github</a>
                                 </a>
                             </div>
                         </motion.div>

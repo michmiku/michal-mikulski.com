@@ -2,15 +2,14 @@ import React, { useEffect, useRef, } from "react";
 interface Props {
 }
 const Header: React.FC<Props> = ({ }) => {
-    useEffect(() => {
-        window.onscroll = (e: any) => {
-            e.preventDefault()
-            if (icon.current !== null) {
-                icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
-                item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
-            }
-
+    const headerScroll = () => {
+        if (icon.current !== null) {
+            icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
+            item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
         }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', headerScroll)
     }, [])
     const icon: any = useRef(null)
     const item: any = useRef(null)

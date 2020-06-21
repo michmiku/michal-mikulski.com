@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
-import ScrollSpy from "./ScrollSpy"
 import Footer from './Footer'
 import axios from 'axios'
 import Settings from "../../Settings.json"
+import Header from './Header'
+import Skills from "./Skills";
+import AboutMe from "./AboutMe";
+import Projects from "./Projects";
 
 const HomeScreen = () => {
     useEffect(() => {
@@ -10,7 +13,10 @@ const HomeScreen = () => {
     }, [])
     return (
         <div className="container-fluid pl-0 pr-0 home-container">
-            <ScrollSpy />
+            <Header />
+            <Skills />
+            <AboutMe />
+            <Projects />
             <Footer />
         </div>
     )
