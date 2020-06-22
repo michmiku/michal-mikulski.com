@@ -70,7 +70,7 @@ const CountryList: React.FC<Props> = ({ country, setCountry, setCurrentCord, cou
         setCurrentCord({ lat: temp[0].countryInfo.lat, long: temp[0].countryInfo.long })
     }
     return (
-        <div className="country-container">
+        <div className="list">
             <Divider horizontal>
                 <Header as='h3' className='select-header'>
                     Select Country

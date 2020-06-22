@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../../styles/css/covid19.css'
 import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
 
@@ -9,6 +9,7 @@ interface Props {
     country: {
         country: string;
         slug: string;
+        flag: any;
     };
     data: any,
     chartSize: any,
@@ -17,7 +18,6 @@ interface Props {
 const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
     const [lines, setLines] = useState()
     const [count, setCount] = useState(0)
-
     useEffect(() => {
         var lines: any = []
         if ((country.country === "World" && data !== undefined && count === 0)) {
@@ -58,31 +58,34 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
             setLines(lines)
         }
     }, [data])
+    const chart: any = useRef(null)
 
 
     return (
-        <div className="chart" style={{ width: chartSize.width - 80, height: (chartSize.height + 150) / 2, padding: '5px' }}>
-            <h2>{country.country}</h2>
+        <div className="chart" ref={chart}>
+            {chart.current !== null ? <ResponsiveContainer width='100%' height={chart.current.offsetHeight}>
 
-            <LineChart
-                width={chartSize.width - 140}
-                height={chartSize.height / 2 + 20}
-                data={lines}
-                margin={{
-                    top: 5, bottom: 5
-                }}
-            >
-                <CartesianGrid strokeDasharray="4 4" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="confirmed" stroke="black" dot={false} />
-                <Line type="monotone" dataKey="deaths" stroke="red" dot={false} />
-                <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" dot={false} />
-                <Line type="monotone" dataKey="active" stroke="blue" dot={false} />
+                <LineChart
 
-            </LineChart>
+                    data={lines}
+                    margin={{
+                        top: 5, bottom: 5
+                    }}
+                >
+                    <CartesianGrid strokeDasharray="4 4" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="confirmed" stroke="black" dot={false} />
+                    <Line type="monotone" dataKey="deaths" stroke="red" dot={false} />
+                    <Line type="monotone" dataKey="recovered" stroke="rgb(139, 241, 139)" dot={false} />
+                    <Line type="monotone" dataKey="active" stroke="blue" dot={false} />
+
+                </LineChart>
+            </ResponsiveContainer> : null
+            }
+
         </div>
 
     )

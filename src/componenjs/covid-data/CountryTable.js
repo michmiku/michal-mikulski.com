@@ -77,18 +77,18 @@ var CountryTable = function (_a) {
         setCountry({ country: temp[0].country, slug: temp[0].countryInfo.iso3, flag: temp[0].countryInfo.iso2 });
         setCurrentCord({ lat: temp[0].countryInfo.lat, long: temp[0].countryInfo.long });
     };
-    return (React.createElement("div", { style: { width: '100%', height: '100%', overflow: 'auto ' } },
+    return (React.createElement("div", { style: { width: '100%', height: '400px', overflow: 'auto ' }, className: "table" },
         React.createElement(Table, { sortable: true, celled: true, fixed: true },
             React.createElement(Table.Header, null,
                 React.createElement(Table.Row, null,
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'country' ? sort.direction : null, onClick: handleSort('country') }, "Country"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'totalCases' ? sort.direction : null, onClick: handleSort('totalCases') }, "Total cases"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'newCases' ? sort.direction : null, onClick: handleSort('newCases') }, "New cases"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'totalDeaths' ? sort.direction : null, onClick: handleSort('totalDeaths') }, "Total deaths"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'newDeaths' ? sort.direction : null, onClick: handleSort('newDeaths') }, "New deaths"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'totalRecovered' ? sort.direction : null, onClick: handleSort('totalRecovered') }, "Total recovered"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'newRecovered' ? sort.direction : null, onClick: handleSort('newRecovered') }, "New recovered"),
-                    React.createElement(Table.HeaderCell, { style: { position: 'sticky', top: '0' }, sorted: sort.column === 'activeCases' ? sort.direction : null, onClick: handleSort('activeCases') }, "Active cases"))),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'country' ? sort.direction : null, onClick: handleSort('country') }, "Country"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'totalCases' ? sort.direction : null, onClick: handleSort('totalCases') }, "Total cases"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'newCases' ? sort.direction : null, onClick: handleSort('newCases') }, "New cases"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'totalDeaths' ? sort.direction : null, onClick: handleSort('totalDeaths') }, "Total deaths"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'newDeaths' ? sort.direction : null, onClick: handleSort('newDeaths') }, "New deaths"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'totalRecovered' ? sort.direction : null, onClick: handleSort('totalRecovered') }, "Total recovered"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'newRecovered' ? sort.direction : null, onClick: handleSort('newRecovered') }, "New recovered"),
+                    React.createElement(Table.HeaderCell, { className: "table-header", sorted: sort.column === 'activeCases' ? sort.direction : null, onClick: handleSort('activeCases') }, "Active cases"))),
             isLoading ?
                 React.createElement(Loader, { active: true, inline: 'centered', content: 'Loading', style: { margin: '20px', left: '40vw' } }) :
                 React.createElement(Table.Body, null, sort.data.map(function (item, key) { return (country.country === item.country ? React.createElement(Table.Row, { key: key, onClick: function () { handleChange(item.flag); }, style: { cursor: 'pointer' }, className: 'country-row-selected' },

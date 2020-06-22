@@ -93,46 +93,54 @@ const CountryTable: React.FC<Props> = ({ setAllData, countryData, setCountry, se
         setCurrentCord({ lat: temp[0].countryInfo.lat, long: temp[0].countryInfo.long })
     }
     return (
-        <div style={{ width: '100%', height: '100%', overflow: 'auto ' }}>
+        <div style={{ width: '100%', height: '400px', overflow: 'auto ' }} className="table">
             <Table sortable celled fixed>
                 <Table.Header >
                     <Table.Row >
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'country' ? sort.direction : null}
                             onClick={handleSort('country')}>
                             Country
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'totalCases' ? sort.direction : null}
                             onClick={handleSort('totalCases')}>
                             Total cases
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'newCases' ? sort.direction : null}
                             onClick={handleSort('newCases')}>
                             New cases
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'totalDeaths' ? sort.direction : null}
                             onClick={handleSort('totalDeaths')}>
                             Total deaths
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'newDeaths' ? sort.direction : null}
                             onClick={handleSort('newDeaths')}>
                             New deaths
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'totalRecovered' ? sort.direction : null}
                             onClick={handleSort('totalRecovered')}>
                             Total recovered
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'newRecovered' ? sort.direction : null}
                             onClick={handleSort('newRecovered')}>
                             New recovered
                         </Table.HeaderCell>
-                        <Table.HeaderCell style={{ position: 'sticky', top: '0' }}
+                        <Table.HeaderCell
+                            className="table-header"
                             sorted={sort.column === 'activeCases' ? sort.direction : null}
                             onClick={handleSort('activeCases')}>
                             Active cases

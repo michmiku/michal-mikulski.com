@@ -7,7 +7,7 @@ interface Props {
     country: {
         country: string,
         slug: string,
-        flag: any
+        flag: any;
     };
     setData: React.Dispatch<any>,
     worldData: any,
@@ -66,7 +66,7 @@ const Cases: React.FC<Props> = ({ country, setData, worldData }) => {
     }, [country, worldData])
 
     return (
-        <React.Fragment >
+        <div className="cases">
             <Divider horizontal>
                 <Header as='h3' className='cases-header'>
                     {country.country}
@@ -93,7 +93,7 @@ const Cases: React.FC<Props> = ({ country, setData, worldData }) => {
                     </Table.Row>
                 </Table.Body>
             </Table>
-        </React.Fragment>
+        </div>
 
     )
 }

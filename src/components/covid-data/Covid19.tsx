@@ -25,21 +25,16 @@ interface Props {
 const Covid19: React.FC<Props> = ({ }) => {
     const [country, setCountry] = useState<{ country: string, slug: string, flag: any }>({ country: "World", slug: 'world', flag: undefined })
     const [data, setData] = useState<any>()
-    const [chartSize, setChartSize] = useState({ width: 700, height: 400 })
+    const [chartSize, setChartSize] = useState({ width: window.innerWidth - window.innerWidth / 3, height: 400 })
     const [worldData, setWorldData] = useState<any>()
     const [allData, setAllData] = useState([])
     const [currentCord, setCurrentCord] = useState({ lat: 50, long: 0 })
     const [countryData, setCountryData] = useState<{ data: any }>({ data: [] })
 
     const updateDimensions = () => {
-        let update_width = window.innerWidth / 2.8;
-        setChartSize({ width: update_width, height: 660 / 2.4 });
-        if (window.innerHeight >= 660) {
+        let update_width = window.innerWidth;
+        setChartSize({ width: update_width - window.innerWidth / 3, height: 400 });
 
-            let update_height = window.innerHeight / 2.4;
-
-            setChartSize({ width: update_width, height: update_height });
-        }
     }
     useEffect(() => {
 
@@ -55,48 +50,14 @@ const Covid19: React.FC<Props> = ({ }) => {
         }
     }, [])
     return (
-        <div className="main-container">
-            <div className="row first-row">
-                <div className="col">
-                    <div className="row ">
-                        <div className="col data-columns">
-                            <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
-                        </div>
-                    </div>
-                    <div className="row ">
-                        <div className="col data-columns">
-                            <Cases country={country} setData={setData} worldData={worldData} />
-                        </div>
-                    </div>
-                    <div className="row ">
-                        <div className="col countryList">
-                            <CountryList country={country} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} setCountryData={setCountryData} />
-
-                        </div>
-                    </div>
-                </div>
-                <div className="col-6">
-                    <div className="map-container">
-                        <Map chartSize={chartSize} allData={allData} currentCord={currentCord} country={country} setCountry={setCountry} />
-                    </div>
-                </div>
-                <div className="col chart-col">
-                    <div className="row ">
-                        <div className="chart-container">
-                            <Chart country={{ country: "World", slug: 'world' }} data={data} chartSize={chartSize} /></div>
-                    </div>
-                    <div className="row ">
-                        <div className="chart-container">
-                            <Chart country={country} data={data} chartSize={chartSize} /></div>
-                    </div>
-                </div>
-
-            </div>
-            <div className="row second-row">
-                <div className="col countryTable">
-                    <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} country={country} />
-                </div>
-            </div>
+        <div className="container-fluid pl-0 pr-0 grid">
+            <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
+            <Chart country={{ country: "World", slug: 'world', flag: undefined }} data={data} chartSize={chartSize} />
+            <Cases country={country} setData={setData} worldData={worldData} />
+            <Chart country={country} data={data} chartSize={chartSize} />
+            <CountryList country={country} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} setCountryData={setCountryData} />
+            <Map chartSize={chartSize} allData={allData} currentCord={currentCord} country={country} setCountry={setCountry} />
+            <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} country={country} />
         </div>
     )
 }
