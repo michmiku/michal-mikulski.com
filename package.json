@@ -23,6 +23,7 @@
     "framer-motion": "^1.11.1",
     "griddle-react": "^1.13.1",
     "jquery": "^3.5.1",
+    "jquery-parallax.js": "^1.5.0",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",

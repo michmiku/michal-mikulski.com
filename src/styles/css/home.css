@@ -30,7 +30,7 @@ body {
   height: 100%;
   background-image: url("../../assets/images/header-new.png");
   background-size: auto 1700px;
-  background-position: center;
+  background-position: center 120vh;
   background-attachment: fixed;
 }
 #header .header-logo {
@@ -661,8 +661,14 @@ footer .social li:nth-child(4) a:before {
   #skills .skill {
     margin: 70px 0;
   }
+  #skills .skill .skill-icon {
+    font-size: 5em;
+  }
+  #skills .skill .skill-text {
+    font-size: 1.5em;
+  }
   #skills .skill .skill-img {
-    margin-top: 0.4vw;
-    width: 3.8em;
+    margin-top: 0.6vw;
+    width: 4.6em;
   }
 }

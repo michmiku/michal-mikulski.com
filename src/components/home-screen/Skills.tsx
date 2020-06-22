@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import TS from '../../assets/images/TypeScript.png'
 import MongoDB from '../../assets/images/mongodb.png'
 import { motion, AnimatePresence } from "framer-motion"
-
+import Skill from ".//Skill"
 
 interface Props {
 
@@ -18,26 +18,20 @@ const skillsHover = {
     },
     animate: {
         x: 0,
+
     },
 
 
 }
 const Skills: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
-    const branch: any = useRef(null)
-    const leaves: any = useRef(null)
+
     const skills: any = useRef(null)
     const skillsScroll = () => {
         let currentScroll = window.pageYOffset
         let widnowHeight = window.innerHeight
-        if (branch.current !== null) {
-            branch.current.style.transform = 'translate(0px, ' + currentScroll / 5 + '%)'
-            leaves.current.style.transform = 'translate(0px, ' + currentScroll / 1.5 + '%)'
-        }
-        if (skills.current.getBoundingClientRect().top < 0) {
-            setCurrentClass(false)
-        }
-        else if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
+
+        if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && skills.current.getBoundingClientRect().top > 0) {
             setCurrentClass(true)
         }
         else {
@@ -47,6 +41,100 @@ const Skills: React.FC<Props> = () => {
     useEffect(() => {
         window.addEventListener('scroll', skillsScroll)
     }, [])
+
+    const skillsList: {
+        icon: string;
+        text: string;
+        color: string;
+        img: boolean;
+        duration: number;
+    }[] = [
+            {
+                icon: 'fa-html5 fab skill-icon',
+                text: 'HTML',
+                color: 'rgb(234,98,40)',
+                img: false,
+                duration: 0.3
+            },
+            {
+                icon: 'fa-css3-alt fab skill-icon',
+                text: 'CSS',
+                color: 'rgb(51,163,213)',
+                img: false,
+                duration: 0.35
+            },
+            {
+                icon: 'fa-js fab skill-icon',
+                text: 'JavaScript',
+                color: 'rgb(255,217,58)',
+                img: false,
+                duration: 0.4
+            },
+            {
+                icon: 'TS',
+                text: 'TypeScript',
+                color: '',
+                img: true,
+                duration: 0.45
+            },
+            {
+                icon: 'fa-bootstrap fab skill-icon',
+                text: 'Bootstrap',
+                color: 'rgb(84,59,121)',
+                img: false,
+                duration: 0.5
+            },
+            {
+                icon: 'fa-react fab skill-icon',
+                text: 'React/Redux',
+                color: 'rgb(97,218,251)',
+                img: false,
+                duration: 0.55
+            },
+            {
+                icon: 'fa-react fab skill-icon',
+                text: 'React Native',
+                color: 'rgb(97,218,251)',
+                img: false,
+                duration: 0.6
+            },
+            {
+                icon: 'fa-sass fab skill-icon',
+                text: 'Sass',
+                color: 'rgb(201,97,150)',
+                img: false,
+                duration: 0.65
+            },
+            {
+                icon: 'fa-node-js fab skill-icon',
+                text: 'Node.js',
+                color: 'rgb(140,200,75)',
+                img: false,
+                duration: 0.7
+            },
+            {
+                icon: 'fa-node-js fab skill-icon',
+                text: 'Express',
+                color: 'rgb(140,200,75)',
+                img: false,
+                duration: 0.75
+            },
+            {
+                icon: 'MongoDB',
+                text: 'MongoDB',
+                color: '',
+                img: true,
+                duration: 0.8
+            },
+            {
+                icon: 'fa-git-alt fab skill-icon',
+                text: 'Git',
+                color: 'rgb(240,81,51)',
+                img: false,
+                duration: 0.85
+            },
+        ]
+
     return (
         <motion.section id="skills" ref={skills}>
             <AnimatePresence>
@@ -54,7 +142,7 @@ const Skills: React.FC<Props> = () => {
                     <motion.h1
                         initial={{ x: '-100vw' }}
                         animate={{ x: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, type: 'tween' }}
                         exit={{ x: '-100vw' }}
                     >Skills</motion.h1>
                 )}
@@ -63,218 +151,21 @@ const Skills: React.FC<Props> = () => {
             <motion.div className="skills-container grid">
                 <AnimatePresence>
                     {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            exit={{ x: '-100vw' }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <i className="fab fa-html5 skill-icon" style={{ color: 'rgb(234,98,40)' }}></i>
-                            <h4 className="skill-text">HTML</h4>
-                        </motion.a>
+                        skillsList.map((item: {
+                            icon: string;
+                            text: string;
+                            color: string;
+                            img: boolean;
+                            duration: number;
+                        }, key: number) => (
+                                <Skill currentClass={currentClass} item={item} key={key} />
+
+                            ))
                     )}
 
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}
-                        >
-                            <i className="fab fa-css3-alt skill-icon" style={{ color: 'rgb(51,163,213)' }}></i>
-                            <h4 className="skill-text">CSS</h4>
-                        </motion.a>
-                    )}
-
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}
-                        >
-                            <i className="fab fa-js skill-icon" style={{ color: 'rgb(255,217,58)' }}></i>
-                            <h4 className="skill-text">JavaScript</h4>
-                        </motion.a>
-                    )}
-
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}
-
-                        >
-                            <img className='skill-img' src={TS} onDragStart={(e) => {
-                                e.preventDefault()
-                            }}></img>
-                            <h4 className="skill-text img-text">TypeScript</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-bootstrap skill-icon" style={{ color: 'rgb(84,59,121)' }}></i>
-                            <h4 className="skill-text">Bootstrap</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-react skill-icon" style={{ color: 'rgb(97,218,251)' }}></i>
-                            <h4 className="skill-text">React/Redux</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-react skill-icon" style={{ color: 'rgb(97,218,251)' }}></i>
-                            <h4 className="skill-text">React Native</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-sass skill-icon" style={{ color: 'rgb(201,97,150)' }}></i>
-                            <h4 className="skill-text">Sass</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-node-js skill-icon" style={{ color: 'rgb(140,200,75)' }}></i>
-                            <h4 className="skill-text">Node.js</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-node-js skill-icon" style={{ color: 'rgb(140,200,75)' }}></i>
-                            <h4 className="skill-text">Express</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            variants={skillsHover}
-                            initial='initial'
-                            whileHover="hover"
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <img className='skill-img' src={MongoDB} onDragStart={(e) => {
-                                e.preventDefault()
-                            }}></img>
-                            <h4 className="skill-text img-text">MongoDB</h4>
-                        </motion.a>
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {currentClass && (
-                        <motion.a className="skill"
-                            drag
-                            variants={skillsHover}
-                            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-                            whileHover="hover"
-                            initial='initial'
-                            animate="animate"
-                            transition={{ duration: 0.5 }}
-                            exit={{ x: '-100vw' }}>
-                            <i className="fab fa-git-alt skill-icon" style={{ color: 'rgb(240,81,51)' }}></i>
-                            <h4 className="skill-text">Git</h4>
-                        </motion.a>
-                    )}
                 </AnimatePresence>
 
             </motion.div>
-            <div ref={leaves} className="sakura-leaves"></div>
-            <div ref={branch} className="sakura-branch"></div>
-
         </motion.section>
 
 

@@ -6,6 +6,7 @@ const Header: React.FC<Props> = ({ }) => {
         if (icon.current !== null) {
             icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
             item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
+            header.current.style.backgroundPositionY = window.innerHeight * 1.2 - window.pageYOffset / 3 + 'px'
         }
     }
     useEffect(() => {
@@ -13,15 +14,11 @@ const Header: React.FC<Props> = ({ }) => {
     }, [])
     const icon: any = useRef(null)
     const item: any = useRef(null)
-
+    const header: any = useRef(null)
     return (
         <section id="header">
-            <div className="header-image"></div>
-
-
-            <div ref={icon} className="header-logo"
-
-            ></div>
+            <div ref={header} className="header-image"></div>
+            <div ref={icon} className="header-logo"></div>
             <div ref={item} className="header-item"></div>
         </section>
     )

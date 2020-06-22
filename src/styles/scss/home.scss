@@ -34,7 +34,7 @@ body {
         height: 100%;
         background-image: url('../../assets/images/header-new.png');
         background-size: auto 1700px;
-        background-position: center;
+        background-position: center 120vh;
         background-attachment: fixed;
     }
 
@@ -914,9 +914,17 @@ footer {
             .skill {
                 margin: 70px 0;
 
+                .skill-icon {
+                    font-size: 5em;
+                }
+
+                .skill-text {
+                    font-size: 1.5em;
+                }
+
                 .skill-img {
-                    margin-top: 0.4vw;
-                    width: 3.8em;
+                    margin-top: 0.6vw;
+                    width: 4.6em;
                 }
             }
         }

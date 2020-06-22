@@ -12,9 +12,9 @@ interface Props {
 const Projects: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
     const projects: any = useRef(null)
-    const skillsScroll = () => {
+    const projectsScroll = () => {
         let widnowHeight = window.innerHeight
-        if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < -20) {
+        if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
             setCurrentClass(true)
         }
         else {
@@ -22,7 +22,7 @@ const Projects: React.FC<Props> = () => {
         }
     }
     useEffect(() => {
-        window.addEventListener('scroll', skillsScroll)
+        window.addEventListener('scroll', projectsScroll)
     }, [])
     return (
 
@@ -32,7 +32,7 @@ const Projects: React.FC<Props> = () => {
                     <motion.h1
                         initial={{ x: '-100vw' }}
                         animate={{ x: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, type: 'tween' }}
                         exit={{ x: '-100vw' }}
                     >Projects</motion.h1>
                 )}
