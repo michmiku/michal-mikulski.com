@@ -43,7 +43,7 @@ const Skill: React.FC<Props> = ({ currentClass, item }) => {
                     whileHover="hover"
                     animate="animate"
                     exit={{ x: '-100vw' }}
-                    transition={{ duration: item.duration }}
+                    transition={{ duration: item.duration, delay: 0.2 }}
                 >
                     <i className={item.icon} style={{ color: item.color }}></i>
                     <h4 className="skill-text">{item.text}</h4>
@@ -56,7 +56,7 @@ const Skill: React.FC<Props> = ({ currentClass, item }) => {
                     initial='initial'
                     whileHover="hover"
                     animate="animate"
-                    transition={{ duration: item.duration }}
+                    transition={{ duration: item.duration, delay: 0.2 }}
                     exit={{ x: '-100vw' }}
 
                 >

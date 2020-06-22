@@ -153,7 +153,7 @@ const Skills: React.FC<Props> = () => {
                     <motion.div className="skills-container grid"
                         initial={{ x: '-100vw' }}
                         animate={{ x: 0 }}
-                        transition={{ delay: 0.2, type: 'tween' }}
+                        transition={{ duration: 0.8 }}
                         exit={{ x: '-100vw' }}>
                         {
                             skillsList.map((item: {
