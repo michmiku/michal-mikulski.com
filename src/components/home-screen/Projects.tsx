@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button } from 'semantic-ui-react'
 import music from "../../assets/images/music-img.png"
 import covid from "../../assets/images/covid-img.png"
 import { Link } from 'react-router-dom'
@@ -14,11 +13,13 @@ const Projects: React.FC<Props> = () => {
     const projects: any = useRef(null)
     const projectsScroll = () => {
         let widnowHeight = window.innerHeight
-        if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
-            setCurrentClass(true)
-        }
-        else {
-            setCurrentClass(false)
+        if (projects.current !== null) {
+            if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
+                setCurrentClass(true)
+            }
+            else {
+                setCurrentClass(false)
+            }
         }
     }
     useEffect(() => {
@@ -48,12 +49,12 @@ const Projects: React.FC<Props> = () => {
                             exit={{ x: '-100vw' }}>
                             <img src={music} className="card-img-top project-img " alt="music" />
                             <div className="project-text">
-                                <a>
+                                <div>
 
                                     <Link to="/music" className="button" href="#">Music player</Link>
                                     <a href="https://github.com/michmiku/music-player" target="blank" className='button' >Github</a>
 
-                                </a>
+                                </div>
                             </div>
                         </motion.div>
                     )}
@@ -68,10 +69,10 @@ const Projects: React.FC<Props> = () => {
                         >
                             <img src={covid} className="card-img-top project-img " alt="covid" />
                             <div className="project-text">
-                                <a>
+                                <div>
                                     <Link to="/covid19" className="button" href="#">Covid-19 data</Link>
                                     <a href="https://github.com/michmiku/covid19-data" target="blank" className="button">Github</a>
-                                </a>
+                                </div>
                             </div>
                         </motion.div>
                     )}

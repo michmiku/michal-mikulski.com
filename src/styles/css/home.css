@@ -63,11 +63,13 @@ body {
 
 #skills {
   background-color: #d6d6d6 !important;
+  padding-top: 20px;
+  padding-bottom: 100px;
   height: 80vh;
 }
 #skills h1 {
-  margin: 20px 0;
-  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-size: 2em;
   text-align: center;
 }
 #skills .skill {
@@ -97,21 +99,21 @@ body {
   font-size: 2em;
   text-align: center;
 }
-#about-me p {
+#about-me div {
   margin: 0 20px;
   font-size: 1.1em;
   padding: 20px 0;
   border-top: 1px solid #707070;
   border-bottom: 1px solid #707070;
 }
-#about-me p h2 {
+#about-me div h2 {
   margin-top: 20px;
 }
-#about-me p h4 {
+#about-me div h4 {
   margin-top: 20px;
   font-size: 0.9em;
 }
-#about-me p p {
+#about-me div p {
   font-size: 0.9em;
   margin: 0;
   margin-bottom: 10px;
@@ -119,12 +121,13 @@ body {
 }
 
 #projects {
+  padding-top: 20px;
   padding-bottom: 100px;
-  height: 90vh;
+  height: 95vh;
 }
 #projects h1 {
-  margin: 20px 0;
-  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-size: 2em;
   text-align: center;
 }
 #projects .project {
@@ -142,18 +145,20 @@ body {
   background-color: rgba(0, 0, 0, 0.637);
   z-index: -1;
 }
-#projects .project .project-text a .button {
+#projects .project .project-text div {
+  position: relative;
+  top: 45%;
+}
+#projects .project .project-text div .button {
   text-decoration: none;
   color: white;
   border: 1px solid white;
   padding: 10px 20px;
-  position: relative;
-  top: 45%;
   margin-right: 10px;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 }
-#projects .project .project-text a .button:hover {
+#projects .project .project-text div .button:hover {
   background-color: white;
   color: black;
 }
@@ -260,8 +265,8 @@ footer .social li:nth-child(4) a:before {
 
 @media screen and (min-height: 450px) {
   #skills h1 {
-    margin: 20px 0;
-    font-size: 2.5em;
+    margin-bottom: 5px;
+    font-size: 2.3em;
     text-align: center;
   }
   #skills .skill {
@@ -285,19 +290,19 @@ footer .social li:nth-child(4) a:before {
     font-size: 2.3em;
     text-align: center;
   }
-  #about-me p {
+  #about-me div {
     margin: 0 20px;
     font-size: 1em;
   }
-  #about-me p h2 {
+  #about-me div h2 {
     margin-top: 5px;
     font-size: 1.5em;
   }
-  #about-me p h4 {
+  #about-me div h4 {
     margin-top: 5px;
     font-size: 1em;
   }
-  #about-me p p {
+  #about-me div p {
     font-size: 1em;
     margin: 0;
   }
@@ -307,20 +312,20 @@ footer .social li:nth-child(4) a:before {
     font-size: 2.3em;
     text-align: center;
   }
-  #about-me p {
+  #about-me div {
     margin: 0 20px;
     font-size: 1.2em;
     padding: 10px 0;
   }
-  #about-me p h4 {
+  #about-me div h4 {
     font-size: 1em;
     margin-top: -5px;
     padding-bottom: 10px;
   }
-  #about-me p h2 {
+  #about-me div h2 {
     font-size: 1.5em;
   }
-  #about-me p p {
+  #about-me div p {
     font-size: 1em;
     margin-top: -30px;
     padding-bottom: 0;
@@ -328,7 +333,7 @@ footer .social li:nth-child(4) a:before {
 }
 @media screen and (min-height: 650px) {
   #skills h1 {
-    margin: 20px 0;
+    margin-bottom: 20px;
     font-size: 2.5em;
     text-align: center;
   }
@@ -353,18 +358,18 @@ footer .social li:nth-child(4) a:before {
     font-size: 2.5em;
     text-align: center;
   }
-  #about-me p {
+  #about-me div {
     margin: 10px 20px;
     font-size: 1.3em;
   }
-  #about-me p h2 {
+  #about-me div h2 {
     margin-top: 20px;
   }
-  #about-me p h4 {
+  #about-me div h4 {
     margin-top: 20px;
     font-size: 1em;
   }
-  #about-me p p {
+  #about-me div p {
     font-size: 1em;
     margin: 0;
     margin-top: 20px;
@@ -372,7 +377,6 @@ footer .social li:nth-child(4) a:before {
 }
 @media screen and (min-height: 750px) {
   #skills h1 {
-    margin: 20px 0;
     font-size: 2.5em;
     text-align: center;
   }
@@ -397,23 +401,29 @@ footer .social li:nth-child(4) a:before {
     font-size: 2.5em;
     text-align: center;
   }
-  #about-me p {
+  #about-me div {
     margin: 25px 20px;
     font-size: 1.3em;
   }
-  #about-me p h2 {
+  #about-me div h2 {
     margin-top: 20px;
     margin-bottom: 40px;
   }
-  #about-me p h4 {
+  #about-me div h4 {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 1em;
   }
-  #about-me p p {
+  #about-me div p {
     font-size: 1em;
     margin: 0;
     margin-top: 20px;
+  }
+
+  #projects h1 {
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    text-align: center;
   }
 }
 @media screen and (min-width: 620px) {
@@ -422,6 +432,8 @@ footer .social li:nth-child(4) a:before {
   }
   #skills h1 {
     margin-top: 50px;
+    font-size: 2.5em;
+    text-align: center;
   }
   #skills .skill {
     grid-column: span 3;
@@ -482,18 +494,18 @@ footer .social li:nth-child(4) a:before {
     font-size: 2.5em;
     text-align: center;
   }
-  #about-me p {
+  #about-me div {
     margin: 40px 20px;
     font-size: 1.3em;
   }
-  #about-me p h2 {
+  #about-me div h2 {
     margin-top: 80px;
   }
-  #about-me p h4 {
+  #about-me div h4 {
     margin-top: 80px;
     font-size: 1em;
   }
-  #about-me p p {
+  #about-me div p {
     font-size: 1em;
     margin: 0;
     margin-bottom: 80px;
@@ -501,6 +513,8 @@ footer .social li:nth-child(4) a:before {
 
   #projects h1 {
     margin-top: 50px;
+    font-size: 2.5em;
+    text-align: center;
   }
 }
 @media screen and (min-width: 960px) {
@@ -561,7 +575,7 @@ footer .social li:nth-child(4) a:before {
     font-size: 1.5em;
   }
 
-  #about-me p {
+  #about-me div {
     margin: 0 180px;
   }
 
@@ -582,14 +596,14 @@ footer .social li:nth-child(4) a:before {
     margin: 0 180px;
   }
   #skills .skill {
-    margin: 50px 0;
+    margin: 30px 0;
   }
   #skills .skill .skill-img {
     margin-top: 0.5vw;
     width: 4.7em;
   }
 
-  #about-me p {
+  #about-me div {
     margin: 0 250px;
   }
 
@@ -647,7 +661,7 @@ footer .social li:nth-child(4) a:before {
     width: 4.7em;
   }
 
-  #about-me p {
+  #about-me div {
     margin: 0 450px;
   }
 

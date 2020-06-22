@@ -11,11 +11,13 @@ const AboutMe: React.FC<Props> = () => {
     const aboutMe: any = useRef(null)
     const aboutMeScroll = () => {
         let widnowHeight = window.innerHeight
-        if (aboutMe.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && aboutMe.current.getBoundingClientRect().top > 0) {
-            setCurrentClass(true)
-        }
-        else {
-            setCurrentClass(false)
+        if (aboutMe.current !== null) {
+            if (aboutMe.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && aboutMe.current.getBoundingClientRect().top > 0) {
+                setCurrentClass(true)
+            }
+            else {
+                setCurrentClass(false)
+            }
         }
     }
     useEffect(() => {
@@ -36,7 +38,7 @@ const AboutMe: React.FC<Props> = () => {
             </AnimatePresence>
             <AnimatePresence>
                 {currentClass && (
-                    <motion.p
+                    <motion.div
                         initial={{ x: '-100vw' }}
                         animate={{ x: 0 }}
                         transition={{ duration: 0.5 }}
@@ -65,7 +67,7 @@ const AboutMe: React.FC<Props> = () => {
                             transition={{ duration: 0.9 }}
                             exit={{ x: '-100vw' }}
                         >http://tl.krakow.pl/</motion.a>
-                    </motion.p>
+                    </motion.div>
                 )}
             </AnimatePresence>
 

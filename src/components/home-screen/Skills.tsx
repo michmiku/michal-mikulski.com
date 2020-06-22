@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import TS from '../../assets/images/TypeScript.png'
-import MongoDB from '../../assets/images/mongodb.png'
+
 import { motion, AnimatePresence } from "framer-motion"
 import Skill from ".//Skill"
 
@@ -30,12 +29,13 @@ const Skills: React.FC<Props> = () => {
     const skillsScroll = () => {
         let currentScroll = window.pageYOffset
         let widnowHeight = window.innerHeight
-
-        if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && skills.current.getBoundingClientRect().top > 0) {
-            setCurrentClass(true)
-        }
-        else {
-            setCurrentClass(false)
+        if (skills.current !== null) {
+            if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && skills.current.getBoundingClientRect().top > 0) {
+                setCurrentClass(true)
+            }
+            else {
+                setCurrentClass(false)
+            }
         }
     }
     useEffect(() => {
@@ -147,25 +147,32 @@ const Skills: React.FC<Props> = () => {
                     >Skills</motion.h1>
                 )}
             </AnimatePresence>
+            <AnimatePresence>
+                {currentClass && (
 
-            <motion.div className="skills-container grid">
-                <AnimatePresence>
-                    {currentClass && (
-                        skillsList.map((item: {
-                            icon: string;
-                            text: string;
-                            color: string;
-                            img: boolean;
-                            duration: number;
-                        }, key: number) => (
-                                <Skill currentClass={currentClass} item={item} key={key} />
+                    <motion.div className="skills-container grid"
+                        initial={{ x: '-100vw' }}
+                        animate={{ x: 0 }}
+                        transition={{ delay: 0.2, type: 'tween' }}
+                        exit={{ x: '-100vw' }}>
+                        {
+                            skillsList.map((item: {
+                                icon: string;
+                                text: string;
+                                color: string;
+                                img: boolean;
+                                duration: number;
+                            }, key: number) => (
+                                    <Skill currentClass={currentClass} item={item} key={key} />
 
-                            ))
-                    )}
+                                ))
+                        }
 
-                </AnimatePresence>
 
-            </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
         </motion.section>
 
 

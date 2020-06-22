@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Spinner from 'react-bootstrap/Spinner'
-import Alert from 'react-bootstrap/Alert'
 const Sidebar = ({ musicList, handleNewArtist, myMusic, setMyMusic, setCurrentArtistPlaylist, currentArtistPlaylist, authUser }) => {
     const [artists, setArtists] = useState([])
     const [loaded, setLoaded] = useState(false)

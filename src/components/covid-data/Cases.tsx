@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { Divider, Header, Icon, Table } from 'semantic-ui-react'
+import React, { useState, useEffect, } from "react";
+import { Divider, Header, Table } from 'semantic-ui-react'
 import axios from 'axios'
 import '../../styles/css/covid19.css'
 

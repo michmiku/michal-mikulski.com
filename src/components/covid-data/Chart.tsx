@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom'
-import axios from 'axios'
 import '../../styles/css/covid19.css'
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
-import { isString } from "lodash";
 
 
 interface Props {

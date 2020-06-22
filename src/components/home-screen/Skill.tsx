@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { } from "react";
 import TS from '../../assets/images/TypeScript.png'
 import MongoDB from '../../assets/images/mongodb.png'
-import { motion, AnimatePresence } from "framer-motion"
-import { Item } from "semantic-ui-react";
+import { motion } from "framer-motion"
 
 
 interface Props {
@@ -14,7 +13,6 @@ interface Props {
         img: boolean;
         duration: number
     },
-    key: number
 }
 const skillsHover = {
     initial: {
@@ -31,14 +29,13 @@ const skillsHover = {
 
 
 }
-const Skill: React.FC<Props> = ({ currentClass, item, key }) => {
+const Skill: React.FC<Props> = ({ currentClass, item }) => {
 
     return (
 
         currentClass && (
             !item.img ?
                 <motion.a className="skill"
-                    key={key}
                     drag
                     dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                     variants={skillsHover}

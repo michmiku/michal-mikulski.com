@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
-import axios from 'axios'
-import { Item } from "semantic-ui-react";
 
 const TOKEN = 'pk.eyJ1IjoibWljaG1pa3UiLCJhIjoiY2tia3dhNDd5MTMwNTJybHN3bmNldnB3bCJ9.6hBGoid3D2ooz7E3hYGYjQ';
 

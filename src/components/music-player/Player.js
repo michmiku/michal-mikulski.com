@@ -23,7 +23,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
             setTime('')
         }
 
-    })
+    }, [currentTime, duration.rawDuration])
     useEffect(() => {
         if (localStorage.getItem('volume') === null) {
             setVolume(30)

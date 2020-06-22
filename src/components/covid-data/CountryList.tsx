@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import '../../styles/css/covid19.css'
 import { Dropdown } from 'semantic-ui-react'
-import { Divider, Header, Icon, Table } from 'semantic-ui-react'
+import { Divider, Header } from 'semantic-ui-react'
 
 interface Props {
     country: {
