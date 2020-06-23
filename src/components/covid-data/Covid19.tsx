@@ -37,7 +37,7 @@ const Covid19: React.FC<Props> = ({ }) => {
 
     }
     useEffect(() => {
-
+        window.scrollTo(0, 0)
         axios.get('https://disease.sh/v2/historical/all?lastdays=all')
             .then(res => {
                 setWorldData(res.data)
@@ -48,6 +48,7 @@ const Covid19: React.FC<Props> = ({ }) => {
         return () => {
             window.removeEventListener("resize", () => { updateDimensions() });
         }
+
     }, [])
     return (
         <div className="container-fluid pl-0 pr-0 grid">

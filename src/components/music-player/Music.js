@@ -6,6 +6,7 @@ import Player from "./Player.js";
 import Sidebar from "./Sidebar.js";
 import MusicList from "./MusicList.js";
 import Settings from "../../Settings.json"
+import '../../styles/css/music.css'
 
 const Music = () => {
     const [musicList, setMusicList] = useState({ music: [] })

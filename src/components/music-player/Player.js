@@ -40,7 +40,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
 
     }, [currentId])
     const handleProgressBar = (e) => {
-        let x = (e.pageX - progressBar.current.getBoundingClientRect().left) / 4
+        let x = (e.pageX - progress.current.getBoundingClientRect().left) / progress.current.offsetWidth * 100
         let newTime = x * duration.rawDuration / 100
         player.current.currentTime = newTime
     }
@@ -89,7 +89,7 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
         setRandom(!random)
     }
     return (
-        <footer className="py-4 text-white-50 player fixed-bottom">
+        <footer className="player">
             <div className="player-control-buttons">
                 {repeat ?
                     <i className="fas fa-redo-alt repeat-button-on" onClick={() => { handleRepeat() }}></i>
@@ -115,11 +115,11 @@ const Player = ({ isPlaying, handlePlay, handlePause, player, src, setSrc, durat
                 <a className="current-artist">{currentSong.artist}</a>
             </div>
             <div className="volume-slider">
-                <i className="fas fa-volume-up volume-icon fa-lg"></i>
+                <i className="fas fa-volume-up volume-icon"></i>
                 <input type="range" min="1" max="100" value={volume} className="slider" onChange={(e) => { handleVolume(e) }} />
             </div>
             <div className="progr-bar ">
-                <div className="currentTime">
+                <div className="current-time">
                     {time}
                 </div>
                 <div ref={progress} className="duration-bar" onClick={(e) => { handleProgressBar(e) }}>

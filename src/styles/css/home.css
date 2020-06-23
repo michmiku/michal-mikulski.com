@@ -18,6 +18,10 @@ body {
   position: relative;
 }
 
+.navbar {
+  background-color: #26282E;
+}
+
 #header {
   width: 100%;
   height: 80vh;

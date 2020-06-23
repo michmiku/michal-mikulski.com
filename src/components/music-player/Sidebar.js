@@ -48,10 +48,10 @@ const Sidebar = ({ musicList, handleNewArtist, myMusic, setMyMusic, setCurrentAr
                         {[...new Set(artists)].map((artist, key) => (
                             currentArtistPlaylist === artist ?
                                 <li className="nav-item artist-list-selected" key={key} onClick={() => { handleNewArtist(artist) }}>
-                                    <a className="">{artist}</a>
+                                    <a className="artist">{artist}</a>
                                 </li> :
                                 <li className="nav-item artist-list" key={key} onClick={() => { handleNewArtist(artist) }}>
-                                    <a className="">{artist}</a>
+                                    <a className="artist">{artist}</a>
                                 </li>
                         ))
                         }
