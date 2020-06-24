@@ -14,7 +14,7 @@ const Projects: React.FC<Props> = () => {
     const projectsScroll = () => {
         let widnowHeight = window.innerHeight
         if (projects.current !== null) {
-            if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < -200) {
+            if (projects.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0) {
                 setCurrentClass(true)
             }
             else {
