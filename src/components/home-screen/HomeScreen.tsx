@@ -9,6 +9,7 @@ import Projects from "./Projects";
 
 const HomeScreen = () => {
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios.get(Settings.server + 'music/')
     }, [])
     return (

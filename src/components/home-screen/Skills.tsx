@@ -6,31 +6,15 @@ import Skill from ".//Skill"
 interface Props {
 
 }
-const skillsHover = {
-    initial: {
-        x: '-100vw'
-    },
-    hover: {
-        scale: 1.2,
-        textShadow: "0px 0px 8px rgba(0,0,0,0.5)",
 
-    },
-    animate: {
-        x: 0,
-
-    },
-
-
-}
 const Skills: React.FC<Props> = () => {
     const [currentClass, setCurrentClass] = useState(false)
 
     const skills: any = useRef(null)
     const skillsScroll = () => {
-        let currentScroll = window.pageYOffset
         let widnowHeight = window.innerHeight
         if (skills.current !== null) {
-            if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && skills.current.getBoundingClientRect().top > 0) {
+            if (skills.current.getBoundingClientRect().top - window.innerHeight + widnowHeight / 2 < 0 && skills.current.getBoundingClientRect().top > -200) {
                 setCurrentClass(true)
             }
             else {

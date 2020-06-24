@@ -6,7 +6,7 @@ const Header: React.FC<Props> = ({ }) => {
         if (icon.current !== null) {
             icon.current.style.transform = 'translate(0px, ' + window.pageYOffset / 1.8 + '%)'
             item.current.style.transform = 'translate(0px, -' + window.pageYOffset / 18 + '%)'
-            header.current.style.backgroundPositionY = window.innerHeight * 1.2 - window.pageYOffset / 3 + 'px'
+            header.current.style.backgroundPositionY = window.innerHeight * 1.2 - window.pageYOffset / 2 + 'px'
         }
     }
     useEffect(() => {
