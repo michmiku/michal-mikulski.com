@@ -53,19 +53,27 @@ body {
   gap: 10px;
 }
 
-.cases {
+.cases-and-chart-container {
   grid-column: 2/12;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #c5c5c5;
+  height: 90%;
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
 }
-.cases tr {
+.cases-and-chart-container .cases {
+  font-size: 0.8em;
+}
+.cases-and-chart-container .cases tr {
   padding: 0 !important;
 }
-
-.chart {
-  grid-column: 2/12;
+.cases-and-chart-container .chart {
   padding-top: 10px;
   height: 300px;
 }
-.chart tspan {
+.cases-and-chart-container .chart tspan {
   font-size: 0.8em;
 }
 
@@ -84,6 +92,10 @@ body {
   margin: 0 !important;
 }
 @media screen and (min-width: 960px) {
+  .cases {
+    font-size: 1em !important;
+  }
+
   .cases:nth-child(1) {
     grid-column: 2/7;
   }
@@ -130,66 +142,35 @@ body {
   }
 }
 @media screen and (min-width: 1200px) {
-  .cases:nth-child(1) {
-    grid-column: 2/6;
+  .cases-and-chart-container:nth-child(1) {
+    grid-column: 1/7;
+    margin-left: 10px;
   }
 
-  .chart:nth-child(2) {
-    grid-column: 2/6;
+  .cases-and-chart-container:nth-child(2) {
+    grid-column: 7/13;
     padding-top: 10px;
-    grid-row: 2;
+    grid-row: 1;
+    margin-right: 10px;
   }
-  .chart:nth-child(2) tspan {
-    font-size: 0.8em;
-  }
-
-  .cases:nth-child(3) {
-    grid-column: 8/12;
-  }
-
-  .chart:nth-child(4) {
-    grid-column: 8/12;
-    padding-top: 10px;
-    grid-row: 2;
-  }
-  .chart:nth-child(4) tspan {
+  .cases-and-chart-container:nth-child(2) tspan {
     font-size: 0.8em;
   }
 
   .list {
-    grid-column: 6/8;
+    grid-column: 4/10;
     grid-row: 2;
   }
 }
 @media screen and (min-width: 1500px) {
-  .cases:nth-child(1) {
-    grid-column: 2/6;
-  }
-
-  .chart:nth-child(2) {
-    grid-column: 2/6;
-    padding-top: 10px;
-    grid-row: 2;
-  }
-  .chart:nth-child(2) tspan {
-    font-size: 0.8em;
-  }
-
-  .cases:nth-child(3) {
-    grid-column: 8/12;
-  }
-
-  .chart:nth-child(4) {
-    grid-column: 8/12;
-    padding-top: 10px;
-    grid-row: 2;
-  }
-  .chart:nth-child(4) tspan {
-    font-size: 0.8em;
-  }
-
   .list {
-    grid-column: 6/8;
+    grid-column: 4/10;
     grid-row: 2;
+  }
+
+  .map {
+    grid-column: 2/12;
+    margin-bottom: 10px !important;
+    height: 500px;
   }
 }

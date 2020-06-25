@@ -52,10 +52,14 @@ const Covid19: React.FC<Props> = ({ }) => {
     }, [])
     return (
         <div className="container-fluid pl-0 pr-0 grid">
-            <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
-            <Chart country={{ country: "World", slug: 'world', flag: undefined }} data={data} chartSize={chartSize} />
-            <Cases country={country} setData={setData} worldData={worldData} />
-            <Chart country={country} data={data} chartSize={chartSize} />
+            <div className="cases-and-chart-container">
+                <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
+                <Chart country={{ country: "World", slug: 'world', flag: undefined }} data={data} chartSize={chartSize} />
+            </div>
+            <div className="cases-and-chart-container">
+                <Cases country={country} setData={setData} worldData={worldData} />
+                <Chart country={country} data={data} chartSize={chartSize} />
+            </div>
             <CountryList country={country} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} setCountryData={setCountryData} />
             <Map chartSize={chartSize} allData={allData} currentCord={currentCord} country={country} setCountry={setCountry} />
             <CountryTable setAllData={setAllData} setCountry={setCountry} setCurrentCord={setCurrentCord} countryData={countryData} country={country} />

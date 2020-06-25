@@ -63,7 +63,7 @@ const Chart: React.FC<Props> = ({ data, chartSize, country }) => {
 
     return (
         <div className="chart" ref={chart}>
-            {chart.current !== null ? <ResponsiveContainer width='100%' height={chart.current.offsetHeight}>
+            {chart.current !== null ? <ResponsiveContainer width='100%' height={chart.current.offsetHeight / 1.2}>
 
                 <LineChart
 
