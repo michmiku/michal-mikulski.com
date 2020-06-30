@@ -52,9 +52,12 @@ const Covid19: React.FC<Props> = ({ }) => {
     }, [])
     return (
         <div className="container-fluid pl-0 pr-0 grid">
-            <div className="cases-and-chart-container">
+            <div className="world-data-container">
                 <Cases country={{ country: "World", slug: 'world', flag: undefined }} setData={setData} worldData={worldData} />
                 <Chart country={{ country: "World", slug: 'world', flag: undefined }} data={data} chartSize={chartSize} />
+                <div className="hidden-chart">
+                    <Chart country={{ country: "World", slug: 'world', flag: undefined }} data={data} chartSize={chartSize} />
+                </div>
             </div>
             <div className="cases-and-chart-container">
                 <Cases country={country} setData={setData} worldData={worldData} />

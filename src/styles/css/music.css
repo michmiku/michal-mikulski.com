@@ -127,6 +127,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
 .box .music-container .middle-view .author {
   grid-column: 5/8;

@@ -54,14 +54,11 @@ body {
 }
 
 .cases-and-chart-container {
-  grid-column: 2/12;
-  margin-top: 20px;
+  grid-column: 5/13;
+  grid-row: 1;
   padding: 10px;
-  background-color: #c5c5c5;
+  background-color: #eeeeee;
   height: 90%;
-  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
-  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.05);
 }
 .cases-and-chart-container .cases {
   font-size: 0.8em;
@@ -71,19 +68,99 @@ body {
 }
 .cases-and-chart-container .chart {
   padding-top: 10px;
-  height: 300px;
+  padding-bottom: 10px;
+  height: 250px;
+  position: relative;
+  right: 10px;
+}
+.cases-and-chart-container .chart .recharts-default-legend {
+  font-size: 0.6em;
+  position: relative;
+  left: 20px;
+  bottom: 10px;
 }
 .cases-and-chart-container .chart tspan {
   font-size: 0.8em;
 }
 
+.world-data-container {
+  grid-column: 1/5;
+  background-color: #eeeeee;
+  height: 250px;
+  grid-row: 1;
+}
+.world-data-container:hover .hidden-chart {
+  visibility: initial;
+}
+.world-data-container:hover .chart:nth-child(2) {
+  visibility: hidden;
+}
+.world-data-container .hidden-chart {
+  visibility: hidden;
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  right: 10px;
+  background-color: #eeeeee;
+  z-index: 2;
+  left: 0;
+  top: 230px;
+}
+.world-data-container .hidden-chart .chart {
+  padding-top: 10px;
+  height: 100%;
+  width: 90%;
+  position: relative;
+  right: 10px;
+}
+.world-data-container .hidden-chart .chart .recharts-default-legend {
+  font-size: 0.7em;
+  display: inline;
+  position: relative;
+  left: 30px;
+}
+.world-data-container .hidden-chart .chart tspan {
+  font-size: 0.6em;
+}
+.world-data-container .cases {
+  font-size: 0.6em;
+}
+.world-data-container .cases tr {
+  padding: 0 !important;
+}
+.world-data-container .chart {
+  padding-top: 10px;
+  height: 30%;
+  width: 100%;
+  position: relative;
+  right: 20px;
+}
+.world-data-container .chart .recharts-default-legend {
+  display: none;
+  font-size: 0.7em;
+}
+.world-data-container .chart tspan {
+  font-size: 0.4em;
+}
+
 .list {
-  grid-column: 2/12;
+  grid-column: 1/5;
+  font-size: 0.7em !important;
+  grid-row: 1;
+  position: relative;
+  top: 55%;
+}
+.list .header {
+  font-size: 0.9em !important;
+}
+.list .item {
+  display: inline-block;
 }
 
 .map {
   grid-column: 2/12;
   margin-bottom: 10px !important;
+  margin-top: -50px !important;
   height: 300px;
 }
 
@@ -91,86 +168,170 @@ body {
   grid-column: 1/13;
   margin: 0 !important;
 }
-@media screen and (min-width: 960px) {
-  .cases {
-    font-size: 1em !important;
+@media screen and (min-width: 620px) {
+  .cases-and-chart-container {
+    grid-column: 4/13;
   }
 
-  .cases:nth-child(1) {
-    grid-column: 2/7;
-  }
-
-  .chart:nth-child(2) {
-    grid-column: 2/7;
-    padding-top: 10px;
-    grid-row: 2;
-  }
-  .chart:nth-child(2) tspan {
-    font-size: 0.8em;
-  }
-
-  .cases:nth-child(3) {
-    grid-column: 7/12;
-  }
-
-  .chart:nth-child(4) {
-    grid-column: 7/12;
-    padding-top: 10px;
-    grid-row: 2;
-  }
-  .chart:nth-child(4) tspan {
-    font-size: 0.8em;
+  .world-data-container {
+    grid-column: 1/4;
   }
 
   .list {
-    grid-column: 2/12;
+    grid-column: 1/4;
+  }
+}
+@media screen and (min-width: 960px) {
+  .cases-and-chart-container {
+    grid-column: 4/13;
+  }
+  .cases-and-chart-container .chart .recharts-default-legend {
+    font-size: 1em;
+    position: relative;
+    top: 1px;
   }
 
-  .map {
-    grid-column: 2/12;
-    margin-bottom: 10px !important;
-    height: 500px;
+  .world-data-container {
+    grid-column: 1/4;
+  }
+  .world-data-container .hidden-chart {
+    height: 200px;
+    width: 400px;
+    top: 220px;
+  }
+  .world-data-container .hidden-chart .chart .recharts-default-legend {
+    font-size: 0.7em;
+    display: inline;
+    position: relative;
+    left: 120px;
+  }
+  .world-data-container .hidden-chart .chart tspan {
+    font-size: 0.6em;
+  }
+  .world-data-container .cases {
+    font-size: 0.7em;
+  }
+  .world-data-container .cases tr {
+    padding: 0 !important;
+  }
+  .world-data-container .chart {
+    padding-top: 10px;
+    height: 40%;
+    width: 100%;
+    position: relative;
+    right: 20px;
+  }
+  .world-data-container .chart .recharts-default-legend {
+    display: none;
+    font-size: 0.7em;
+  }
+  .world-data-container .chart tspan {
+    font-size: 0.4em;
   }
 
-  .table {
-    grid-column: 1/13;
-    margin: 0 !important;
-  }
-  .table .table-header {
-    position: sticky;
-    top: 0;
+  .list {
+    grid-column: 1/4;
   }
 }
 @media screen and (min-width: 1200px) {
-  .cases-and-chart-container:nth-child(1) {
-    grid-column: 1/7;
-    margin-left: 10px;
+  .cases-and-chart-container {
+    grid-column: 9/13;
+  }
+  .cases-and-chart-container .chart .recharts-default-legend {
+    font-size: 1em;
+    position: relative;
+    top: 1px;
   }
 
-  .cases-and-chart-container:nth-child(2) {
-    grid-column: 7/13;
+  .world-data-container {
+    grid-column: 1/3;
+    height: 300px;
+  }
+  .world-data-container .hidden-chart {
+    height: 300px;
+    width: 500px;
+    top: 250px;
+  }
+  .world-data-container .hidden-chart .chart .recharts-default-legend {
+    font-size: 0.7em;
+    display: inline;
+    position: relative;
+    left: 120px;
+  }
+  .world-data-container .hidden-chart .chart tspan {
+    font-size: 0.6em;
+  }
+  .world-data-container .cases {
+    font-size: 0.7em;
+  }
+  .world-data-container .cases tr {
+    padding: 0 !important;
+  }
+  .world-data-container .chart {
     padding-top: 10px;
-    grid-row: 1;
-    margin-right: 10px;
+    height: 40%;
+    width: 100%;
+    position: relative;
+    right: 20px;
   }
-  .cases-and-chart-container:nth-child(2) tspan {
-    font-size: 0.8em;
+  .world-data-container .chart .recharts-default-legend {
+    display: none;
+    font-size: 0.7em;
+  }
+  .world-data-container .chart tspan {
+    font-size: 0.4em;
   }
 
   .list {
-    grid-column: 4/10;
-    grid-row: 2;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .list {
-    grid-column: 4/10;
-    grid-row: 2;
+    grid-column: 1/3;
+    position: relative;
+    top: 70%;
   }
 
   .map {
-    grid-column: 2/12;
+    grid-column: 3/9;
     margin-bottom: 10px !important;
+    margin-top: -50px !important;
     height: 500px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .world-data-container {
+    grid-column: 1/3;
+    height: 300px;
+  }
+  .world-data-container .hidden-chart {
+    height: 300px;
+    width: 500px;
+    top: 220px;
+  }
+  .world-data-container .hidden-chart .chart .recharts-default-legend {
+    font-size: 0.7em;
+    display: inline;
+    position: relative;
+    left: 120px;
+  }
+  .world-data-container .hidden-chart .chart tspan {
+    font-size: 0.6em;
+  }
+  .world-data-container .cases {
+    font-size: 0.7em;
+  }
+  .world-data-container .cases tr {
+    padding: 0 !important;
+  }
+  .world-data-container .chart {
+    padding-top: 10px;
+    height: 40%;
+    width: 100%;
+    position: relative;
+    right: 20px;
+  }
+  .world-data-container .chart .recharts-default-legend {
+    display: none;
+    font-size: 0.7em;
+  }
+  .world-data-container .chart tspan {
+    font-size: 0.4em;
   }
 }

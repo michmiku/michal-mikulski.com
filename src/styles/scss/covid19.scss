@@ -55,7 +55,6 @@ body {
     background-color: $color1 !important;
     overflow-x: hidden;
     position: relative;
-
 }
 
 .grid {
@@ -65,16 +64,11 @@ body {
 }
 
 .cases-and-chart-container {
-    grid-column: 2/12;
-    margin-top: 20px;
+    grid-column: 5/13;
+    grid-row: 1;
     padding: 10px;
-    background-color: $color2;
+    background-color: rgb(238, 238, 238);
     height: 90%;
-    -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.05);
-    -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.05);
 
     .cases {
         font-size: 0.8em;
@@ -89,7 +83,17 @@ body {
     .chart {
 
         padding-top: 10px;
-        height: 300px;
+        padding-bottom: 10px;
+        height: 250px;
+        position: relative;
+        right: 10px;
+
+        .recharts-default-legend {
+            font-size: 0.6em;
+            position: relative;
+            left: 20px;
+            bottom: 10px;
+        }
 
         tspan {
             font-size: 0.8em;
@@ -97,14 +101,109 @@ body {
     }
 }
 
+.world-data-container {
+    grid-column: 1/5;
+    background-color: rgb(238, 238, 238);
+    height: 250px;
+    grid-row: 1;
+
+    &:hover {
+        .hidden-chart {
+            visibility: initial;
+        }
+
+        .chart:nth-child(2) {
+            visibility: hidden;
+        }
+    }
+
+    .hidden-chart {
+        visibility: hidden;
+        height: 200px;
+        width: 300px;
+        position: absolute;
+        right: 10px;
+        background-color: rgb(238, 238, 238);
+        z-index: 2;
+        left: 0;
+        top: 230px;
+
+        .chart {
+
+            padding-top: 10px;
+            height: 100%;
+            width: 90%;
+            position: relative;
+            right: 10px;
+
+
+
+            .recharts-default-legend {
+                font-size: 0.7em;
+                display: inline;
+                position: relative;
+                left: 30px;
+            }
+
+            tspan {
+                font-size: 0.6em;
+            }
+        }
+    }
+
+    .cases {
+        font-size: 0.6em;
+
+        tr {
+            padding: 0 !important;
+
+
+        }
+    }
+
+    .chart {
+
+        padding-top: 10px;
+        height: 30%;
+        width: 100%;
+        position: relative;
+        right: 20px;
+
+
+
+        .recharts-default-legend {
+            display: none;
+            font-size: 0.7em;
+        }
+
+        tspan {
+            font-size: 0.4em;
+        }
+    }
+}
 
 .list {
-    grid-column: 2/12;
+    grid-column: 1/5;
+    font-size: 0.7em !important;
+    grid-row: 1;
+    position: relative;
+    top: 55%;
+
+    .header {
+        font-size: 0.9em !important;
+    }
+
+    .item {
+        display: inline-block;
+    }
+
+
 }
 
 .map {
     grid-column: 2/12;
     margin-bottom: 10px !important;
+    margin-top: -50px !important;
     height: 300px
 }
 
@@ -115,97 +214,246 @@ body {
     .table-header {}
 }
 
-@media screen and (min-width:620px) {}
+@media screen and (min-width:620px) {
+    .cases-and-chart-container {
+        grid-column: 4/13;
+    }
+
+    .world-data-container {
+        grid-column: 1/4;
+
+
+    }
+
+    .list {
+        grid-column: 1/4;
+
+
+    }
+}
 
 @media screen and (min-width:960px) {
-    .cases {
-        font-size: 1em !important;
-    }
+    .cases-and-chart-container {
+        grid-column: 4/13;
 
-    .cases:nth-child(1) {
-        grid-column: 2/7;
-    }
-
-    .chart:nth-child(2) {
-        grid-column: 2/7;
-        padding-top: 10px;
-        grid-row: 2;
-
-        tspan {
-            font-size: 0.8em;
+        .chart {
+            .recharts-default-legend {
+                font-size: 1em;
+                position: relative;
+                top: 1px
+            }
         }
     }
 
-    .cases:nth-child(3) {
-        grid-column: 7/12;
-    }
+    .world-data-container {
+        grid-column: 1/4;
 
-    .chart:nth-child(4) {
-        grid-column: 7/12;
-        padding-top: 10px;
-        grid-row: 2;
+        .hidden-chart {
+            height: 200px;
+            width: 400px;
+            top: 220px;
 
-        tspan {
-            font-size: 0.8em;
+            .chart {
+
+
+
+
+
+                .recharts-default-legend {
+                    font-size: 0.7em;
+                    display: inline;
+                    position: relative;
+                    left: 120px;
+                }
+
+                tspan {
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        .cases {
+            font-size: 0.7em;
+
+            tr {
+                padding: 0 !important;
+
+
+            }
+        }
+
+        .chart {
+
+            padding-top: 10px;
+            height: 40%;
+            width: 100%;
+            position: relative;
+            right: 20px;
+
+
+
+            .recharts-default-legend {
+                display: none;
+                font-size: 0.7em;
+            }
+
+            tspan {
+                font-size: 0.4em;
+            }
         }
     }
 
     .list {
-        grid-column: 2/12;
-    }
+        grid-column: 1/4;
 
-    .map {
-        grid-column: 2/12;
-        margin-bottom: 10px !important;
-        height: 500px
-    }
 
-    .table {
-        grid-column: 1/13;
-        margin: 0 !important;
-
-        .table-header {
-            position: sticky;
-            top: 0;
-        }
     }
 }
 
 @media screen and (min-width:1200px) {
-    .cases-and-chart-container:nth-child(1) {
-        grid-column: 1/7;
-        margin-left: 10px;
-    }
+    .cases-and-chart-container {
+        grid-column: 9/13;
 
-    .cases-and-chart-container:nth-child(2) {
-        grid-column: 7/13;
-        padding-top: 10px;
-        grid-row: 1;
-        margin-right: 10px;
-
-        tspan {
-            font-size: 0.8em;
+        .chart {
+            .recharts-default-legend {
+                font-size: 1em;
+                position: relative;
+                top: 1px
+            }
         }
     }
 
+    .world-data-container {
+        grid-column: 1/3;
+        height: 300px;
+
+        .hidden-chart {
+            height: 300px;
+            width: 500px;
+            top: 250px;
+
+            .chart {
+
+
+
+
+
+                .recharts-default-legend {
+                    font-size: 0.7em;
+                    display: inline;
+                    position: relative;
+                    left: 120px;
+                }
+
+                tspan {
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        .cases {
+            font-size: 0.7em;
+
+            tr {
+                padding: 0 !important;
+            }
+        }
+
+        .chart {
+
+            padding-top: 10px;
+            height: 40%;
+            width: 100%;
+            position: relative;
+            right: 20px;
+
+
+
+            .recharts-default-legend {
+                display: none;
+                font-size: 0.7em;
+            }
+
+            tspan {
+                font-size: 0.4em;
+            }
+        }
+    }
 
     .list {
-        grid-column: 4/10;
-        grid-row: 2;
+        grid-column: 1/3;
+        position: relative;
+        top: 70%;
+
+
+    }
+
+    .map {
+        grid-column: 3/9;
+        margin-bottom: 10px !important;
+        margin-top: -50px !important;
+        height: 500px
     }
 }
 
 @media screen and (min-width:1500px) {
-    .list {
-        grid-column: 4/10;
-        grid-row: 2;
+    .world-data-container {
+        grid-column: 1/3;
+        height: 300px;
+
+        .hidden-chart {
+            height: 300px;
+            width: 500px;
+            top: 220px;
+
+            .chart {
+
+
+
+
+
+                .recharts-default-legend {
+                    font-size: 0.7em;
+                    display: inline;
+                    position: relative;
+                    left: 120px;
+                }
+
+                tspan {
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        .cases {
+            font-size: 0.7em;
+
+            tr {
+                padding: 0 !important;
+            }
+        }
+
+        .chart {
+
+            padding-top: 10px;
+            height: 40%;
+            width: 100%;
+            position: relative;
+            right: 20px;
+
+
+
+            .recharts-default-legend {
+                display: none;
+                font-size: 0.7em;
+            }
+
+            tspan {
+                font-size: 0.4em;
+            }
+        }
     }
 
-    .map {
-        grid-column: 2/12;
-        margin-bottom: 10px !important;
-        height: 500px
-    }
 }
 
 @media screen and (min-width:765px) {
