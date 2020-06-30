@@ -167,7 +167,9 @@ body {
 .table {
   grid-column: 1/13;
   margin: 0 !important;
+  z-index: 2;
 }
+
 @media screen and (min-width: 620px) {
   .cases-and-chart-container {
     grid-column: 4/13;

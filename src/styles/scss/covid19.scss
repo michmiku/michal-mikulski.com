@@ -210,8 +210,8 @@ body {
 .table {
     grid-column: 1/13;
     margin: 0 !important;
+    z-index: 2;
 
-    .table-header {}
 }
 
 @media screen and (min-width:620px) {
