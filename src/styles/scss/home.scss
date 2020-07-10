@@ -107,6 +107,17 @@ body {
 
 }
 
+.container-login {
+    position: relative;
+    width: 250px;
+    top: 30vh;
+    text-align: center;
+
+    margin: 0 auto;
+
+    input {}
+}
+
 #about-me {
     background-color: $color2 !important;
     padding-bottom: 100px;
