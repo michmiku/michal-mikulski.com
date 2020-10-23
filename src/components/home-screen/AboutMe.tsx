@@ -60,13 +60,31 @@ const AboutMe: React.FC<Props> = () => {
                             animate={{ x: 0 }}
                             transition={{ duration: 0.8 }}
                             exit={{ x: '-100vw' }}
-                        >Upper-Secondary School of Communications in Cracow</motion.p>
+                        >Upper-Secondary School of Communications in Cracow (Computer science)</motion.p>
                         <motion.a href="http://tl.krakow.pl/" target="_blank"
                             initial={{ x: '-100vw' }}
                             animate={{ x: 0 }}
                             transition={{ duration: 0.9 }}
                             exit={{ x: '-100vw' }}
                         >http://tl.krakow.pl/</motion.a>
+                        <motion.h4
+                            initial={{ x: '-100vw' }}
+                            animate={{ x: 0 }}
+                            transition={{ duration: 0.7 }}
+                            exit={{ x: '-100vw' }}
+                        >2020-????</motion.h4>
+                        <motion.p
+                            initial={{ x: '-100vw' }}
+                            animate={{ x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            exit={{ x: '-100vw' }}
+                        >College of Management and Banking in Cracow (Computer science)</motion.p>
+                        <motion.a href="http://tl.krakow.pl/" target="_blank"
+                            initial={{ x: '-100vw' }}
+                            animate={{ x: 0 }}
+                            transition={{ duration: 0.9 }}
+                            exit={{ x: '-100vw' }}
+                        >https://www.wszib.edu.pl/</motion.a>
                     </motion.div>
                 )}
             </AnimatePresence>
