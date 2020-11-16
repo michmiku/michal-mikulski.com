@@ -1,29 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.01bf86da.chunk.css",
-    "main.js": "/static/js/main.d6212b5d.chunk.js",
-    "main.js.map": "/static/js/main.d6212b5d.chunk.js.map",
+    "main.css": "/static/css/main.28093b4a.chunk.css",
+    "main.js": "/static/js/main.091d6a41.chunk.js",
+    "main.js.map": "/static/js/main.091d6a41.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.1922e569.js",
     "runtime-main.js.map": "/static/js/runtime-main.1922e569.js.map",
-    "static/css/2.09d1976d.chunk.css": "/static/css/2.09d1976d.chunk.css",
-    "static/js/2.cdc8db1e.chunk.js": "/static/js/2.cdc8db1e.chunk.js",
-    "static/js/2.cdc8db1e.chunk.js.map": "/static/js/2.cdc8db1e.chunk.js.map",
+    "static/css/2.d71273ed.chunk.css": "/static/css/2.d71273ed.chunk.css",
+    "static/js/2.bebada30.chunk.js": "/static/js/2.bebada30.chunk.js",
+    "static/js/2.bebada30.chunk.js.map": "/static/js/2.bebada30.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2a7886e1b864ca144a8b8987185550c2.js": "/precache-manifest.2a7886e1b864ca144a8b8987185550c2.js",
+    "precache-manifest.6d54f84ee48ac2f6bca62afe786e99c4.js": "/precache-manifest.6d54f84ee48ac2f6bca62afe786e99c4.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.09d1976d.chunk.css.map": "/static/css/2.09d1976d.chunk.css.map",
-    "static/css/main.01bf86da.chunk.css.map": "/static/css/main.01bf86da.chunk.css.map",
-    "static/js/2.cdc8db1e.chunk.js.LICENSE.txt": "/static/js/2.cdc8db1e.chunk.js.LICENSE.txt",
+    "static/css/2.d71273ed.chunk.css.map": "/static/css/2.d71273ed.chunk.css.map",
+    "static/css/main.28093b4a.chunk.css.map": "/static/css/main.28093b4a.chunk.css.map",
+    "static/js/2.bebada30.chunk.js.LICENSE.txt": "/static/js/2.bebada30.chunk.js.LICENSE.txt",
     "static/media/covid-img.png": "/static/media/covid-img.deb9cb75.png",
     "static/media/home.css": "/static/media/header-text-small.646b6e00.svg",
+    "static/media/kyambalo-img.png": "/static/media/kyambalo-img.dedfbe85.png",
     "static/media/mongodb.png": "/static/media/mongodb.b392cbc3.png",
     "static/media/music-img.png": "/static/media/music-img.3bbcb3f6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1922e569.js",
-    "static/css/2.09d1976d.chunk.css",
-    "static/js/2.cdc8db1e.chunk.js",
-    "static/css/main.01bf86da.chunk.css",
-    "static/js/main.d6212b5d.chunk.js"
+    "static/css/2.d71273ed.chunk.css",
+    "static/js/2.bebada30.chunk.js",
+    "static/css/main.28093b4a.chunk.css",
+    "static/js/main.091d6a41.chunk.js"
   ]
 }
