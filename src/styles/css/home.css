@@ -133,7 +133,8 @@ body {
 #projects {
   padding-top: 20px;
   padding-bottom: 100px;
-  height: 95vh;
+  height: 100%;
+  min-height: 500px;
 }
 #projects h1 {
   margin-bottom: 10px;
@@ -141,7 +142,7 @@ body {
   text-align: center;
 }
 #projects .project {
-  margin: 20px 0;
+  margin: 20px;
   text-align: center;
   overflow: hidden;
   -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -175,22 +176,13 @@ body {
 #projects .project .project-img {
   transition: all 0.5s ease-in-out;
 }
-#projects .project:first-child {
-  grid-column: 2/12;
+#projects .project {
+  grid-column: span 12;
 }
-#projects .project:first-child:hover .project-img {
+#projects .project:hover .project-img {
   transform: scale(1.1);
 }
-#projects .project:first-child:hover .project-text {
-  z-index: 0;
-}
-#projects .project:nth-child(2) {
-  grid-column: 2/12;
-}
-#projects .project:nth-child(2):hover .project-img {
-  transform: scale(1.1);
-}
-#projects .project:nth-child(2):hover .project-text {
+#projects .project:hover .project-text {
   z-index: 0;
 }
 
@@ -527,9 +519,6 @@ footer .social li:nth-child(4) a:before {
     margin-bottom: 20px;
   }
 
-  #projects {
-    min-height: 900px;
-  }
   #projects h1 {
     margin-top: 50px;
     font-size: 2.5em;
@@ -600,15 +589,7 @@ footer .social li:nth-child(4) a:before {
   }
 
   #projects .project {
-    margin: 20vh 0;
-    text-align: center;
-    overflow: hidden;
-  }
-  #projects .project:first-child {
-    grid-column: 2/7;
-  }
-  #projects .project:nth-child(2) {
-    grid-column: 7/12;
+    grid-column: span 6;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -625,13 +606,6 @@ footer .social li:nth-child(4) a:before {
 
   #about-me div {
     margin: 0 250px;
-  }
-
-  #projects .project:first-child {
-    grid-column: 3/7;
-  }
-  #projects .project:nth-child(2) {
-    grid-column: 7/11;
   }
 
   footer .social {
@@ -687,7 +661,7 @@ footer .social li:nth-child(4) a:before {
   }
 
   #projects .project {
-    margin: 20px 0;
+    margin: 20px;
     text-align: center;
     overflow: hidden;
   }
@@ -712,14 +686,6 @@ footer .social li:nth-child(4) a:before {
     font-size: 2em;
   }
 
-  #projects .project:first-child {
-    margin-top: 0;
-    grid-column: 3/11;
-  }
-  #projects .project:nth-child(2) {
-    margin-top: -150px;
-    grid-column: 3/11;
-  }
   #projects h1 {
     margin-top: 50px;
     font-size: 2.5em;
